@@ -77,5 +77,4 @@ public class CSVSniffer implements Sniffer {
 	public Charset getCharset() {
 		return this.encodingSniffer.getCharset();
 	}
-
 }

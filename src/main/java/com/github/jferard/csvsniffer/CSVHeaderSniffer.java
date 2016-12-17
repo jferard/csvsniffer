@@ -54,31 +54,35 @@ public class CSVHeaderSniffer implements Sniffer {
 		Reader streamReader = new InputStreamReader(inputStream, this.charset);
 
 		CSVParser parser = new CSVParser(streamReader, this.csvFormat);
-		Iterator<CSVRecord> iterator = parser.iterator();
-
-		if (iterator.hasNext()) {
-			CSVRecord firstRowRecord = iterator.next();
-			final int firstRowSize = firstRowRecord.size();
-
-			char[] firstRowSignature = CSVHeaderSniffer.getSignature(firstRowRecord,
-					firstRowSize);
-			if (CSVHeaderSniffer.getMaxDigits(firstRowSignature) == 'D') {
-				this.header = Collections.emptyList(); 
-				return ;
-			}
-
-			char[] remainingRowsSignature = this
-					.getRemainingRowsSignature(iterator, firstRowSize);
-
-			for (int col = 0; col < firstRowSize; col++) {
-				if (firstRowSignature[col] == '?'
-						&& remainingRowsSignature[col] != '?') {
-					this.header = new ArrayList<String>(firstRowSize);
-					for (String s : firstRowRecord)
-						this.header.add(s);
-					return;
+		try {
+			Iterator<CSVRecord> iterator = parser.iterator();
+	
+			if (iterator.hasNext()) {
+				CSVRecord firstRowRecord = iterator.next();
+				final int firstRowSize = firstRowRecord.size();
+	
+				char[] firstRowSignature = CSVHeaderSniffer.getSignature(firstRowRecord,
+						firstRowSize);
+				if (CSVHeaderSniffer.getMaxDigits(firstRowSignature) == 'D') {
+					this.header = Collections.emptyList(); 
+					return ;
+				}
+	
+				char[] remainingRowsSignature = this
+						.getRemainingRowsSignature(iterator, firstRowSize);
+	
+				for (int col = 0; col < firstRowSize; col++) {
+					if (firstRowSignature[col] == '?'
+							&& remainingRowsSignature[col] != '?') {
+						this.header = new ArrayList<String>(firstRowSize);
+						for (String s : firstRowRecord)
+							this.header.add(s);
+						return;
+					}
 				}
 			}
+		} finally {
+			parser.close();
 		}
 	}
 

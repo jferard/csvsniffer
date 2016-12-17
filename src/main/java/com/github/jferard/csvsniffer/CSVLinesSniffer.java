@@ -33,7 +33,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 /**
- * Three things to determine : finalDelimiter, quotechar, escapechar
+ * Three things to determine : finalDelimiter, finalQuotechar, finalEscapechar
  *
  * Consider the following line : a\|a,"a|a","a|a","a|a"
  *

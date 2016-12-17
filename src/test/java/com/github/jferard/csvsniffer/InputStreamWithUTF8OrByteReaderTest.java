@@ -13,23 +13,29 @@ public class InputStreamWithUTF8OrByteReaderTest {
 
 	private Charset iso;
 	private char[] cs;
+	private char[] cbuf;
 
 	@Before
 	public void setUp() {
 		ByteMapProvider bmp = new ByteMapProvider();
 		this.iso = Charset.forName("ISO-8859-15");
+		this.cbuf = new char[100];
 		this.cs = bmp.get(this.iso);
 	}
 
 	@Test
 	public final void testIsoFalse3Bytes() throws IOException {
 		final String s = "é";
-		final ByteArrayInputStream is = new ByteArrayInputStream(
-				s.getBytes(this.iso));
-		Reader r = new InputStreamWithUTF8OrByteReader(is, this.cs);
-		char[] cbuf = new char[7];
-		Assert.assertEquals(r.read(cbuf, 0, 7), 1);
-		Assert.assertEquals("é", new String(cbuf, 0, 1));
+		InputStreamWithUTF8OrByteReader r = this.getReaderFromString(s,
+				this.iso);
+		Assert.assertEquals(1, r.read(this.cbuf, 0, 7));
+		Assert.assertEquals("é", new String(this.cbuf, 0, 1));
 	}
 
+	public InputStreamWithUTF8OrByteReader getReaderFromString(final String s,
+			final Charset cs) throws IOException {
+		final ByteArrayInputStream is = new ByteArrayInputStream(
+				s.getBytes(cs));
+		return new InputStreamWithUTF8OrByteReader(is, this.cs);
+	}
 }

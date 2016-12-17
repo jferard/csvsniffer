@@ -21,36 +21,17 @@ package com.github.jferard.csvsniffer;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.CharacterCodingException;
 
 public class InputStreamWithUTF8Reader implements InputStreamMixedReader {
-	private static class FallException extends Exception {
-		private static final long serialVersionUID = 1L;
-	}
-
-	private static final int B00000000 = 0x00;
-	private static final int B00111111 = 0x3f;
-	private static final int B01111111 = 0x7f;
-	private static final int B10000000 = 0x80;
-	private static final int B11000000 = 0xc0;
-	private static final int B11100000 = 0xe0;
-	private static final int B11110000 = 0xf0;
-	private static final int B11111000 = 0xf8;
-	private static final int B1101100000000000 = 0x36 << 10;
-	private static final int B1101110000000000 = 0x37 << 10;
-
-	private static final byte B00011111 = 0x1f;
-	private static final byte B00001111 = 0x0f;
-	private static final byte B00000111 = 0x07;
-
-	private static final int UNICODE_TRAILING_BYTE_X_BITS = 6;
-	
-	private InputStream is;
 	private int remainingUTF16Char;
 	private int curOffset;
 	private int charCount;
+	private UTF8Decoder decoder;
 
-	InputStreamWithUTF8Reader(InputStream is) {
-		this.is = is;
+	InputStreamWithUTF8Reader(InputStream is) throws IOException {
+		this.decoder = new UTF8Decoder(is);
+		this.decoder.gobbleBOM();
 		this.remainingUTF16Char = -1;
 	}
 
@@ -63,7 +44,7 @@ public class InputStreamWithUTF8Reader implements InputStreamMixedReader {
 		this.charCount = 0;
 		this.curOffset = coffset;
 
-		// EDGE CASE : there was a trailing UTF-16 waiting.
+		// EDGE CASE : there was a trailing UTF-16 part of character waiting.
 		if (this.remainingUTF16Char != -1) {
 			cbuf[this.curOffset++] = (char) this.remainingUTF16Char;
 			this.charCount++;
@@ -72,16 +53,14 @@ public class InputStreamWithUTF8Reader implements InputStreamMixedReader {
 
 		try {
 			while (this.charCount < clen) {
-				this.is.mark(4);
-				int unicodeValue = this.readUnicodeValue();
+				int unicodeValue = this.decoder.readUnicodeValue();
 				if (unicodeValue == -1)
 					return this.charCount;
 
 				this.writeUTF16Bytes(cbuf, clen, unicodeValue);
 			}
 			return this.charCount;
-		} catch (FallException e) {
-			this.is.reset();
+		} catch (CharacterCodingException e) {
 			return this.fallAndFinishRead(parent, cbuf, clen);
 		}
 	}
@@ -100,64 +79,17 @@ public class InputStreamWithUTF8Reader implements InputStreamMixedReader {
 			// W2 = 110111xxxxxxxxxx
 			int y = unicodeValue >> 10;
 			int x = unicodeValue - y;
-			cbuf[this.curOffset++] = (char) (B1101100000000000 + y);
+			cbuf[this.curOffset++] = (char) (Constants.B1101100000000000 + y);
 			this.charCount++;
 			if (this.charCount == clen) { // bad luck!
-				this.remainingUTF16Char = (char) (B1101110000000000 + x);
+				this.remainingUTF16Char = (char) (Constants.B1101110000000000
+						+ x);
 			} else {
-				cbuf[this.curOffset++] = (char) (B1101110000000000 + x);
+				cbuf[this.curOffset++] = (char) (Constants.B1101110000000000
+						+ x);
 				this.charCount++;
 			}
 		}
-	}
-
-	/**
-	 * DECODING UTF-8 https://www.ietf.org/rfc/rfc2279.txt
-	 * 
-	 * @return -1 if end of stream
-	 * @return -2 if continue
-	 */
-	private int readUnicodeValue() throws FallException, IOException {
-		int firstByte = this.is.read();
-		if (firstByte == -1)
-			return -1;
-
-		int unicodeValue = 0;
-		int expectedLen;
-		// 1) Lead byte analysis
-		if ((firstByte & B10000000) == B00000000) { // b1 = 0b0xxxxxxx
-			unicodeValue = firstByte;
-			expectedLen = 1;
-		} else if ((firstByte & B11100000) == B11000000) { // b1 = 0b110xxxxx
-			unicodeValue = firstByte & B00011111;
-			expectedLen = 2;
-		} else if ((firstByte & B11110000) == B11100000) { // b1 = 0b1110xxxx
-			unicodeValue = firstByte & B00001111;
-			expectedLen = 3;
-		} else if ((firstByte & B11111000) == B11110000) { // b1 = 0b11110xxx
-			unicodeValue = firstByte & B00000111;
-			expectedLen = 4;
-		} else { // not a UTF-8 leading byte
-			throw new FallException();
-		}
-
-		for (int i = 1; i < expectedLen; i++) {
-			int trailingByte = this.is.read();
-			if (trailingByte == -1) { // abnormal end of trailing bytes
-				throw new FallException();
-			}
-
-			int ci = trailingByte & B01111111; // 0b10xxxxxx &
-												// 0b01111111 ==
-												// 0b00xxxxxx
-			if (ci <= B00111111) { // UTF-8 trailing byte : 0b10xxxxxx
-				unicodeValue = (unicodeValue << UNICODE_TRAILING_BYTE_X_BITS)
-						+ ci;
-			} else { // abnormal trailing byte
-				throw new FallException();
-			}
-		}
-		return unicodeValue;
 	}
 
 	/**

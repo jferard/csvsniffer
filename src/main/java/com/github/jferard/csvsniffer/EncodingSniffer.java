@@ -19,19 +19,13 @@
  ******************************************************************************/
 package com.github.jferard.csvsniffer;
 
-import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.PipedInputStream;
-import java.io.PipedOutputStream;
+import java.nio.charset.CharacterCodingException;
 import java.nio.charset.Charset;
 
-@SuppressWarnings("unused")
 public class EncodingSniffer implements Sniffer {
-	public final static Charset UTF_8 = Charset.forName("UTF-8");
-	public final static Charset US_ASCII = Charset.forName("US-ASCII");
-
 	private Charset charset;
 
 	public void sniff(String path, final int size) throws IOException {
@@ -44,66 +38,33 @@ public class EncodingSniffer implements Sniffer {
 	}
 
 	/**
-	 * http://codereview.stackexchange.com/questions/59428/validating-utf-8-byte
-	 * -array
-	 * http://stackoverflow.com/questions/887148/how-to-determine-if-a-string
-	 * -contains-invalid-encoded-characters
-	 * 
 	 * @param stream
 	 *            the input stream
+	 * @return
 	 * @return UTF-8, US-ASCII or null Charset. If null, the charset can be any
-	 *         of 8 bytes charsets.
+	 *         of the existing "1 byte per char" charsets.
 	 * @throws IOException
 	 */
-	public void sniff(InputStream stream, final int size) throws IOException {
-		int expectedLen;
-		Charset charset = EncodingSniffer.US_ASCII;
-		InputStream bufferedStream = new BufferedInputStream(stream);
-		bufferedStream.mark(3);
+	@Override
+	public void sniff(InputStream stream, final int size)
+			throws IOException {
+		this.charset = Constants.US_ASCII;
 
-		// Check for BOM
-		if ((bufferedStream.read() & 0xFF) == 0xEF
-				&& (bufferedStream.read() & 0xFF) == 0xBB
-				&& (bufferedStream.read() & 0xFF) == 0xBF) {
-			charset = EncodingSniffer.UTF_8;
-		} else {
-			bufferedStream.reset();
-		}
+		UTF8Decoder decoder = new UTF8Decoder(stream);
+		if (decoder.gobbleBOM())
+			this.charset = Constants.UTF_8;
 
-		int i = 0;
-		int c = bufferedStream.read();
-		while (c != -1 && i++ < size) {
-			// Lead byte analysis
-			if ((c & 0x80) == 0x00) { // < 128
-				c = bufferedStream.read();
-				continue;
-			} else if ((c & 0xe0) == 0xc0)
-				expectedLen = 2;
-			else if ((c & 0xf0) == 0xe0)
-				expectedLen = 3;
-			else if ((c & 0xf8) == 0xf0)
-				expectedLen = 4;
-			else {
-				this.charset = null;
-				return;
-			}
-
-			charset = EncodingSniffer.UTF_8;
-
-			// Trailing bytes
-			while (--expectedLen > 0) {
-				c = bufferedStream.read();
-				if (i++ > size)
-					break;
-				
-				if ((c & 0xc0) != 0x80) {
-					this.charset = null;
+		try {
+			for (int i = 0; i < size; i++) {
+				int c = decoder.readUnicodeValue();
+				if (c == -1)
 					return;
-				}
+				else if (c >= Constants.B10000000)
+					this.charset = Constants.UTF_8;
 			}
-			c = bufferedStream.read();
+		} catch (CharacterCodingException e) {
+			this.charset = null;
 		}
-		this.charset = charset;
 	}
 
 	public Charset getCharset() {

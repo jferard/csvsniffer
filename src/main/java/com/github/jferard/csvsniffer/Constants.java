@@ -19,35 +19,33 @@
  ******************************************************************************/
 package com.github.jferard.csvsniffer;
 
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.Reader;
 import java.nio.charset.Charset;
 
-public class InputStreamWithUTF8OrByteReader extends Reader {
-	private InputStream is; // markSupported
-	private char[] isoByteMap;
-
-	private InputStreamMixedReader reader;
-
-	InputStreamWithUTF8OrByteReader(InputStream is, char[] isoByteMap) throws IOException {
-		this.isoByteMap = isoByteMap;
-		this.is = is;
-		this.reader = new InputStreamWithUTF8Reader(this.is);
-	}
-
-	@Override
-	public void close() throws IOException {
-		this.is.close();
-	}
-
-	@Override
-	public int read(char[] cbuf, int coffset, int clen) throws IOException {
-		return this.reader.read(this, cbuf, coffset, clen);
-	}
-
-	public void fall() {
-		this.reader = new InputStreamWithByteReader(this.is, this.isoByteMap);
-	}
+/**
+ * Refs : https://docs.oracle.com/javase/6/docs/technotes/guides/intl/encoding.doc.html
+ * 
+ * 
+ * @author Julien Férard (C) 2016
+ *
+ */
+public class Constants {
+	public final static Charset UTF_8 = Charset.forName("UTF-8");
+	public final static Charset US_ASCII = Charset.forName("US-ASCII");
+	static final int B00000000 = 0x00;
+	static final byte B00000111 = 0x07;
+	static final byte B00001111 = 0x0f;
+	static final byte B00011111 = 0x1f;
+	static final int B00111111 = 0x3f;
+	static final int B01111111 = 0x7f;
+	static final int B10000000 = 0x80;
+	static final int B11000000 = 0xc0;
+	static final int B1101100000000000 = 0x36 << 10;
+	static final int B1101110000000000 = 0x37 << 10;
+	static final int B11100000 = 0xe0;
+	static final int B11110000 = 0xf0;
+	static final int B11111000 = 0xf8;
+	static final int UNICODE_TRAILING_BYTE_X_BITS = 6;
+	static final int BOM_1 = 0xEF;
+	static final int BOM_2 = 0xbb;
+	static final int BOM_3 = 0xbf;
 }

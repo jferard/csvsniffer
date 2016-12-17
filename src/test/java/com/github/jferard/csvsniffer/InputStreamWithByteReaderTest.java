@@ -11,22 +11,31 @@ import org.junit.Test;
 public class InputStreamWithByteReaderTest {
 	private Charset iso;
 	private char[] cs;
+	private char[] cbuf;
+	private char[] cbuf2;
 
 	@Before
 	public void setUp() {
 		ByteMapProvider bmp = new ByteMapProvider();
 		this.iso = Charset.forName("ISO-8859-15");
 		this.cs = bmp.get(this.iso);
+		this.cbuf = new char[100];
 	}
-	
+
 	@Test
 	public final void test() throws IOException {
 		final String s = "&éè-_-ç";
-		final ByteArrayInputStream is = new ByteArrayInputStream(s.getBytes(this.iso));
-		InputStreamWithByteReader r = new InputStreamWithByteReader(is, this.cs);
-		char[] cbuf = new char[7];
-		Assert.assertEquals(r.read(null, cbuf, 0, 7), 7);
-		Assert.assertArrayEquals(cbuf, s.toCharArray());
+		InputStreamWithByteReader r = this.getReaderFromString(s, this.iso);
+		Assert.assertEquals(r.read(null, this.cbuf, 0, 7), 7);
+		for (char c = 0; c<7; c++) {
+			Assert.assertEquals(this.cbuf[c], s.toCharArray()[c]);
+		}
 	}
 
+	public InputStreamWithByteReader getReaderFromString(final String s,
+			final Charset cs) {
+		final ByteArrayInputStream is = new ByteArrayInputStream(
+				s.getBytes(cs));
+		return new InputStreamWithByteReader(is, this.cs);
+	}
 }
