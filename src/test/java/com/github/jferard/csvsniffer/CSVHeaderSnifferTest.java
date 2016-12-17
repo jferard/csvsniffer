@@ -30,7 +30,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.github.jferard.csvsniffer.CSVHeaderSniffer;
+import com.github.jferard.csvsniffer.CSVOptionalHeaderSniffer;
 import com.google.common.base.Joiner;
 
 public class CSVHeaderSnifferTest {
@@ -44,8 +44,8 @@ public class CSVHeaderSnifferTest {
 
 	@Test
 	public final void testWithHeader() throws IOException {
-		CSVHeaderSniffer csvHeaderSniffer = new CSVHeaderSniffer((byte) ',',
-				(byte) 0, (byte) 0, ASCII);
+		CSVOptionalHeaderSniffer csvHeaderSniffer = CSVOptionalHeaderSniffer
+				.getSniffer((byte) ',', (byte) 0, (byte) 0, ASCII);
 		InputStream stream = new ByteArrayInputStream(
 				this.joiner.join("Year,Make,Model", "1997,Ford,E350",
 						"2000,Mercury,Cougar").getBytes(ASCII));
@@ -58,27 +58,25 @@ public class CSVHeaderSnifferTest {
 
 	@Test
 	public final void testWithoutHeader() throws IOException {
-		CSVHeaderSniffer csvHeaderSniffer = new CSVHeaderSniffer((byte) ',',
-				(byte) 0, (byte) 0, ASCII);
+		CSVOptionalHeaderSniffer csvHeaderSniffer = CSVOptionalHeaderSniffer
+				.getSniffer((byte) ',', (byte) 0, (byte) 0, ASCII);
 		InputStream stream = new ByteArrayInputStream(this.joiner
 				.join("1997,Ford,E350", "2000,Mercury,Cougar").getBytes(ASCII));
 
 		csvHeaderSniffer.sniff(stream, 10000);
-		Assert.assertEquals(Collections.emptyList(), csvHeaderSniffer.getHeader());
+		Assert.assertNull(csvHeaderSniffer.getHeader());
 	}
 
 	@Test
 	public final void testWithHeader2() throws IOException {
-		CSVHeaderSniffer csvHeaderSniffer = new CSVHeaderSniffer((byte) ',',
-				(byte)'"', (byte)'"', ASCII);
-		final String s = this.joiner
-				.join("Year,Make,Model,Description,Price",
-						"1997,Ford,E350,\"ac, abs, moon\",3000.00",
-						"1999,Chevy,\"Venture \"\"Extended Edition\"\"\",\"\",4900.00",
-						"1999,Chevy,\"Venture \"\"Extended Edition, Very Large\"\"\",,5000.00",
-						"1996,Jeep,Grand Cherokee,\"MUST SELL!\n air, moon roof, loaded\",4799.00");
-		InputStream stream = new ByteArrayInputStream(s
-				.getBytes(ASCII));
+		CSVOptionalHeaderSniffer csvHeaderSniffer = CSVOptionalHeaderSniffer
+				.getSniffer((byte) ',', (byte) '"', (byte) '"', ASCII);
+		final String s = this.joiner.join("Year,Make,Model,Description,Price",
+				"1997,Ford,E350,\"ac, abs, moon\",3000.00",
+				"1999,Chevy,\"Venture \"\"Extended Edition\"\"\",\"\",4900.00",
+				"1999,Chevy,\"Venture \"\"Extended Edition, Very Large\"\"\",,5000.00",
+				"1996,Jeep,Grand Cherokee,\"MUST SELL!\n air, moon roof, loaded\",4799.00");
+		InputStream stream = new ByteArrayInputStream(s.getBytes(ASCII));
 
 		csvHeaderSniffer.sniff(stream, 10000);
 		Assert.assertEquals(
@@ -89,19 +87,18 @@ public class CSVHeaderSnifferTest {
 
 	@Test
 	public final void testWithoutHeader2() throws IOException {
-		
-		CSVHeaderSniffer csvHeaderSniffer = new CSVHeaderSniffer((byte) ',',
-				(byte)'"', (byte) '"', ASCII);
-		final String s = this.joiner
-				.join("1997,Ford,E350,\"ac, abs, moon\",3000.00",
-						"1999,Chevy,\"Venture \"\"Extended Edition\"\"\",\"\",4900.00",
-						"1999,Chevy,\"Venture \"\"Extended Edition, Very Large\"\"\",,5000.00",
-						"1996,Jeep,Grand Cherokee,\"MUST SELL!\n air, moon roof, loaded\",4799.00");
-		InputStream stream = new ByteArrayInputStream(s
-				.getBytes(ASCII));
+
+		CSVOptionalHeaderSniffer csvHeaderSniffer = CSVOptionalHeaderSniffer
+				.getSniffer((byte) ',', (byte) '"', (byte) '"', ASCII);
+		final String s = this.joiner.join(
+				"1997,Ford,E350,\"ac, abs, moon\",3000.00",
+				"1999,Chevy,\"Venture \"\"Extended Edition\"\"\",\"\",4900.00",
+				"1999,Chevy,\"Venture \"\"Extended Edition, Very Large\"\"\",,5000.00",
+				"1996,Jeep,Grand Cherokee,\"MUST SELL!\n air, moon roof, loaded\",4799.00");
+		InputStream stream = new ByteArrayInputStream(s.getBytes(ASCII));
 
 		csvHeaderSniffer.sniff(stream, 10000);
-		Assert.assertEquals(Collections.emptyList(), csvHeaderSniffer.getHeader());
+		Assert.assertNull(csvHeaderSniffer.getHeader());
 	}
 
 }

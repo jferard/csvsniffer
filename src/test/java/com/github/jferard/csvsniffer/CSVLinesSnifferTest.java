@@ -29,7 +29,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.github.jferard.csvsniffer.CSVConstraints;
-import com.github.jferard.csvsniffer.CSVLinesSniffer;
+import com.github.jferard.csvsniffer.CSVFormatSniffer;
 import com.google.common.base.Joiner;
 
 public class CSVLinesSnifferTest {
@@ -47,7 +47,7 @@ public class CSVLinesSnifferTest {
 	 */
 	@Test
 	public final void testWithOtherChar() throws IOException {
-		CSVLinesSniffer csvSniffer = new CSVLinesSniffer(
+		CSVFormatSniffer csvSniffer = new CSVFormatSniffer(
 				CSVConstraints.builder().build());
 		InputStream stream = new ByteArrayInputStream(this.joiner
 				.join("A,B,C", "1,abcd,A-A", "2,efgh,A-B", "3,\"ijk,l\",A-C",
@@ -60,7 +60,7 @@ public class CSVLinesSnifferTest {
 
 	@Test
 	public final void testWithOtherChar2() throws IOException {
-		CSVLinesSniffer csvSniffer = new CSVLinesSniffer(
+		CSVFormatSniffer csvSniffer = new CSVFormatSniffer(
 				CSVConstraints.builder().minFields(3).build());
 		InputStream stream = new ByteArrayInputStream(
 				this.joiner
@@ -80,7 +80,7 @@ public class CSVLinesSnifferTest {
 	 */
 	@Test
 	public final void test() throws IOException {
-		CSVLinesSniffer csvSniffer = new CSVLinesSniffer(
+		CSVFormatSniffer csvSniffer = new CSVFormatSniffer(
 				CSVConstraints.builder().build());
 		InputStream stream = new ByteArrayInputStream(
 				this.joiner.join("Year,Make,Model", "1997,Ford,E350",
@@ -94,7 +94,7 @@ public class CSVLinesSnifferTest {
 
 	@Test
 	public final void test2() throws IOException {
-		CSVLinesSniffer csvSniffer = new CSVLinesSniffer(
+		CSVFormatSniffer csvSniffer = new CSVFormatSniffer(
 				CSVConstraints.builder().build());
 		InputStream stream = new ByteArrayInputStream(this.joiner
 				.join("Year,Make,Model,Description,Price",
@@ -110,7 +110,7 @@ public class CSVLinesSnifferTest {
 	
 	@Test
 	public final void test2b() throws IOException {
-		CSVLinesSniffer csvSniffer = new CSVLinesSniffer(
+		CSVFormatSniffer csvSniffer = new CSVFormatSniffer(
 				CSVConstraints.builder().minFields(5).build());
 		InputStream stream = new ByteArrayInputStream(this.joiner
 				.join("Year,Make,Model,Description,Price",

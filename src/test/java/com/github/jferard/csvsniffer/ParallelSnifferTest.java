@@ -29,7 +29,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.github.jferard.csvsniffer.CSVConstraints;
-import com.github.jferard.csvsniffer.CSVLinesSniffer;
+import com.github.jferard.csvsniffer.CSVFormatSniffer;
 import com.github.jferard.csvsniffer.EncodingSniffer;
 import com.github.jferard.csvsniffer.ParallelSniffer;
 import com.google.common.base.Joiner;
@@ -45,7 +45,7 @@ public class ParallelSnifferTest {
 
 	@Test
 	public final void test() throws IOException {
-		CSVLinesSniffer csvSniffer = new CSVLinesSniffer(
+		CSVFormatSniffer csvSniffer = new CSVFormatSniffer(
 				CSVConstraints.builder().minFields(5).build());
 		EncodingSniffer encodingSniffer = new EncodingSniffer();
 		ParallelSniffer parallelSniffer = new ParallelSniffer(csvSniffer,

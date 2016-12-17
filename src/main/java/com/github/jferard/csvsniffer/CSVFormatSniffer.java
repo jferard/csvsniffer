@@ -41,7 +41,7 @@ import java.util.NoSuchElementException;
  *
  */
 @SuppressWarnings("unused")
-public class CSVLinesSniffer implements Sniffer {
+public class CSVFormatSniffer implements Sniffer {
 	private static final int ASCII_BYTE_COUNT = 128;
 	private static final int BONUS_FOR_IRREGULAR_LINES = 5;
 	private static final int DEFAULT_LINE_SIZE = 1024;
@@ -58,7 +58,7 @@ public class CSVLinesSniffer implements Sniffer {
 	private byte finalEscape;
 	private byte finalQuote;
 
-	public CSVLinesSniffer(final CSVConstraints csvParams) {
+	public CSVFormatSniffer(final CSVConstraints csvParams) {
 		this.csvParams = csvParams;
 	}
 
@@ -78,7 +78,7 @@ public class CSVLinesSniffer implements Sniffer {
 	public void sniff(final InputStream inputStream, final int size)
 			throws IOException {
 		final StreamParser streamParser = new StreamParser(
-				CSVLinesSniffer.DEFAULT_LINE_SIZE);
+				CSVFormatSniffer.DEFAULT_LINE_SIZE);
 
 		final byte[] allowedDelimiters = this.csvParams.getAllowedDelimiters();
 		final byte[] allowedQuotes = this.csvParams.getAllowedQuotes();
@@ -87,7 +87,7 @@ public class CSVLinesSniffer implements Sniffer {
 		int c = inputStream.read();
 		int i = 0;
 		while (c != -1 && i++ < size) {
-			if (c >= CSVLinesSniffer.ASCII_BYTE_COUNT)
+			if (c >= CSVFormatSniffer.ASCII_BYTE_COUNT)
 				continue;
 
 			streamParser.put((byte) c);
@@ -95,7 +95,7 @@ public class CSVLinesSniffer implements Sniffer {
 		}
 
 		final List<Line> lines = streamParser.getLines();
-		final int[][] delimCountByLine = new int[CSVLinesSniffer.ASCII_BYTE_COUNT][lines
+		final int[][] delimCountByLine = new int[CSVFormatSniffer.ASCII_BYTE_COUNT][lines
 				.size()];
 		int l = 0;
 		for (final Line line : lines) {
@@ -116,8 +116,8 @@ public class CSVLinesSniffer implements Sniffer {
 
 	private byte computeEscape(final List<Line> lines,
 			final byte[] allowedEscapes) {
-		final int[] escapes = new int[CSVLinesSniffer.ASCII_BYTE_COUNT];
-		List<Byte> keptEscapes = CSVLinesSniffer.asNewList(allowedEscapes);
+		final int[] escapes = new int[CSVFormatSniffer.ASCII_BYTE_COUNT];
+		List<Byte> keptEscapes = CSVFormatSniffer.asNewList(allowedEscapes);
 		keptEscapes.add(this.finalQuote);
 
 		for (final Line line : lines) {
@@ -152,9 +152,9 @@ public class CSVLinesSniffer implements Sniffer {
 
 	private byte computeDelimiter(final int[][] delimCountByLine,
 			final byte[] allowedDelimiters) {
-		final double[] variances = new double[CSVLinesSniffer.ASCII_BYTE_COUNT];
-		final int[] roundedMeans = new int[CSVLinesSniffer.ASCII_BYTE_COUNT];
-		final List<Byte> keptDelimiters = CSVLinesSniffer
+		final double[] variances = new double[CSVFormatSniffer.ASCII_BYTE_COUNT];
+		final int[] roundedMeans = new int[CSVFormatSniffer.ASCII_BYTE_COUNT];
+		final List<Byte> keptDelimiters = CSVFormatSniffer
 				.asNewList(allowedDelimiters);
 
 		final Iterator<Byte> it = keptDelimiters.iterator();
@@ -187,8 +187,8 @@ public class CSVLinesSniffer implements Sniffer {
 
 	private byte computeQuote(final List<Line> lines,
 			final byte[] allowedQuotes) {
-		final int[] quotes = new int[CSVLinesSniffer.ASCII_BYTE_COUNT];
-		final List<Byte> keptQuotes = CSVLinesSniffer.asNewList(allowedQuotes);
+		final int[] quotes = new int[CSVFormatSniffer.ASCII_BYTE_COUNT];
+		final List<Byte> keptQuotes = CSVFormatSniffer.asNewList(allowedQuotes);
 
 		for (final Line line : lines) {
 			final List<Part> parts = line.asParts(this.finalDelimiter);

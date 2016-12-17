@@ -23,13 +23,14 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
+import java.util.List;
 
 public class CSVSniffer implements Sniffer {
 
 	private CSVConstraints csvConstraints;
-	private CSVLinesSniffer csvSniffer;
+	private CSVFormatSniffer csvSniffer;
 	private EncodingSniffer encodingSniffer;
-	private CSVHeaderSniffer headerSniffer;
+	private CSVOptionalHeaderSniffer headerSniffer;
 
 	CSVSniffer(CSVConstraints csvConstraints) {
 		this.csvConstraints = csvConstraints;
@@ -46,7 +47,7 @@ public class CSVSniffer implements Sniffer {
 			c = inputStream.read();
 		}
 
-		this.csvSniffer = new CSVLinesSniffer(this.csvConstraints);
+		this.csvSniffer = new CSVFormatSniffer(this.csvConstraints);
 		this.encodingSniffer = new EncodingSniffer();
 		ParallelSniffer parallelSniffer = new ParallelSniffer(this.csvSniffer,
 				this.encodingSniffer);
@@ -54,7 +55,7 @@ public class CSVSniffer implements Sniffer {
 		InputStream stream = new ByteArrayInputStream(bytes);
 		parallelSniffer.sniff(stream, size);
 
-		this.headerSniffer = new CSVHeaderSniffer(
+		this.headerSniffer = CSVOptionalHeaderSniffer.getSniffer(
 				this.csvSniffer.getDelimiter(), this.csvSniffer.getQuote(),
 				this.csvSniffer.getEscape(), this.encodingSniffer.getCharset());
 
@@ -73,8 +74,12 @@ public class CSVSniffer implements Sniffer {
 	public byte getQuote() {
 		return this.csvSniffer.getQuote();
 	}
-	
+
 	public Charset getCharset() {
 		return this.encodingSniffer.getCharset();
+	}
+	
+	public List<String> getHeader() {
+		return this.headerSniffer.getHeader();
 	}
 }
