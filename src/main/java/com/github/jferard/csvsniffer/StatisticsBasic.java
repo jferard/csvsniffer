@@ -19,7 +19,7 @@
  ******************************************************************************/
 package com.github.jferard.csvsniffer;
 
-public class StatisticsBasic {
+class StatisticsBasic {
 	private int[] values;
 	private double mean;
 	private double variance;

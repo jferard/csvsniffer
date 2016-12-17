@@ -23,20 +23,20 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.CharacterCodingException;
 
-public class InputStreamWithUTF8Reader implements InputStreamMixedReader {
+class InputStreamWithUTF8Charset implements InputStreamWithCharset {
 	private int remainingUTF16Char;
 	private int curOffset;
 	private int charCount;
 	private UTF8Decoder decoder;
 
-	InputStreamWithUTF8Reader(InputStream is) throws IOException {
+	InputStreamWithUTF8Charset(InputStream is) throws IOException {
 		this.decoder = new UTF8Decoder(is);
 		this.decoder.gobbleBOM();
 		this.remainingUTF16Char = -1;
 	}
 
 	@Override
-	public int read(InputStreamWithUTF8OrByteReader parent, char[] cbuf,
+	public int read(InputStreamUTF8OrByteCharsetReader parent, char[] cbuf,
 			int coffset, int clen) throws IOException {
 		if (clen <= 0)
 			return 0;
@@ -101,7 +101,7 @@ public class InputStreamWithUTF8Reader implements InputStreamMixedReader {
 	 * @return
 	 * @throws IOException
 	 */
-	private int fallAndFinishRead(InputStreamWithUTF8OrByteReader parent,
+	private int fallAndFinishRead(InputStreamUTF8OrByteCharsetReader parent,
 			char[] cbuf, int clen) throws IOException {
 		parent.fall();
 		int read = parent.read(cbuf, this.curOffset, clen - this.charCount);

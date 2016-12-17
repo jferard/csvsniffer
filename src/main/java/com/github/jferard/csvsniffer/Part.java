@@ -21,7 +21,7 @@ package com.github.jferard.csvsniffer;
 
 import java.nio.charset.Charset;
 
-public class Part {
+class Part {
 	public static final int MULTIPLE = -2;
 	public static final int NONE = -1;
 	private byte[] array;

@@ -25,17 +25,17 @@ public class InputStreamWithByteReaderTest {
 	@Test
 	public final void test() throws IOException {
 		final String s = "&éè-_-ç";
-		InputStreamWithByteReader r = this.getReaderFromString(s, this.iso);
+		InputStreamWithByteCharset r = this.getReaderFromString(s, this.iso);
 		Assert.assertEquals(r.read(null, this.cbuf, 0, 7), 7);
 		for (char c = 0; c<7; c++) {
 			Assert.assertEquals(this.cbuf[c], s.toCharArray()[c]);
 		}
 	}
 
-	public InputStreamWithByteReader getReaderFromString(final String s,
+	public InputStreamWithByteCharset getReaderFromString(final String s,
 			final Charset cs) {
 		final ByteArrayInputStream is = new ByteArrayInputStream(
 				s.getBytes(cs));
-		return new InputStreamWithByteReader(is, this.cs);
+		return new InputStreamWithByteCharset(is, this.cs);
 	}
 }

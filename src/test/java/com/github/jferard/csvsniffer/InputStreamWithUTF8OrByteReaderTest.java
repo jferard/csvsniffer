@@ -26,16 +26,16 @@ public class InputStreamWithUTF8OrByteReaderTest {
 	@Test
 	public final void testIsoFalse3Bytes() throws IOException {
 		final String s = "é";
-		InputStreamWithUTF8OrByteReader r = this.getReaderFromString(s,
+		InputStreamUTF8OrByteCharsetReader r = this.getReaderFromString(s,
 				this.iso);
 		Assert.assertEquals(1, r.read(this.cbuf, 0, 7));
 		Assert.assertEquals("é", new String(this.cbuf, 0, 1));
 	}
 
-	public InputStreamWithUTF8OrByteReader getReaderFromString(final String s,
+	public InputStreamUTF8OrByteCharsetReader getReaderFromString(final String s,
 			final Charset cs) throws IOException {
 		final ByteArrayInputStream is = new ByteArrayInputStream(
 				s.getBytes(cs));
-		return new InputStreamWithUTF8OrByteReader(is, this.cs);
+		return new InputStreamUTF8OrByteCharsetReader(is, this.cs);
 	}
 }

@@ -19,35 +19,12 @@
  ******************************************************************************/
 package com.github.jferard.csvsniffer;
 
-import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
 import java.nio.charset.Charset;
 
-public class InputStreamWithUTF8OrByteReader extends Reader {
-	private InputStream is; // markSupported
-	private char[] isoByteMap;
-
-	private InputStreamMixedReader reader;
-
-	InputStreamWithUTF8OrByteReader(InputStream is, char[] isoByteMap) throws IOException {
-		this.isoByteMap = isoByteMap;
-		this.is = is;
-		this.reader = new InputStreamWithUTF8Reader(this.is);
-	}
-
-	@Override
-	public void close() throws IOException {
-		this.is.close();
-	}
-
-	@Override
-	public int read(char[] cbuf, int coffset, int clen) throws IOException {
-		return this.reader.read(this, cbuf, coffset, clen);
-	}
-
-	public void fall() {
-		this.reader = new InputStreamWithByteReader(this.is, this.isoByteMap);
-	}
+public interface InputStreamWithCharset {
+	int read(InputStreamUTF8OrByteCharsetReader parent, char[] cbuf, int coffset,
+			int clen) throws IOException;
 }

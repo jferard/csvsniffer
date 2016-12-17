@@ -28,7 +28,7 @@ import java.nio.charset.Charset;
  * @author Julien Férard (C) 2016
  *
  */
-public class Constants {
+class Constants {
 	public final static Charset UTF_8 = Charset.forName("UTF-8");
 	public final static Charset US_ASCII = Charset.forName("US-ASCII");
 	static final int B00000000 = 0x00;

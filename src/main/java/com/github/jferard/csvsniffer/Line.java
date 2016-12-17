@@ -23,7 +23,7 @@ import java.nio.charset.Charset;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Line {
+class Line {
 	private byte[] array;
 	private int size;
 

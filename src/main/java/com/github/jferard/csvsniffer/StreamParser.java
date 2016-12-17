@@ -22,7 +22,7 @@ package com.github.jferard.csvsniffer;
 import java.util.LinkedList;
 import java.util.List;
 
-public class StreamParser {
+class StreamParser {
 	private static final int CR = 0x0D;
 	private static final int LF = 0x0A;
 

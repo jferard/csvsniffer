@@ -19,33 +19,35 @@
  ******************************************************************************/
 package com.github.jferard.csvsniffer;
 
+import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Reader;
+import java.nio.charset.Charset;
 
-public class InputStreamWithByteReader implements InputStreamMixedReader {
+public class InputStreamUTF8OrByteCharsetReader extends Reader {
+	private InputStream is; // markSupported
 	private char[] isoByteMap;
-	private InputStream is;
 
-	InputStreamWithByteReader(InputStream is, char[] isoByteMap) {
-		this.is = is;
+	private InputStreamWithCharset reader;
+
+	InputStreamUTF8OrByteCharsetReader(InputStream is, char[] isoByteMap) throws IOException {
 		this.isoByteMap = isoByteMap;
+		this.is = is;
+		this.reader = new InputStreamWithUTF8Charset(this.is);
 	}
 
 	@Override
-	public int read(InputStreamWithUTF8OrByteReader parent, char[] cbuf,
-			int coffset, int clen) throws IOException {
-		if (clen <= 0)
-			return 0;
+	public void close() throws IOException {
+		this.is.close();
+	}
 
-		int charCount;
-		int curOffset = coffset;
-		for (charCount = 0; charCount < clen; charCount++) {
-			int firstByte = this.is.read();
-			if (firstByte == -1)
-				return charCount;
+	@Override
+	public int read(char[] cbuf, int coffset, int clen) throws IOException {
+		return this.reader.read(this, cbuf, coffset, clen);
+	}
 
-			cbuf[curOffset++] = this.isoByteMap[firstByte];
-		}
-		return charCount;
+	public void fall() {
+		this.reader = new InputStreamWithByteCharset(this.is, this.isoByteMap);
 	}
 }
