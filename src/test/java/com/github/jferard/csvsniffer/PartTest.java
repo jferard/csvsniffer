@@ -19,18 +19,16 @@
  ******************************************************************************/
 package com.github.jferard.csvsniffer;
 
-import java.io.UnsupportedEncodingException;
-
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.github.jferard.csvsniffer.Part;
+import java.io.UnsupportedEncodingException;
 
 public class PartTest {
 
 	@Test
 	public final void test1() throws UnsupportedEncodingException {
-		byte[] arr = new String("abcde").getBytes("ASCII");
+		byte[] arr = "abcde".getBytes("ASCII");
 		Part part = new Part(arr, 0, arr.length);
 		Assert.assertEquals('a', part.getFirstChar());
 		Assert.assertEquals('e', part.getLastChar());
@@ -41,7 +39,7 @@ public class PartTest {
 	
 	@Test
 	public final void test2() throws UnsupportedEncodingException {
-		byte[] arr = new String("   abcde ").getBytes("ASCII");
+		byte[] arr = "   abcde ".getBytes("ASCII");
 		Part part = new Part(arr, 0, arr.length);
 		part.trim();
 		Assert.assertEquals('a', part.getFirstChar());
@@ -49,5 +47,17 @@ public class PartTest {
 		
 		Assert.assertEquals('c', part.findCharBefore('d'));
 		Assert.assertEquals(-1, part.findCharBefore('z'));
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public final void testEmptyArray() throws UnsupportedEncodingException {
+		byte[] arr = "".getBytes("ASCII");
+		Part part = new Part(arr, 1, 2);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public final void testEmptyPart() throws UnsupportedEncodingException {
+		byte[] arr = "   abcde ".getBytes("ASCII");
+		Part part = new Part(arr, 0, 0);
 	}
 }

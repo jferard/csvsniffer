@@ -7,9 +7,11 @@
 
 # directories
 .settings
+.idea
 target
 reports
 
 # files
 *.old
+*.iml
 

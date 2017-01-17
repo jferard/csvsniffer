@@ -19,14 +19,14 @@
  ******************************************************************************/
 package com.github.jferard.csvsniffer;
 
-import java.io.UnsupportedEncodingException;
-import java.util.List;
-
+import com.google.common.io.Resources;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.github.jferard.csvsniffer.Line;
-import com.github.jferard.csvsniffer.StreamParser;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 
 public class StreamParserTest {
@@ -45,6 +45,22 @@ public class StreamParserTest {
 		Assert.assertEquals("line3", lines.get(2).toString());
 		Assert.assertEquals("", lines.get(3).toString());
 		Assert.assertEquals("", lines.get(4).toString());
+	}
+
+	@Test
+	public final void test3() throws IOException {
+		StreamParser streamParser = new StreamParser(1024);
+		InputStream stream = Resources.getResource("sirc-17804_9075_14209_201612_L_M_20170104_171522721-part" +
+				".csv").openStream();
+		int c = stream.read();
+		while (c != -1) {
+			if (c < 128)
+				streamParser.put((byte) c);
+			c = stream.read();
+		}
+		List<Line> lines = streamParser.getLines();
+
+		Assert.assertEquals(58, lines.size());
 	}
 
 }

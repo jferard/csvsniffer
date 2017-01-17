@@ -29,6 +29,9 @@ class Part {
 	private int to;
 
 	public Part(byte[] array, int from, int to) {
+		if (array.length == 0 || from >= array.length || to <= 0 || from >= to)
+			throw new IllegalArgumentException();
+
 		this.array = array;
 		this.from = from;
 		this.to = to;
@@ -37,6 +40,9 @@ class Part {
 	public void trim() {
 		while (this.array[this.from] == ' ')
 			this.from++;
+
+//		if (this.to == 0)
+//			return;
 
 		while (this.array[this.to - 1] == ' ')
 			this.to--;

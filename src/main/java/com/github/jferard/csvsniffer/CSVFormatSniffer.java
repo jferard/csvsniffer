@@ -1,30 +1,27 @@
 /*******************************************************************************
  * CSV Sniffer - A simple sniffer to detect file encoding and CSV format of a file
  *    Copyright (C) 2016 J. Férard <https://github.com/jferard>
- * 
+ *
  * This file is part of CSV Sniffer.
- * 
+ *
  * CSV Sniffer is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * CSV Sniffer is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 package com.github.jferard.csvsniffer;
 
-import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -34,32 +31,29 @@ import java.util.NoSuchElementException;
 
 /**
  * Three things to determine : finalDelimiter, finalQuotechar, finalEscapechar
- *
+ * <p>
  * Consider the following line : a\|a,"a|a","a|a","a|a"
  *
  * @author Julien Férard
- *
  */
 @SuppressWarnings("unused")
 public class CSVFormatSniffer implements Sniffer {
 	private static final int ASCII_BYTE_COUNT = 128;
 	private static final int BONUS_FOR_IRREGULAR_LINES = 5;
 	private static final int DEFAULT_LINE_SIZE = 1024;
+	private final CSVConstraints csvParams;
+	private byte finalDelimiter;
+	private byte finalEscape;
+	private byte finalQuote;
+	public CSVFormatSniffer(final CSVConstraints csvParams) {
+		this.csvParams = csvParams;
+	}
 
 	private static List<Byte> asNewList(final byte[] array) {
 		final List<Byte> l = new LinkedList<Byte>();
 		for (final byte i : array)
 			l.add(i);
 		return l;
-	}
-
-	private final CSVConstraints csvParams;
-	private byte finalDelimiter;
-	private byte finalEscape;
-	private byte finalQuote;
-
-	public CSVFormatSniffer(final CSVConstraints csvParams) {
-		this.csvParams = csvParams;
 	}
 
 	public byte getDelimiter() {
@@ -87,14 +81,14 @@ public class CSVFormatSniffer implements Sniffer {
 		int c = inputStream.read();
 		int i = 0;
 		while (c != -1 && i++ < size) {
-			if (c >= CSVFormatSniffer.ASCII_BYTE_COUNT)
-				continue;
+			if (c < CSVFormatSniffer.ASCII_BYTE_COUNT)
+				streamParser.put((byte) c);
 
-			streamParser.put((byte) c);
 			c = inputStream.read();
 		}
 
 		final List<Line> lines = streamParser.getLines();
+		System.out.println(lines);
 		final int[][] delimCountByLine = new int[CSVFormatSniffer.ASCII_BYTE_COUNT][lines
 				.size()];
 		int l = 0;
@@ -115,7 +109,7 @@ public class CSVFormatSniffer implements Sniffer {
 	}
 
 	private byte computeEscape(final List<Line> lines,
-			final byte[] allowedEscapes) {
+							   final byte[] allowedEscapes) {
 		final int[] escapes = new int[CSVFormatSniffer.ASCII_BYTE_COUNT];
 		List<Byte> keptEscapes = CSVFormatSniffer.asNewList(allowedEscapes);
 		keptEscapes.add(this.finalQuote);
@@ -151,7 +145,7 @@ public class CSVFormatSniffer implements Sniffer {
 	}
 
 	private byte computeDelimiter(final int[][] delimCountByLine,
-			final byte[] allowedDelimiters) {
+								  final byte[] allowedDelimiters) {
 		final double[] variances = new double[CSVFormatSniffer.ASCII_BYTE_COUNT];
 		final int[] roundedMeans = new int[CSVFormatSniffer.ASCII_BYTE_COUNT];
 		final List<Byte> keptDelimiters = CSVFormatSniffer
@@ -159,10 +153,10 @@ public class CSVFormatSniffer implements Sniffer {
 
 		final Iterator<Byte> it = keptDelimiters.iterator();
 		final int minDelimiters = this.csvParams.getMinFields() - 1; // n fields
-																		// ->
-																		// n-1
-																		// delimiters
-		
+		// ->
+		// n-1
+		// delimiters
+
 		while (it.hasNext()) {
 			final byte delim = it.next();
 			final StatisticsBasic statisticsBasic = new StatisticsBasic(
@@ -186,7 +180,7 @@ public class CSVFormatSniffer implements Sniffer {
 	}
 
 	private byte computeQuote(final List<Line> lines,
-			final byte[] allowedQuotes) {
+							  final byte[] allowedQuotes) {
 		final int[] quotes = new int[CSVFormatSniffer.ASCII_BYTE_COUNT];
 		final List<Byte> keptQuotes = CSVFormatSniffer.asNewList(allowedQuotes);
 

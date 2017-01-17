@@ -19,11 +19,14 @@
  ******************************************************************************/
 package com.github.jferard.csvsniffer;
 
-import java.nio.charset.Charset;
-import java.util.List;
-
+import com.google.common.io.Resources;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.Charset;
+import java.util.List;
 
 public class LineTest {
 

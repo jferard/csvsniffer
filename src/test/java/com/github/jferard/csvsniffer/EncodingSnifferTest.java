@@ -1,38 +1,38 @@
 /*******************************************************************************
  * CSV Sniffer - A simple sniffer to detect file encoding and CSV format of a file
  *    Copyright (C) 2016 J. Férard <https://github.com/jferard>
- * 
+ *
  * This file is part of CSV Sniffer.
- * 
+ *
  * CSV Sniffer is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * CSV Sniffer is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 package com.github.jferard.csvsniffer;
+
+import com.google.common.base.Joiner;
+import com.google.common.io.Resources;
+import org.junit.Assert;
+import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 
-import org.junit.Assert;
-import org.junit.Test;
-
-import com.google.common.base.Joiner;
-
 public class EncodingSnifferTest {
-	private static final String STR = "my first test é { à @";
 	static final Charset UTF_8 = Charset.forName("UTF-8");
 	static final Charset ISO8859_15 = Charset.forName("ISO8859_15");
+	private static final String STR = "my first test é { à @";
 	private static final Charset ASCII = Charset.forName("US-ASCII");
 
 	@Test
@@ -52,7 +52,7 @@ public class EncodingSnifferTest {
 		encodingSniffer.sniff(stream, 10);
 		Assert.assertEquals(ASCII, encodingSniffer.getCharset());
 	}
-	
+
 	@Test
 	public final void testISO() throws IOException {
 		EncodingSniffer encodingSniffer = new EncodingSniffer();
@@ -70,7 +70,7 @@ public class EncodingSnifferTest {
 		encodingSniffer.sniff(stream, 1000);
 		Assert.assertEquals(ASCII, encodingSniffer.getCharset());
 	}
-	
+
 	@Test
 	public final void test2() throws IOException {
 		EncodingSniffer encodingSniffer = new EncodingSniffer();
@@ -84,5 +84,15 @@ public class EncodingSnifferTest {
 		encodingSniffer.sniff(stream, 1000);
 		Assert.assertEquals(ASCII, encodingSniffer.getCharset());
 	}
-	
+
+	@Test
+	public final void test3() throws IOException {
+		EncodingSniffer encodingSniffer = new EncodingSniffer();
+		InputStream stream = Resources.getResource("sirc-17804_9075_14209_201612_L_M_20170104_171522721-part" +
+				".csv").openStream();
+		encodingSniffer.sniff(stream, 100000);
+		Assert.assertEquals(null, encodingSniffer.getCharset()); // null means: byte / byte encoding
+	}
+
+
 }
