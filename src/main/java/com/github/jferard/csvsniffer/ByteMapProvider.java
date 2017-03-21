@@ -9,7 +9,7 @@ import java.nio.charset.CharsetDecoder;
 public class ByteMapProvider {
 	public ByteMapProvider() {}
 	
-	char[] get(Charset charset) {
+	public char[] get(Charset charset) {
 		ByteBuffer byteBuffer = ByteBuffer.allocate(256);
 		for (int c = 0; c<256; c++) {
 			byteBuffer.put((byte) c);

@@ -21,7 +21,8 @@ package com.github.jferard.csvsniffer;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.ParseException;
 
 public interface Sniffer {
-	void sniff(InputStream inputStream, int size) throws IOException;
+	void sniff(InputStream inputStream, int size) throws IOException, ParseException;
 }

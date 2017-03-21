@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
+import java.text.ParseException;
 
 public class ParallelSniffer implements Sniffer {
 	private Sniffer[] sniffers;
@@ -49,7 +50,8 @@ public class ParallelSniffer implements Sniffer {
 					try {
 						sniffer.sniff(pipedInputStream, size);
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (ParseException e) {
 						e.printStackTrace();
 					}
 				}

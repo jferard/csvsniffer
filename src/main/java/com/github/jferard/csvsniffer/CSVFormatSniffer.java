@@ -22,6 +22,7 @@ package com.github.jferard.csvsniffer;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.ParseException;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -38,18 +39,19 @@ import java.util.NoSuchElementException;
  */
 @SuppressWarnings("unused")
 public class CSVFormatSniffer implements Sniffer {
-	private static final int ASCII_BYTE_COUNT = 128;
+	static final int ASCII_BYTE_COUNT = 128;
 	private static final int BONUS_FOR_IRREGULAR_LINES = 5;
 	private static final int DEFAULT_LINE_SIZE = 1024;
 	private final CSVConstraints csvParams;
 	private byte finalDelimiter;
 	private byte finalEscape;
 	private byte finalQuote;
+
 	public CSVFormatSniffer(final CSVConstraints csvParams) {
 		this.csvParams = csvParams;
 	}
 
-	private static List<Byte> asNewList(final byte[] array) {
+	static List<Byte> asNewList(final byte[] array) {
 		final List<Byte> l = new LinkedList<Byte>();
 		for (final byte i : array)
 			l.add(i);
@@ -70,14 +72,24 @@ public class CSVFormatSniffer implements Sniffer {
 
 	@Override
 	public void sniff(final InputStream inputStream, final int size)
-			throws IOException {
-		final StreamParser streamParser = new StreamParser(
-				CSVFormatSniffer.DEFAULT_LINE_SIZE);
-
+			throws IOException, ParseException {
 		final byte[] allowedDelimiters = this.csvParams.getAllowedDelimiters();
 		final byte[] allowedQuotes = this.csvParams.getAllowedQuotes();
 		final byte[] allowedEscapes = this.csvParams.getAllowedEscapes();
 
+		// n fields -> n-1 delimiters
+		final int minDelimiters = this.csvParams.getMinFields() - 1;
+
+		final List<Line> lines = this.getLines(inputStream, size);
+		DelimiterComputer delimiterComputer = new DelimiterComputer(lines, allowedDelimiters, minDelimiters);
+		this.finalDelimiter = delimiterComputer.compute();
+		this.finalQuote = this.computeQuote(lines, allowedQuotes);
+		this.finalEscape = this.computeEscape(lines, allowedEscapes);
+	}
+
+	private List<Line> getLines(InputStream inputStream, int size) throws IOException {
+		final StreamParser streamParser = new StreamParser(
+				CSVFormatSniffer.DEFAULT_LINE_SIZE);
 		int c = inputStream.read();
 		int i = 0;
 		while (c != -1 && i++ < size) {
@@ -87,25 +99,7 @@ public class CSVFormatSniffer implements Sniffer {
 			c = inputStream.read();
 		}
 
-		final List<Line> lines = streamParser.getLines();
-		System.out.println(lines);
-		final int[][] delimCountByLine = new int[CSVFormatSniffer.ASCII_BYTE_COUNT][lines
-				.size()];
-		int l = 0;
-		for (final Line line : lines) {
-			for (final byte delim : allowedDelimiters)
-				delimCountByLine[delim][l] = line.getCount(delim);
-			l++;
-		}
-
-		try {
-			this.finalDelimiter = this.computeDelimiter(delimCountByLine,
-					allowedDelimiters);
-			this.finalQuote = this.computeQuote(lines, allowedQuotes);
-			this.finalEscape = this.computeEscape(lines, allowedEscapes);
-		} catch (final NoSuchElementException e) {
-			throw e;
-		}
+		return streamParser.getLines();
 	}
 
 	private byte computeEscape(final List<Line> lines,
@@ -135,48 +129,13 @@ public class CSVFormatSniffer implements Sniffer {
 		});
 	}
 
-	public void sniff(final String path, final int size) throws IOException {
+	public void sniff(final String path, final int size) throws IOException, ParseException {
 		final InputStream stream = new FileInputStream(path);
 		try {
 			this.sniff(stream, size);
 		} finally {
 			stream.close();
 		}
-	}
-
-	private byte computeDelimiter(final int[][] delimCountByLine,
-								  final byte[] allowedDelimiters) {
-		final double[] variances = new double[CSVFormatSniffer.ASCII_BYTE_COUNT];
-		final int[] roundedMeans = new int[CSVFormatSniffer.ASCII_BYTE_COUNT];
-		final List<Byte> keptDelimiters = CSVFormatSniffer
-				.asNewList(allowedDelimiters);
-
-		final Iterator<Byte> it = keptDelimiters.iterator();
-		final int minDelimiters = this.csvParams.getMinFields() - 1; // n fields
-		// ->
-		// n-1
-		// delimiters
-
-		while (it.hasNext()) {
-			final byte delim = it.next();
-			final StatisticsBasic statisticsBasic = new StatisticsBasic(
-					delimCountByLine[delim]);
-			roundedMeans[delim] = (int) Math.round(statisticsBasic.getMean());
-			variances[delim] = statisticsBasic.getVariance();
-			if (roundedMeans[delim] < minDelimiters || variances[delim] > 4)
-				it.remove();
-		}
-
-		return Collections.min(keptDelimiters, new Comparator<Byte>() {
-			@Override
-			public int compare(final Byte d1, final Byte d2) {
-				if (Math.abs(variances[d2] - variances[d1]) < 1e-3)
-					return (int) Math
-							.signum(roundedMeans[d2] - roundedMeans[d1]);
-				else
-					return (int) Math.signum(variances[d1] - variances[d2]);
-			}
-		});
 	}
 
 	private byte computeQuote(final List<Line> lines,

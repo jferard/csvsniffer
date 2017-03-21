@@ -31,7 +31,7 @@ public class InputStreamUTF8OrByteCharsetReader extends Reader {
 
 	private InputStreamWithCharset reader;
 
-	InputStreamUTF8OrByteCharsetReader(InputStream is, char[] isoByteMap) throws IOException {
+	public InputStreamUTF8OrByteCharsetReader(InputStream is, char[] isoByteMap) throws IOException {
 		this.isoByteMap = isoByteMap;
 		this.is = is;
 		this.reader = new InputStreamWithUTF8Charset(this.is);

@@ -29,6 +29,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
+import java.text.ParseException;
 
 public class CSVLinesSnifferTest {
 	private static final Charset ASCII = Charset.forName("US-ASCII");
@@ -44,7 +45,7 @@ public class CSVLinesSnifferTest {
 	 * @see https://en.wikipedia.org/wiki/Comma-separated_values
 	 */
 	@Test
-	public final void testWithOtherChar() throws IOException {
+	public final void testWithOtherChar() throws IOException, ParseException {
 		CSVFormatSniffer csvSniffer = new CSVFormatSniffer(
 				CSVConstraints.builder().build());
 		InputStream stream = new ByteArrayInputStream(this.joiner
@@ -57,7 +58,7 @@ public class CSVLinesSnifferTest {
 	}
 
 	@Test
-	public final void testWithOtherChar2() throws IOException {
+	public final void testWithOtherChar2() throws IOException, ParseException {
 		CSVFormatSniffer csvSniffer = new CSVFormatSniffer(
 				CSVConstraints.builder().minFields(3).build());
 		InputStream stream = new ByteArrayInputStream(
@@ -77,7 +78,7 @@ public class CSVLinesSnifferTest {
 	 * @see https://en.wikipedia.org/wiki/Comma-separated_values
 	 */
 	@Test
-	public final void test() throws IOException {
+	public final void test() throws IOException, ParseException {
 		CSVFormatSniffer csvSniffer = new CSVFormatSniffer(
 				CSVConstraints.builder().build());
 		InputStream stream = new ByteArrayInputStream(
@@ -91,7 +92,7 @@ public class CSVLinesSnifferTest {
 	}
 
 	@Test
-	public final void test2() throws IOException {
+	public final void test2() throws IOException, ParseException {
 		CSVFormatSniffer csvSniffer = new CSVFormatSniffer(
 				CSVConstraints.builder().build());
 		InputStream stream = new ByteArrayInputStream(this.joiner
@@ -107,7 +108,7 @@ public class CSVLinesSnifferTest {
 	}
 	
 	@Test
-	public final void test2b() throws IOException {
+	public final void test2b() throws IOException, ParseException {
 		CSVFormatSniffer csvSniffer = new CSVFormatSniffer(
 				CSVConstraints.builder().minFields(5).build());
 		InputStream stream = new ByteArrayInputStream(this.joiner
@@ -125,7 +126,7 @@ public class CSVLinesSnifferTest {
 	}
 
 	@Test
-	public final void test3() throws IOException {
+	public final void test3() throws IOException, ParseException {
 		CSVFormatSniffer csvSniffer = new CSVFormatSniffer(
 				CSVConstraints.builder().build());
 		InputStream stream = Resources.getResource("sirc-17804_9075_14209_201612_L_M_20170104_171522721-part" +
@@ -133,6 +134,6 @@ public class CSVLinesSnifferTest {
 		csvSniffer.sniff(stream, 100000);
 		Assert.assertEquals(';', (char) csvSniffer.getDelimiter());
 		Assert.assertEquals('"', (char) csvSniffer.getQuote());
-		Assert.assertEquals('"', (char) csvSniffer.getEscape());
+		Assert.assertEquals(0, (char) csvSniffer.getEscape());
 	}
 }

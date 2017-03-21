@@ -43,7 +43,7 @@ import org.apache.commons.csv.QuoteMode;
  * <li>if the first row contains at least on digits only value, then there is no
  * header in the stream</li>
  * </ol>
- *
+ *w
  * @author Julien Férard (C) 2016
  *
  */

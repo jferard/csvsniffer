@@ -41,15 +41,20 @@ public class CSVConstraintsBuilder {
 
 	private static byte[] getAllChars() {
 		if (CSVConstraintsBuilder.all == null) {
-			all = new byte[ASCII_CHAR_COUNT-10-26*2-3];
+			all = new byte[ASCII_CHAR_COUNT-10-26*2-2];
 			int i = 0;
 			// hack to avoid endless loop : b ALWAYS < 128
 			for (byte b = 0; b >= 0 ; b++) {  
-				if (b != ' ' && b != '\r' && b != '\n'
-						&& (b < '0' || b > '9' && b < 'A' || b > 'Z' && b < 'a'
-								|| b > 'z')) {
-					all[i++] = b;
-				}
+				if (b == '\r' || b == '\n')
+					continue;
+				if (b >= '0' && b <= '9')
+					continue;
+				if (b >= 'A' && b <= 'Z')
+					continue;
+				if (b >= 'a' && b <= 'z')
+					continue;
+
+				all[i++] = b;
 			}
 		}
 		return CSVConstraintsBuilder.all;
