@@ -58,6 +58,8 @@ class Part {
 	}
 
 	public int quoteValue(byte quote) {
+		if (this.from == this.to - 1) // one char
+			return 0;
 		if (this.array[this.from] == quote) {
 			if (this.array[this.to - 1] == quote) 
 				return 5;

@@ -33,6 +33,7 @@ import java.text.ParseException;
 
 public class CSVLinesSnifferTest {
 	private static final Charset ASCII = Charset.forName("US-ASCII");
+	private static final Charset UTF8 = Charset.forName("UTF-8");
 	private Joiner joiner;
 
 	@Before
@@ -135,5 +136,59 @@ public class CSVLinesSnifferTest {
 		Assert.assertEquals(';', (char) csvSniffer.getDelimiter());
 		Assert.assertEquals('"', (char) csvSniffer.getQuote());
 		Assert.assertEquals(0, (char) csvSniffer.getEscape());
+	}
+
+	@Test
+	public final void test3b() throws IOException, ParseException {
+		CSVFormatSniffer csvSniffer = new CSVFormatSniffer(
+				CSVConstraints.builder().allowedDelimiters(new byte[] {'\t','|'}).minFields(5).build());
+		InputStream stream = new ByteArrayInputStream(this.joiner
+				.join("Year	Make	Model	Description	Price",
+						"1997	Ford	E350	moon	3000,00",
+						"1999	Chevy	Venture		4900,00",
+						"1999	Chevy	Large		5000,00",
+						"1996	Jeep	Cherokee	air	4799,00")
+				.getBytes(ASCII));
+
+		csvSniffer.sniff(stream, 1000);
+		Assert.assertEquals('\t', (char) csvSniffer.getDelimiter());
+		Assert.assertEquals('\0', (char) csvSniffer.getQuote());
+		Assert.assertEquals('\0', (char) csvSniffer.getEscape());
+	}
+
+	@Test
+	public final void test3c() throws IOException, ParseException {
+		CSVFormatSniffer csvSniffer = new CSVFormatSniffer(
+				CSVConstraints.builder().allowedDelimiters(new byte[] {'\t','|'}).minFields(5).build());
+		InputStream stream = new ByteArrayInputStream(this.joiner
+				.join("Year	Make	Model	Description	Price",
+						"1997	Ford	E350	moon	3000,00",
+						"1999	Chevy	Venture		4900,00",
+						"1999	Chevy	Large		5000,00",
+						"1996	Jeep	Cherokee	air	4799,00")
+				.getBytes(UTF8));
+
+		csvSniffer.sniff(stream, 1000);
+		Assert.assertEquals('\t', (char) csvSniffer.getDelimiter());
+		Assert.assertEquals('\0', (char) csvSniffer.getQuote());
+		Assert.assertEquals('\0', (char) csvSniffer.getEscape());
+	}
+
+	@Test
+	public final void test4() throws IOException, ParseException {
+		CSVFormatSniffer csvSniffer = new CSVFormatSniffer(
+				CSVConstraints.builder().allowedDelimiters(new byte[] {'\t','|'}).minFields(5).build());
+		InputStream stream = new ByteArrayInputStream(this.joiner
+				.join("Year|Make|Model|Description|Price",
+						"1997|*|E350|moon|3000,00",
+						"1999|*|Venture|d|4900,00",
+						"1999|*|Large|d|5000,00",
+						"1996|*|Cherokee|air|4799,00")
+				.getBytes(UTF8));
+
+		csvSniffer.sniff(stream, 1000);
+		Assert.assertEquals('|', (char) csvSniffer.getDelimiter());
+		Assert.assertEquals('\0', (char) csvSniffer.getQuote());
+		Assert.assertEquals('\0', (char) csvSniffer.getEscape());
 	}
 }
