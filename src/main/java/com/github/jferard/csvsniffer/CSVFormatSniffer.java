@@ -143,10 +143,12 @@ public class CSVFormatSniffer implements Sniffer {
 		final int[] quotes = new int[CSVFormatSniffer.ASCII_BYTE_COUNT];
 		final List<Byte> keptQuotes = CSVFormatSniffer.asNewList(allowedQuotes);
 
+		int partCount = 0;
 		for (final Line line : lines) {
 			final List<Part> parts = line.asParts(this.finalDelimiter);
 			for (final Part part : parts) {
 				part.trim();
+				partCount++;
 			}
 			for (final byte q : keptQuotes) {
 				for (final Part part : parts) {
@@ -155,12 +157,16 @@ public class CSVFormatSniffer implements Sniffer {
 			}
 		}
 
-		return Collections.max(keptQuotes, new Comparator<Byte>() {
+		Byte max = Collections.max(keptQuotes, new Comparator<Byte>() {
 
 			@Override
 			public int compare(final Byte q1, final Byte q2) {
 				return quotes[q1] - quotes[q2];
 			}
 		});
+		if (5*quotes[max] >= partCount)
+			return max;
+		else
+			return '\0';
 	}
 }
