@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/jferard/csvsniffer.svg?branch=master)](https://travis-ci.org/jferard/csvsniffer)
+[![Code Coverage](https://img.shields.io/codecov/c/github/jferard/csvsniffer/master.svg)](https://codecov.io/github/jferard/csvsniffer?branch=master)
+
 # CSV Sniffer
 (C) J. Férard 2016
 
