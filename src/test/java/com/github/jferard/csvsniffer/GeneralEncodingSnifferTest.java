@@ -37,26 +37,22 @@ public class GeneralEncodingSnifferTest {
 
         for (Charset charset : charsetByName.values()) {
             try {
-                System.out.println(charset);
                 byte[] bytes = s.getBytes(charset);
                 ByteArrayInputStream stream = new ByteArrayInputStream(bytes);
 
                 CharBuffer cbuf = charset.decode(ByteBuffer.wrap(bytes));
                 if (!s.equals(cbuf.toString())) {
-
-                    System.out.println("Charset can't decode/encode all chars " + charset);
-                    continue;
+                    continue; // Charset can't decode/encode all chars
                 }
-
 
                 sniffer.sniff(stream, s.length());
 
                 Assert.assertTrue(sniffer.getCharsets().size() < charsetByName.size());
                 Assert.assertTrue(sniffer.getCharsets().contains(charset));
             } catch (UnsupportedOperationException e) {
-                System.out.println("Skip "+charset);
+                // Skip charset
             } catch (CharacterCodingException e) {
-                System.out.println("Skip "+charset);
+                // Skip charset
             }
         }
     }
