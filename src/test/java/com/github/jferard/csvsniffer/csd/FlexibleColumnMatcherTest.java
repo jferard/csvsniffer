@@ -25,9 +25,11 @@ public class FlexibleColumnMatcherTest {
 
     @Test
     public void match() throws Exception {
+        PowerMock.replayAll();
         Assert.assertTrue(matcher.match("abcde", "abcde"));
         Assert.assertTrue(matcher.match("abcde", "abcdef"));
         Assert.assertFalse(matcher.match("abcde", "abcdefghij"));
+        PowerMock.verifyAll();
     }
 
 }

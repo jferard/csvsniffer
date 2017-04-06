@@ -17,18 +17,22 @@ public class CSDUtilTest {
 
     @Before
     public void setUp() {
-        Logger logger = PowerMock.createMock(Logger.class);
+        Logger logger = PowerMock.createNiceMock(Logger.class);
         util = new CSDUtil(logger);
     }
 
     @Test
     public void levenshteinDistance() {
+        PowerMock.replayAll();
         Assert.assertEquals(5, util.levenshteinDistance("abcde", "abcdefghij"));
         Assert.assertEquals(5, util.levenshteinDistance(this.util.stripAccents("abcde"), this.util.stripAccents("abcdefghij")));
+        PowerMock.verifyAll();
     }
 
     @Test
     public void stripAccents() {
+        PowerMock.replayAll();
         Assert.assertEquals("abcde", util.stripAccents("Abcdé"));
+        PowerMock.verifyAll();
     }
 }

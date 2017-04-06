@@ -17,14 +17,16 @@ public class ExactColumnMatcherTest {
 
     @Before
     public void setUp() {
-        Logger logger = PowerMock.createMock(Logger.class);
+        Logger logger = PowerMock.createNiceMock(Logger.class);
         matcher = new ExactColumnMatcher(logger);
     }
 
     @Test
     public void match() throws Exception {
+        PowerMock.replayAll();
         Assert.assertTrue(matcher.match("abcde", "abcde"));
         Assert.assertFalse(matcher.match("abcde", "abcdef"));
+        PowerMock.verifyAll();
     }
 
 }
