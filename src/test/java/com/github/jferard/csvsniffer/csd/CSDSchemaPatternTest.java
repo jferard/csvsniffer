@@ -21,32 +21,7 @@ public class CSDSchemaPatternTest {
 
     @Test
     public void testOneField() {
-        CSDField f = new CSDField() {
-            @Override
-            public String getCode() {
-                return "code";
-            }
-
-            @Override
-            public String getType() {
-                return "type";
-            }
-
-            @Override
-            public String getColumnName() {
-                return "name";
-            }
-
-            @Override
-            public boolean isOptional() {
-                return false;
-            }
-
-            @Override
-            public boolean validate(String value) {
-                return true;
-            }
-        };
+        CSDField f = TestUtil.getMandatoryField();
         CSDSchemaPattern<CSDField> s = new CSDSchemaPattern<CSDField>(Arrays.asList(f), true);
         Assert.assertTrue(s.hasOptionalHeader());
         Assert.assertTrue(s.iterator().hasNext());
@@ -56,32 +31,7 @@ public class CSDSchemaPatternTest {
 
     @Test
     public void testOneStartField() {
-        CSDField f = new CSDField() {
-            @Override
-            public String getCode() {
-                return "*";
-            }
-
-            @Override
-            public String getType() {
-                return "type";
-            }
-
-            @Override
-            public String getColumnName() {
-                return "name";
-            }
-
-            @Override
-            public boolean isOptional() {
-                return false;
-            }
-
-            @Override
-            public boolean validate(String value) {
-                return true;
-            }
-        };
+        CSDField f = TestUtil.getStarField();
         CSDSchemaPattern<CSDField> s = new CSDSchemaPattern<CSDField>(Arrays.asList(f), true);
         Assert.assertTrue(s.hasOptionalHeader());
         Assert.assertTrue(s.iterator().hasNext());

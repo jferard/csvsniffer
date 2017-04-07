@@ -24,32 +24,7 @@ public class CSDSchemaTest {
 
     @Test
     public void testOneField() {
-        CSDField f = new CSDField() {
-            @Override
-            public String getCode() {
-                return "code";
-            }
-
-            @Override
-            public String getType() {
-                return "type";
-            }
-
-            @Override
-            public String getColumnName() {
-                return "name";
-            }
-
-            @Override
-            public boolean isOptional() {
-                return false;
-            }
-
-            @Override
-            public boolean validate(String value) {
-                return true;
-            }
-        };
+        CSDField f = TestUtil.getMandatoryField();
         CSDSchema<CSDField> s = new CSDSchema<CSDField>(Arrays.asList(f), true);
         Assert.assertEquals("(code)", s.getColumns());
         Assert.assertTrue(s.hasOptionalHeader());

@@ -23,13 +23,13 @@ public class CSDValidationResult<F extends CSDField> implements Iterable<CSDVali
 
     public void noLine() {
         String msg = "No available line.";
-        new CSDValidationError(0, CSDValidationError.Type.NO_AVAILABLE_LINE, msg);
+        this.errors.add(new CSDValidationError(0, CSDValidationError.Type.NO_AVAILABLE_LINE, msg));
         this.logger.severe("Line 0: "+ msg);
     }
 
     public void schemaHasTooManyFieldsForRecord(int line, CSVRecord record) {
         String msg = "The schema pattern (" + this.schemaPattern + ") has too many fields for the record " + record + ".";
-        new CSDValidationError(line, CSDValidationError.Type.TOO_MANY_LINES_FOR_RECORD, msg);
+        this.errors.add(new CSDValidationError(line, CSDValidationError.Type.TOO_MANY_LINES_FOR_RECORD, msg));
         this.logger.severe("Line "+line+": "+ msg);
     }
 
