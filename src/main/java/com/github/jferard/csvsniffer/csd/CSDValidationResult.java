@@ -3,30 +3,28 @@ package com.github.jferard.csvsniffer.csd;
 import org.apache.commons.csv.CSVRecord;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
 
 /**
  * A CSDValidationResult is composed of CSVValidationErrors.
  */
-public class CSDValidationResult<F extends CSDField> {
+public class CSDValidationResult<F extends CSDField> implements Iterable<CSDValidationError>{
     private final List<CSDValidationError> errors;
-    private boolean hasHeader;
-    private boolean noLine;
     private Logger logger;
     private SizedIterable<F> schemaPattern;
-    private CSDSchema<F> schema;
 
     public CSDValidationResult(Logger logger, SizedIterable<F> schemaPattern) {
         this.logger = logger;
         this.schemaPattern = schemaPattern;
         this.errors = new ArrayList<CSDValidationError>(1000);
-        this.hasHeader = true;
     }
 
     public void noLine() {
-        this.noLine = true;
-        this.logger.severe("No available line.");
+        String msg = "No available line.";
+        new CSDValidationError(0, CSDValidationError.Type.NO_AVAILABLE_LINE, msg);
+        this.logger.severe("Line 0: "+ msg);
     }
 
     public void schemaHasTooManyFieldsForRecord(int line, CSVRecord record) {
@@ -73,11 +71,8 @@ public class CSDValidationResult<F extends CSDField> {
         return this.errors.size();
     }
 
-    public void schema(CSDSchema<F> schema) {
-        this.schema = schema;
-    }
-    
-    public CSDSchema<F> getSchema() {
-        return schema;
+    @Override
+    public Iterator<CSDValidationError> iterator() {
+        return this.errors.iterator();
     }
 }

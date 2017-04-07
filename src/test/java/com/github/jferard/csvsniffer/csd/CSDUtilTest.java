@@ -22,6 +22,14 @@ public class CSDUtilTest {
     }
 
     @Test
+    public void isEmpty() {
+        PowerMock.replayAll();
+        Assert.assertTrue(util.isEmpty(" "));
+        Assert.assertFalse(util.isEmpty("  x "));
+        PowerMock.verifyAll();
+    }
+
+    @Test
     public void levenshteinDistance() {
         PowerMock.replayAll();
         Assert.assertEquals(5, util.levenshteinDistance("abcde", "abcdefghij"));

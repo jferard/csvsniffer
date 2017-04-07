@@ -9,7 +9,7 @@ public class CSDValidationError {
     private final String msg;
 
     public enum Type {
-        INCORRECT_VALUE, TOO_MANY_LINES_FOR_RECORD, TOO_MANY_LINES_FOR_FIRST_RECORD, INCORRECT_COLUMN_NAME, MISSING_HEADER, BAD_HEADER,
+        INCORRECT_VALUE, TOO_MANY_LINES_FOR_RECORD, TOO_MANY_LINES_FOR_FIRST_RECORD, INCORRECT_COLUMN_NAME, MISSING_HEADER, BAD_HEADER, NO_AVAILABLE_LINE,
     }
 
     CSDValidationError(int line, Type type, String msg) {
@@ -19,6 +19,6 @@ public class CSDValidationError {
     }
 
     public String toString() {
-        return "CSDValidationError of type "+type+": "+msg+" (line +"+line+")";
+        return "CSDValidationError of type "+type+": "+msg+" (line "+line+")";
     }
 }
