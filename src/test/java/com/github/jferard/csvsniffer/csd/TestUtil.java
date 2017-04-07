@@ -1,5 +1,8 @@
 package com.github.jferard.csvsniffer.csd;
 
+import java.util.Collection;
+import java.util.Iterator;
+
 /**
  * Created by jferard on 07/04/17.
  */
@@ -87,6 +90,20 @@ public class TestUtil {
             @Override
             public boolean validate(String value) {
                 return true;
+            }
+        };
+    }
+
+    public static <F> SizedIterable<F> fromCollection(final Collection<F> c) {
+        return new SizedIterable<F>() {
+            @Override
+            public int size() {
+                return c.size();
+            }
+
+            @Override
+            public Iterator<F> iterator() {
+                return c.iterator();
             }
         };
     }

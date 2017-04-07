@@ -15,6 +15,12 @@ class CSDValidatorHelper<F extends CSDField> {
         this.matcher = matcher;
     }
 
+    /**
+     * @param result the result that will hold the errors
+     * @param fields the schema / schema pattern
+     * @param firstRecord the first record of the stream
+     * @return the error count, -1 the schema has too many fields
+     */
     public int validateHeader(CSDValidationResult<F> result, SizedIterable<F> fields, CSVRecord firstRecord) {
         int headerErrorCount = 0;
         if (firstRecord.size() < fields.size()) {
@@ -36,6 +42,13 @@ class CSDValidatorHelper<F extends CSDField> {
         return headerErrorCount;
     }
 
+    /**
+     * @param result the result that will hold the errors
+     * @param fields the schema / schema pattern
+     * @param record the current record of the stream
+     * @param line the current line number
+     * @return the error count, -1 the schema has too many fields
+     */
     public int validateRecord(CSDValidationResult<F> result, SizedIterable<F> fields, CSVRecord record, int line) {
         if (record.size() < fields.size()) {
             result.schemaHasTooManyFieldsForRecord(line, record);

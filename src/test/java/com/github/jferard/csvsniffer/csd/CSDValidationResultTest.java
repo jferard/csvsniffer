@@ -21,7 +21,7 @@ public class CSDValidationResultTest {
     @Before
     public void setUp() {
         this.logger = PowerMock.createNiceMock(Logger.class);
-        this.sp = PowerMock.createMock(CSDSchemaPattern.class);
+        this.sp = (CSDSchemaPattern<CSDField>) PowerMock.createMock(CSDSchemaPattern.class);
     }
 
     @Test
