@@ -15,7 +15,7 @@ class CSDValidatorHelper<F extends CSDField> {
         this.matcher = matcher;
     }
 
-    public int validateHeader(CSDValidationResult result, SizedIterable<F> fields, CSVRecord firstRecord) {
+    public int validateHeader(CSDValidationResult<F> result, SizedIterable<F> fields, CSVRecord firstRecord) {
         int headerErrorCount = 0;
         if (firstRecord.size() < fields.size()) {
             result.schemaHasTooManyFieldsForHeader(firstRecord);

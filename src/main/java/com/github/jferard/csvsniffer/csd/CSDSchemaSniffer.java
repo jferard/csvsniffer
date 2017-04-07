@@ -14,16 +14,16 @@ import java.util.logging.Logger;
 public class CSDSchemaSniffer<F extends CSDField> {
     private final Logger logger;
     private CSDValidationResult<F> result;
-    private CSDFieldFactory factory;
+    private CSDFieldFactory<F> factory;
     private CSDValidatorHelper<F> validatorHelper;
 
-    public static <G extends CSDField> CSDSchemaSniffer create(Logger logger, CSDFieldFactory factory) {
+    public static <G extends CSDField> CSDSchemaSniffer<G> create(Logger logger, CSDFieldFactory<G> factory) {
         CSDUtil u = new CSDUtil(logger);
         CSDValidatorHelper<G> hv = new CSDValidatorHelper<G>(logger, new FlexibleColumnMatcher(logger, u));
-        return new CSDSchemaSniffer(logger, factory, hv);
+        return new CSDSchemaSniffer<G>(logger, factory, hv);
     }
 
-    public CSDSchemaSniffer(Logger logger, CSDFieldFactory factory, CSDValidatorHelper<F> validatorHelper) {
+    public CSDSchemaSniffer(Logger logger, CSDFieldFactory<F> factory, CSDValidatorHelper<F> validatorHelper) {
         this.logger = logger;
         this.factory = factory;
         this.validatorHelper = validatorHelper;
@@ -35,7 +35,7 @@ public class CSDSchemaSniffer<F extends CSDField> {
      * @param maxLine the maximum number of lines
      * @return the real CSDSchema, or null if the pattern does not match.
      */
-    public CSDSchema sniff(CSDSchemaPattern<F> schemaPattern, CSVParser parser, int maxLine) {
+    public CSDSchema<F> sniff(CSDSchemaPattern<F> schemaPattern, CSVParser parser, int maxLine) {
         this.result = new CSDValidationResult<F>(logger, schemaPattern);
         Iterator<CSVRecord> it = parser.iterator();
 

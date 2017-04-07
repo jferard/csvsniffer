@@ -14,9 +14,9 @@ public class CSDSchemaValidator<F extends CSDField> {
     private final CSDValidatorHelper<F> validatorHelper;
     private CSDValidationResult<F> result;
 
-    public static <G extends CSDField> CSDSchemaValidator create(Logger logger) {
+    public static <G extends CSDField> CSDSchemaValidator<G> create(Logger logger) {
         CSDValidatorHelper<G> hv = new CSDValidatorHelper<G>(logger, new ExactColumnMatcher(logger));
-        return new CSDSchemaValidator(logger, hv);
+        return new CSDSchemaValidator<G>(logger, hv);
     }
 
     public CSDSchemaValidator(Logger logger, CSDValidatorHelper<F> validatorHelper) {
@@ -29,7 +29,7 @@ public class CSDSchemaValidator<F extends CSDField> {
      * @param parser the CSVCRecord provider
      * @return a validation result
      */
-    public CSDValidationResult validate(CSDSchema<F> schema, CSVParser parser) {
+    public CSDValidationResult<F> validate(CSDSchema<F> schema, CSVParser parser) {
         this.result = new CSDValidationResult<F>(logger, schema);
         Iterator<CSVRecord> it = parser.iterator();
         if (it.hasNext()) {

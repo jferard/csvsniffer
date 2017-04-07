@@ -12,7 +12,7 @@ import java.util.Collections;
 public class CSDSchemaPatternTest {
     @Test
     public void testEmpty() {
-        CSDSchemaPattern s = new CSDSchemaPattern(Collections.emptyList(), false);
+        CSDSchemaPattern<CSDField> s = new CSDSchemaPattern<CSDField>(Collections.<CSDField>emptyList(), false);
         Assert.assertFalse(s.hasOptionalHeader());
         Assert.assertFalse(s.iterator().hasNext());
         Assert.assertEquals(0, s.size());
@@ -47,7 +47,7 @@ public class CSDSchemaPatternTest {
                 return true;
             }
         };
-        CSDSchemaPattern s = new CSDSchemaPattern(Arrays.asList(f), true);
+        CSDSchemaPattern<CSDField> s = new CSDSchemaPattern<CSDField>(Arrays.asList(f), true);
         Assert.assertTrue(s.hasOptionalHeader());
         Assert.assertTrue(s.iterator().hasNext());
         Assert.assertEquals(f, s.iterator().next());
@@ -82,7 +82,7 @@ public class CSDSchemaPatternTest {
                 return true;
             }
         };
-        CSDSchemaPattern s = new CSDSchemaPattern(Arrays.asList(f), true);
+        CSDSchemaPattern<CSDField> s = new CSDSchemaPattern<CSDField>(Arrays.asList(f), true);
         Assert.assertTrue(s.hasOptionalHeader());
         Assert.assertTrue(s.iterator().hasNext());
         Assert.assertEquals(f, s.iterator().next());

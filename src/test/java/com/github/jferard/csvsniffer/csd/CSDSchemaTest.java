@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 public class CSDSchemaTest {
     @Test
     public void testEmpty() {
-        CSDSchema s = new CSDSchema(Collections.emptyList(), false);
+        CSDSchema<CSDField> s = new CSDSchema<CSDField>(Collections.<CSDField>emptyList(), false);
         Assert.assertEquals("()", s.getColumns());
         Assert.assertFalse(s.hasOptionalHeader());
         Assert.assertFalse(s.iterator().hasNext());
@@ -50,7 +50,7 @@ public class CSDSchemaTest {
                 return true;
             }
         };
-        CSDSchema s = new CSDSchema(Arrays.asList(f), true);
+        CSDSchema<CSDField> s = new CSDSchema<CSDField>(Arrays.asList(f), true);
         Assert.assertEquals("(code)", s.getColumns());
         Assert.assertTrue(s.hasOptionalHeader());
         Assert.assertTrue(s.iterator().hasNext());
