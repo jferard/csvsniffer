@@ -35,9 +35,10 @@ class CSDValidatorHelper<F extends CSDField> {
 
             String columnName = field.getColumnName();
             String value = firstRecord.get(j++);
-            if (!matcher.match(columnName, value))
+            if (!matcher.match(columnName, value)) {
                 result.incorrectColumnName(columnName, value);
-            headerErrorCount++;
+                headerErrorCount++;
+            }
         }
         return headerErrorCount;
     }

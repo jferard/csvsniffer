@@ -46,6 +46,20 @@ public class CSDValidatorHelperTest {
    }
 
     @Test
+    public void validateHeaderOk() throws Exception {
+        EasyMock.expect(this.r.size()).andReturn(3);
+        EasyMock.expect(this.r.get(0)).andReturn("name");
+        EasyMock.expect(this.r.get(1)).andReturn("name");
+        EasyMock.expect(this.r.get(2)).andReturn("name");
+
+        PowerMock.replayAll();
+        SizedIterable<CSDField> fields = TestUtil.fromCollection(Arrays.asList(TestUtil.getMandatoryField(), TestUtil.getMandatoryField(), TestUtil.getOptionalField()));
+        Assert.assertEquals(3, fields.size());
+        Assert.assertEquals(0, this.vh.validateHeader(this.vr, fields, this.r));
+        PowerMock.verifyAll();
+    }
+
+    @Test
     public void validateRecordHavingTooFewRows() throws Exception {
         EasyMock.expect(this.r.size()).andReturn(1);
         this.vr.schemaHasTooManyFieldsForRecord(5, this.r);
@@ -56,4 +70,17 @@ public class CSDValidatorHelperTest {
         PowerMock.verifyAll();
     }
 
+    @Test
+    public void validateRecordOk() throws Exception {
+        EasyMock.expect(this.r.size()).andReturn(3);
+        EasyMock.expect(this.r.get(0)).andReturn("name");
+        EasyMock.expect(this.r.get(1)).andReturn("name");
+        EasyMock.expect(this.r.get(2)).andReturn("name");
+
+        PowerMock.replayAll();
+        SizedIterable<CSDField> fields = TestUtil.fromCollection(Arrays.asList(TestUtil.getMandatoryField(), TestUtil.getMandatoryField(), TestUtil.getOptionalField()));
+        Assert.assertEquals(3, fields.size());
+        Assert.assertEquals(0, this.vh.validateRecord(this.vr, fields, this.r, 5));
+        PowerMock.verifyAll();
+    }
 }
