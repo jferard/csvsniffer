@@ -1,6 +1,14 @@
 # CSV Sniffer
-(C) J. Férard 2016
+(C) J. Férard 2016-2017, 2021
 
 A simple sniffer to detect file encoding and CSV format of a file, under GPL v3.
 
-***This repository was merged into https://github.com/jferard/pgloaderutils. Issues were moved.***
+*Nota: The old version of this project is still in use in https://github.com/jferard/pgloaderutils.*
+
+## Introduction
+
+The goal of this sniffer is to detect, for a given **sane** CSV file :
+- the encoding;
+- the delimiter char, quote char and escape char;
+
+CSVSniffer uses [MetaCSV](https://github.com/jferard/MetaCSV) format.
