@@ -21,9 +21,7 @@ public class CSVSnifferIT {
         InputStream is =
                 CSVSnifferIT.class.getClassLoader().getResourceAsStream(
                         name);
-        CSVSniffer csvSniffer = new CSVSniffer(128*1024, new CSVSnifferQuoteSettings('"'),
-                new CSVSnifferQuoteSettings('\''),
-                new CSVSnifferNoQuoteSettings());
+        CSVSniffer csvSniffer = CSVSniffer.create();
         System.out.println(csvSniffer.sniff(is));
     }
 }

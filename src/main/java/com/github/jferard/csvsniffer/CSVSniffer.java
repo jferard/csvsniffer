@@ -2,7 +2,6 @@ package com.github.jferard.csvsniffer;
 
 import com.github.jferard.javamcsv.MetaCSVData;
 import org.mozilla.intl.chardet.nsDetector;
-import org.mozilla.intl.chardet.nsICharsetDetectionObserver;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -11,10 +10,15 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class CSVSniffer {
+    public static CSVSniffer create() {
+        return new CSVSniffer(128*1024, new CSVSnifferQuoteSettings('"'),
+                new CSVSnifferQuoteSettings('\''),
+                new CSVSnifferNoQuoteSettings());
+    }
+
     private final CSVSnifferSettings[] settingsList;
     String charset = null;
     private final int bufferSize;
