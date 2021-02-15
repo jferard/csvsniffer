@@ -1,0 +1,286 @@
+﻿cle_interop;uid_adresse;voie_nom;numero;suffixe;commune_nom;position;x;y;long;lat;source;date_der_maj;refparc;voie_nom_eu;complement
+64214_0010_00700;;Route du Pays de Soule;700;;Espès-undurein;entrée;385432.96;6250383.75;-0.8748110149745267;43.28315047649357;Commune de Espès-undurein;2020-06-11;ZB0188;Xiberoko errepidea;
+64214_0010_01009;;Route du Pays de Soule;1009;;Espès-undurein;entrée;385241.56;6250175.71;-0.8770390895974752;43.281196851735565;Commune de Espès-undurein;2020-10-01;ZB0253;Xiberoko errepidea;
+64214_0010_01021;;Route du Pays de Soule;1021;;Espès-undurein;entrée;385241.08;6250162.92;-0.8770372480374373;43.28108167560538;Commune de Espès-undurein;2020-10-01;ZB0252;Xiberoko errepidea;
+64214_0010_01146;;Route du Pays de Soule;1146;;Espès-undurein;entrée;385229.94;6250037.89;-0.8770986825811583;43.27995344376114;Commune de Espès-undurein;2020-10-01;ZC0103;Xiberoko errepidea;
+64214_0010_01154;;Route du Pays de Soule;1154;;Espès-undurein;entrée;385231.66;6250029.98;-0.8770728160645495;43.27988316234778;Commune de Espès-undurein;2020-10-01;ZC0101;Xiberoko errepidea;
+64214_0010_01250;;Route du Pays de Soule;1250;;Espès-undurein;entrée;385254.13;6249936.39;-0.8767399413762476;43.27905221487515;Commune de Espès-undurein;2020-10-01;ZC0099;Xiberoko errepidea;
+64214_0010_01279;;Route du Pays de Soule;1279;;Espès-undurein;entrée;385280.36;6249913.55;-0.8764035460029161;43.27885851960434;Commune de Espès-undurein;2020-10-01;ZB0338;Xiberoko errepidea;
+64214_0010_01387;;Route du Pays de Soule;1387;;Espès-undurein;entrée;385309.32;6249809.56;-0.8759846650084071;43.277937014636805;Commune de Espès-undurein;2020-10-01;ZC0120;Xiberoko errepidea;
+64214_0010_01411;;Route du Pays de Soule;1411;;Espès-undurein;entrée;385312.42;6249784.31;-0.8759312568782226;43.277711518681706;Commune de Espès-undurein;2020-10-01;ZC0122;Xiberoko errepidea;
+64214_0010_01645;;Route du Pays de Soule;1645;;Espès-undurein;entrée;385344.75;6249551.7;-0.8753931605362456;43.275635858604836;Commune de Espès-undurein;2020-10-01;ZC0237;Xiberoko errepidea;
+64214_0010_01696;;Route du Pays de Soule;1696;;Espès-undurein;entrée;385329.83;6249499.91;-0.8755453849205774;43.27516395393402;Commune de Espès-undurein;2020-10-01;ZC0123;Xiberoko errepidea;
+64214_0010_01850;;Route du Pays de Soule;1850;;Espès-undurein;entrée;385347.74;6249345.76;-0.8752320760490727;43.27378686817038;Commune de Espès-undurein;2020-10-01;ZC0165;Xiberoko errepidea;
+64214_0010_01931;;Route du Pays de Soule;1931;;Espès-undurein;entrée;385380.64;6249267.89;-0.8747804602484472;43.27310175879092;Commune de Espès-undurein;2020-10-01;ZC0143;Xiberoko errepidea;
+64214_0010_01945;;Route du Pays de Soule;1945;;Espès-undurein;entrée;385379.01;6249253.24;-0.8747916806361759;43.272969452310605;Commune de Espès-undurein;2020-10-01;ZC0141;Xiberoko errepidea;
+64214_0010_01973;;Route du Pays de Soule;1973;;Espès-undurein;entrée;385377.02;6249223.09;-0.8747979693379477;43.27269763780328;Commune de Espès-undurein;2020-10-01;ZC0146;Xiberoko errepidea;
+64214_0010_01980;;Route du Pays de Soule;1980;;Espès-undurein;entrée;385357.92;6249219.98;-0.8750308349990711;43.27266125741446;Commune de Espès-undurein;2020-10-01;ZC0163;Xiberoko errepidea;Barretx
+64214_0010_01999;;Route du Pays de Soule;1999;;Espès-undurein;entrée;385371.47;6249198.09;-0.8748510247270431;43.2724706249783;Commune de Espès-undurein;2020-10-01;ZC0149;Xiberoko errepidea;
+64214_0010_02012;;Route du Pays de Soule;2012;;Espès-undurein;entrée;385351.83;6249188.13;-0.8750864823443312;43.272372451592524;Commune de Espès-undurein;2020-10-01;ZC0160;Xiberoko errepidea;Etxart
+64214_0010_02033;;Route du Pays de Soule;2033;;Espès-undurein;entrée;385360.44;6249165.46;-0.8749670337573804;43.27217254318737;Commune de Espès-undurein;2020-10-01;ZC0151;Xiberoko errepidea;Goiti
+64214_0010_02048;;Route du Pays de Soule;2048;;Espès-undurein;entrée;385341.15;6249155.24;-0.8751980349465943;43.27207224807798;Commune de Espès-undurein;2020-10-01;ZC0210;Xiberoko errepidea;
+64214_0010_02096;;Route du Pays de Soule;2096;;Espès-undurein;entrée;385328.15;6249109.6;-0.875330329131076;43.27165641920462;Commune de Espès-undurein;2020-10-01;ZC0157;Xiberoko errepidea;Capbreton
+64214_0010_02158;;Route du Pays de Soule;2158;;Espès-undurein;entrée;385304.31;6249051.03;-0.8755880665078843;43.2711196743915;Commune de Espès-undurein;2020-10-01;ZC0221;Xiberoko errepidea;
+64214_0010_02185;;Route du Pays de Soule;2185;;Espès-undurein;entrée;385311.27;6249016.24;-0.8754815012113253;43.27081013849186;Commune de Espès-undurein;2020-10-01;ZC0153;Xiberoko errepidea;
+64214_0010_02189;;Route du Pays de Soule;2189;;Espès-undurein;entrée;385313.37;6249010.58;-0.8754522473609987;43.270760261441495;Commune de Espès-undurein;2020-10-01;ZC0154;Xiberoko errepidea;
+64214_0010_02261;;Route du Pays de Soule;2261;;Espès-undurein;entrée;385246.0;6248971.95;-0.8762571992185615;43.27038341567758;Commune de Espès-undurein;2020-10-01;ZD0154;Xiberoko errepidea;Lago
+64214_0010_02306;;Route du Pays de Soule;2306;;Espès-undurein;entrée;385200.07;6248960.43;-0.8768149376920878;43.27025968914878;Commune de Espès-undurein;2020-10-01;ZD0153;Xiberoko errepidea;
+64214_0010_02325;;Route du Pays de Soule;2325;;Espès-undurein;entrée;385195.05;6248934.15;-0.876860778469912;43.27002130707006;Commune de Espès-undurein;2020-10-01;ZD0391;Xiberoko errepidea;
+64214_0010_02330;;Route du Pays de Soule;2330;;Espès-undurein;entrée;385181.24;6248949.28;-0.8770398170873259;43.27015115815958;Commune de Espès-undurein;2020-06-11;ZD0151;Xiberoko errepidea;
+64214_0010_02353;;Route du Pays de Soule;2353;;Espès-undurein;entrée;385171.71;6248918.51;-0.8771383730965471;43.26987047373442;Commune de Espès-undurein;2020-10-01;ZD0392;Xiberoko errepidea;
+64214_0010_02385;;Route du Pays de Soule;2385;;Espès-undurein;entrée;385142.89;6248903.06;-0.8774833542490742;43.26971895479923;Commune de Espès-undurein;2020-10-01;ZD0381;Xiberoko errepidea;
+64214_0010_02415;;Route du Pays de Soule;2415;;Espès-undurein;entrée;385116.19;6248887.25;-0.8778020864149647;43.26956514178886;Commune de Espès-undurein;2020-10-01;ZD0159;Xiberoko errepidea;
+64214_0010_02426;;Route du Pays de Soule;2426;;Espès-undurein;entrée;385097.52;6248899.31;-0.8780389843569584;43.269665231138404;Commune de Espès-undurein;2020-10-01;ZD0160;Xiberoko errepidea;
+64214_0010_02452;;Route du Pays de Soule;2452;;Espès-undurein;entrée;385076.28;6248882.07;-0.8782896252719365;43.26950099922244;Commune de Espès-undurein;2020-10-01;ZD0161;Xiberoko errepidea;
+64214_0010_02549;;Route du Pays de Soule;2549;;Espès-undurein;entrée;385021.46;6248803.23;-0.878916060858581;43.2687683797313;Commune de Espès-undurein;2020-10-01;ZD0319;Xiberoko errepidea;
+64214_0010_02562;;Route du Pays de Soule;2562;;Espès-undurein;entrée;384996.92;6248800.83;-0.8792163608006891;43.26873598685595;Commune de Espès-undurein;2020-10-01;ZD0145;Xiberoko errepidea;
+64214_0010_02607;;Route du Pays de Soule;2607;;Espès-undurein;entrée;384989.89;6248753.37;-0.8792740309819979;43.26830646385893;Commune de Espès-undurein;2020-10-01;ZD0172;Xiberoko errepidea;
+64214_0010_02715;;Route du Pays de Soule;2715;;Espès-undurein;entrée;384947.93;6248659.69;-0.8797333598656616;43.26744627645391;Commune de Espès-undurein;2020-10-01;ZD0175;Xiberoko errepidea;
+64214_0010_02770;;Route du Pays de Soule;2770;;Espès-undurein;entrée;384932.78;6248605.23;-0.8798866433864021;43.266950256521504;Commune de Espès-undurein;2020-10-01;ZD0185;Xiberoko errepidea;Dendar
+64214_0010_02805;;Route du Pays de Soule;2805;;Espès-undurein;entrée;384949.62;6248569.34;-0.8796579162020288;43.26663531251337;Commune de Espès-undurein;2020-10-01;ZD0223;Xiberoko errepidea;Kanttu
+64214_0010_02806;;Route du Pays de Soule;2806;;Espès-undurein;entrée;384934.26;6248567.45;-0.8798456425440832;43.26661148791691;Commune de Espès-undurein;2020-10-01;ZD0186;Xiberoko errepidea;
+64214_0010_02841;;Route du Pays de Soule;2841;;Espès-undurein;entrée;384947.92;6248531.58;-0.8796559848472336;43.2662952243887;Commune de Espès-undurein;2020-10-01;ZD0222;Xiberoko errepidea;
+64214_0010_02901;;Route du Pays de Soule;2901;;Espès-undurein;entrée;384921.8;6248474.64;-0.8799426392156942;43.265772133875565;Commune de Espès-undurein;2020-10-01;ZD0216;Xiberoko errepidea;Onku
+64214_0010_02902;;Route du Pays de Soule;2902;;Espès-undurein;entrée;384907.35;6248481.92;-0.8801247271447261;43.265831153284815;Commune de Espès-undurein;2020-10-01;ZD0187;Xiberoko errepidea;
+64214_0010_02922;;Route du Pays de Soule;2922;;Espès-undurein;entrée;384897.95;6248464.65;-0.8802299285300602;43.265671828645246;Commune de Espès-undurein;2020-10-01;ZD0188;Xiberoko errepidea;
+64214_0010_03010;;Route du Pays de Soule;3010;;Espès-undurein;entrée;384860.18;6248385.47;-0.880646340306897;43.26494374254144;Commune de Espès-undurein;2020-10-01;ZD0191;Xiberoko errepidea;
+64214_0010_03015;;Route du Pays de Soule;3015;;Espès-undurein;entrée;384871.9;6248373.11;-0.880494740960526;43.26483793160065;Commune de Espès-undurein;2020-10-01;ZD0208;Xiberoko errepidea;Aphardoi
+64214_0010_03059;;Route du Pays de Soule;3059;;Espès-undurein;entrée;384853.98;6248334.41;-0.880691692176064;43.264482297879034;Commune de Espès-undurein;2020-10-01;ZD0207;Xiberoko errepidea;
+64214_0010_03077;;Route du Pays de Soule;3077;;Espès-undurein;entrée;384848.19;6248316.25;-0.8807518954555164;43.26431654519918;Commune de Espès-undurein;2020-10-01;ZD0205;Xiberoko errepidea;
+64214_0010_03093;;Route du Pays de Soule;3093;;Espès-undurein;entrée;384846.29;6248301.87;-0.8807665074184488;43.26418650702676;Commune de Espès-undurein;2020-10-01;ZD0204;Xiberoko errepidea;
+64214_0010_03124;;Route du Pays de Soule;3124;;Espès-undurein;entrée;384823.55;6248274.88;-0.8810297870883367;43.26393393635472;Commune de Espès-undurein;2020-10-01;ZD0196;Xiberoko errepidea;
+64214_0010_03151;;Route du Pays de Soule;3151;;Espès-undurein;entrée;384837.76;6248245.18;-0.8808371321182317;43.26367340853083;Commune de Espès-undurein;2020-10-01;ZD0202;Xiberoko errepidea;
+64214_0010_03170;;Route du Pays de Soule;3170;;Espès-undurein;entrée;384819.53;6248228.29;-0.881051045894331;43.26351358906218;Commune de Espès-undurein;2020-10-01;ZD0198;Xiberoko errepidea;
+64214_0010_03195;;Route du Pays de Soule;3195;;Espès-undurein;entrée;384833.22;6248201.42;-0.8808665084678619;43.26327821910375;Commune de Espès-undurein;2020-10-01;ZD0251;Xiberoko errepidea;
+64214_0010_03200;;Route du Pays de Soule;3200;;Espès-undurein;entrée;384815.21;6248199.0;-0.8810864781050814;43.26324853425415;Commune de Espès-undurein;2020-10-01;ZD0201;Xiberoko errepidea;
+64214_0010_03231;;Route du Pays de Soule;3231;;Espès-undurein;entrée;384827.82;6248165.6;-0.8809112510059955;43.26295403815528;Commune de Espès-undurein;2020-10-01;ZD0252;Xiberoko errepidea;
+64214_0010_03236;;Route du Pays de Soule;3236;;Espès-undurein;entrée;384807.86;6248162.13;-0.8811544909946984;43.262914029912174;Commune de Espès-undurein;2020-10-01;ZD0410;Xiberoko errepidea;
+64214_0010_03288;;Route du Pays de Soule;3288;;Espès-undurein;entrée;384812.12;6248108.28;-0.8810696302999246;43.26243209824629;Commune de Espès-undurein;2020-10-01;ZD0411;Xiberoko errepidea;
+64214_0010_03329;;Route du Pays de Soule;3329;;Espès-undurein;entrée;384837.07;6248069.2;-0.880739274374402;43.26209197899482;Commune de Espès-undurein;2020-10-01;ZD0331;Xiberoko errepidea;
+64214_0010_03348;;Route du Pays de Soule;3348;;Espès-undurein;entrée;384817.76;6248047.9;-0.8809636963305845;43.261892066819165;Commune de Espès-undurein;2020-10-01;ZD0343;Xiberoko errepidea;
+64214_0010_03350;;Route du Pays de Soule;3350;;Espès-undurein;entrée;384818.28;6248045.42;-0.8809557808214195;43.261870081189265;Commune de Espès-undurein;2020-10-01;ZD0345;Xiberoko errepidea;
+64214_0020_00040;;Rue Agerria;40;;Espès-undurein;entrée;384824.54;6248383.71;-0.8810834006919048;43.264912177755996;Commune de Espès-undurein;2020-10-01;ZD0191;Agerreko karrika;Gohetxia
+64214_0020_00050;;Rue Agerria;50;;Espès-undurein;entrée;384813.76;6248386.31;-0.8812175755299284;43.264930779029136;Commune de Espès-undurein;2020-10-01;ZD0191;Agerreko karrika;
+64214_0020_00052;;Rue Agerria;52;;Espès-undurein;entrée;384811.76;6248386.75;-0.8812424601395957;43.264933825297405;Commune de Espès-undurein;2020-10-01;ZD0191;Agerreko karrika;Aroserra
+64214_0020_00395;;Rue Agerria;395;;Espès-undurein;entrée;384479.0;6248432.91;-0.8853613852639098;43.26520141700251;Commune de Espès-undurein;2020-10-01;ZD0270;Agerreko karrika;
+64214_0020_00406;;Rue Agerria;406;;Espès-undurein;entrée;384473.57;6248448.63;-0.8854376079674386;43.265340305060654;Commune de Espès-undurein;2020-10-01;ZD0397;Agerreko karrika;
+64214_0020_00447;;Rue Agerria;447;;Espès-undurein;entrée;384433.57;6248458.84;-0.8859355692455311;43.265414291648526;Commune de Espès-undurein;2020-10-01;ZD0310;Agerreko karrika;
+64214_0020_00450;;Rue Agerria;450;;Espès-undurein;entrée;384435.74;6248474.01;-0.8859181644195461;43.26555157805721;Commune de Espès-undurein;2020-10-01;ZD0406;Agerreko karrika;Xanpo
+64214_0020_00460;;Rue Agerria;460;;Espès-undurein;entrée;384429.92;6248478.62;-0.8859924001589752;43.265590394032124;Commune de Espès-undurein;2020-10-01;ZD0287;Agerreko karrika;Txüntxür
+64214_0020_00546;;Rue Agerria;546;;Espès-undurein;entrée;384386.35;6248546.88;-0.8865694487241521;43.266184422262405;Commune de Espès-undurein;2020-10-01;ZD0289;Agerreko karrika;
+64214_0020_00555;;Rue Agerria;555;;Espès-undurein;entrée;384371.18;6248548.34;-0.8867569098574737;43.2661907958641;Commune de Espès-undurein;2020-10-01;ZD0298;Agerreko karrika;
+64214_0020_00570;;Rue Agerria;570;;Espès-undurein;entrée;384373.53;6248568.28;-0.886740049396993;43.26637098071849;Commune de Espès-undurein;2020-10-01;ZD0388;Agerreko karrika;
+64214_0020_00598;;Rue Agerria;598;;Espès-undurein;entrée;384361.24;6248591.79;-0.8869053456872675;43.26657679252003;Commune de Espès-undurein;2020-10-01;ZD0389;Agerreko karrika;
+64214_0020_00616;;Rue Agerria;616;;Espès-undurein;entrée;384353.88;6248607.88;-0.8870056495467284;43.266718043885355;Commune de Espès-undurein;2020-10-01;ZD0372;Agerreko karrika;
+64214_0020_00680;;Rue Agerria;680;;Espès-undurein;entrée;384347.02;6248669.73;-0.8871273805494386;43.26727074921994;Commune de Espès-undurein;2020-06-11;ZD0294;Agerreko karrika;Agerria
+64214_0020_00729;;Rue Agerria;729;;Espès-undurein;entrée;384328.33;6248712.65;-0.8873832513648929;43.267648122848;Commune de Espès-undurein;2020-01-09;ZD0296;Agerreko karrika;
+64214_0030_00035;;Chemin Bürgübürüa;35;;Espès-undurein;entrée;384449.29;6248414.99;-0.885715765414617;43.26502730060392;Commune de Espès-undurein;2020-10-01;ZD0365;Bürgübürüko bidea;
+64214_0030_00043;;Chemin Bürgübürüa;43;;Espès-undurein;entrée;384445.21;6248408.65;-0.8857620678587244;43.2649685121015;Commune de Espès-undurein;2020-10-01;ZD0363;Bürgübürüko bidea;
+64214_0030_00044;;Chemin Bürgübürüa;44;;Espès-undurein;entrée;384433.52;6248414.41;-0.8859093317438439;43.26501507071805;Commune de Espès-undurein;2020-10-01;ZD0312;Bürgübürüko bidea;
+64214_0030_00063;;Chemin Bürgübürüa;63;;Espès-undurein;entrée;384433.69;6248390.68;-0.8858928959030202;43.264801956809066;Commune de Espès-undurein;2020-10-01;ZD0266;Bürgübürüko bidea;
+64214_0030_00101;;Chemin Bürgübürüa;101;;Espès-undurein;entrée;384413.47;6248360.02;-0.8861228379780012;43.26451760380646;Commune de Espès-undurein;2020-10-01;ZD0264;Bürgübürüko bidea;
+64214_0030_00113;;Chemin Bürgübürüa;113;;Espès-undurein;entrée;384406.74;6248349.98;-0.8861995853347684;43.26442440547444;Commune de Espès-undurein;2020-10-01;ZD0339;Bürgübürüko bidea;
+64214_0030_00155;;Chemin Bürgübürüa;155;;Espès-undurein;entrée;384379.12;6248316.69;-0.8865189364959657;43.26411309965033;Commune de Espès-undurein;2020-10-01;ZD0259;Bürgübürüko bidea;Oihanondoa
+64214_0030_00169;;Chemin Bürgübürüa;169;;Espès-undurein;entrée;384372.2;6248305.33;-0.886597099495077;43.26400793179507;Commune de Espès-undurein;2020-10-01;ZD0258;Bürgübürüko bidea;
+64214_0040_00011;;Chemin Pierrette;11;;Espès-undurein;entrée;384408.8;6248466.81;-0.8862449813204519;43.26547494566468;Commune de Espès-undurein;2020-10-01;ZD0308;Pierretako bidea;
+64214_0040_00040;;Chemin Pierrette;40;;Espès-undurein;entrée;384382.02;6248484.19;-0.886584730667847;43.265619223154744;Commune de Espès-undurein;2020-10-01;ZD0304;Pierretako bidea;
+64214_0040_00043;;Chemin Pierrette;43;;Espès-undurein;entrée;384376.7;6248474.49;-0.8866443163925453;43.26552978422241;Commune de Espès-undurein;2020-10-01;ZD0307;Pierretako bidea;Miñaborda
+64214_0040_00066;;Chemin Pierrette;66;;Espès-undurein;entrée;384355.74;6248489.91;-0.8869113378904803;43.265659036817596;Commune de Espès-undurein;2020-10-01;ZD0302;Pierretako bidea;
+64214_0040_00117;;Chemin Pierrette;117;;Espès-undurein;entrée;384304.35;6248482.3;-0.8875385058146114;43.26556787589682;Commune de Espès-undurein;2020-10-01;ZD0305;Pierretako bidea;Pierreta
+64214_0050_00082;;Route d'Ainharp;82;;Espès-undurein;entrée;384862.06;6248685.99;-0.8808049120293873;43.26764464077183;Commune de Espès-undurein;2020-01-09;ZD0141;Ainharbeko errepidea;
+64214_0050_00083;;Route d'Ainharp;83;;Espès-undurein;entrée;384857.97;6248672.59;-0.8808472076183664;43.2675224097831;Commune de Espès-undurein;2020-01-09;ZD0179;Ainharbeko errepidea;
+64214_0050_00107;;Route d'Ainharp;107;;Espès-undurein;entrée;384833.62;6248676.9;-0.8811491431053572;43.267550357452095;Commune de Espès-undurein;2020-01-09;ZD0180;Ainharbeko errepidea;
+64214_0050_00212;;Route d'Ainharp;212;;Espès-undurein;entrée;384737.91;6248720.11;-0.8823520639977696;43.26789633257015;Commune de Espès-undurein;2020-01-09;ZD0126;Ainharbeko errepidea;
+64214_0050_00213;;Route d'Ainharp;213;;Espès-undurein;entrée;384733.31;6248704.97;-0.8823994173568991;43.267758263370034;Commune de Espès-undurein;2020-01-09;ZD0276;Ainharbeko errepidea;
+64214_0050_00263;;Route d'Ainharp;263;;Espès-undurein;entrée;384685.47;6248704.23;-0.882987118984121;43.26773045271382;Commune de Espès-undurein;2020-01-09;ZD0277;Ainharbeko errepidea;
+64214_0050_00311;;Route d'Ainharp;311;;Espès-undurein;entrée;384638.4;6248694.84;-0.8835601328547739;43.26762524984071;Commune de Espès-undurein;2020-01-09;ZD0279;Ainharbeko errepidea;
+64214_0050_00345;;Route d'Ainharp;345;;Espès-undurein;entrée;384601.34;6248695.65;-0.8840163368158925;43.2676161846949;Commune de Espès-undurein;2020-01-09;ZD0281;Ainharbeko errepidea;
+64214_0050_00367;;Route d'Ainharp;367;;Espès-undurein;entrée;384578.72;6248703.56;-0.8842992412216962;43.26767718347825;Commune de Espès-undurein;2020-01-09;ZD0271;Ainharbeko errepidea;
+64214_0050_00377;;Route d'Ainharp;377;;Espès-undurein;entrée;384568.15;6248710.3;-0.8844332869048684;43.26773305224496;Commune de Espès-undurein;2020-01-09;ZD0283;Ainharbeko errepidea;
+64214_0050_00448;;Route d'Ainharp;448;;Espès-undurein;entrée;384509.84;6248739.53;-0.8851677959609433;43.267969915942885;Commune de Espès-undurein;2020-01-09;ZD0124;Ainharbeko errepidea;
+64214_0050_00449;;Route d'Ainharp;449;;Espès-undurein;entrée;384512.79;6248725.67;-0.8851232482821376;43.267846730786005;Commune de Espès-undurein;2020-01-09;ZD0284;Ainharbeko errepidea;
+64214_0050_00464;;Route d'Ainharp;464;;Espès-undurein;entrée;384493.93;6248737.56;-0.8853622215709143;43.26794514557504;Commune de Espès-undurein;2020-01-09;ZD0121;Ainharbeko errepidea;
+64214_0050_00518;;Route d'Ainharp;518;;Espès-undurein;entrée;384443.26;6248722.0;-0.8859758286350519;43.26778297166368;Commune de Espès-undurein;2020-10-01;ZD0115;Ainharbeko errepidea;
+64214_0050_00622;;Route d'Ainharp;622;;Espès-undurein;entrée;384344.44;6248730.35;-0.8871959077539622;43.26781423276098;Commune de Espès-undurein;2020-06-06;ZD0113;Ainharbeko errepidea;Sagardoibürü
+64214_0050_00709;;Route d'Ainharp;709;;Espès-undurein;entrée;384280.31;6248782.05;-0.8880156257957427;43.26825035081036;Commune de Espès-undurein;2020-01-09;AK0095;Ainharbeko errepidea;
+64214_0050_00712;;Route d'Ainharp;712;;Espès-undurein;entrée;384293.02;6248787.54;-0.8878627530292751;43.26830529054291;Commune de Espès-undurein;2020-01-09;ZD0112;Ainharbeko errepidea;
+64214_0050_00734;;Route d'Ainharp;734;;Espès-undurein;entrée;384290.24;6248808.56;-0.8879096093590606;43.26849291569861;Commune de Espès-undurein;2020-01-09;ZD0108;Ainharbeko errepidea;
+64214_0050_00780;;Route d'Ainharp;780;;Espès-undurein;entrée;384283.99;6248855.94;-0.8880151158278616;43.268915874453754;Commune de Espès-undurein;2020-06-06;ZD0107;Ainharbeko errepidea;Ternaberri
+64214_0050_01051;;Route d'Ainharp;1051;;Espès-undurein;entrée;384020.04;6248790.42;-0.8912207134129924;43.26821030986665;Commune de Espès-undurein;2020-01-09;AK0186;Ainharbeko errepidea;
+64214_0050_01200;;Route d'Ainharp;1200;;Espès-undurein;entrée;383879.01;6248757.95;-0.8929349748261851;43.26785607170362;Commune de Espès-undurein;2020-09-18;AK0121;Ainharbeko errepidea;Kaset
+64214_0050_01221;;Route d'Ainharp;1221;;Espès-undurein;entrée;383863.16;6248732.93;-0.8931146020589418;43.26762421771343;Commune de Espès-undurein;2020-01-09;AK0190;Ainharbeko errepidea;
+64214_0050_02575;;Route d'Ainharp;2575;;Espès-undurein;entrée;382780.11;6249142.44;-0.9066795496179363;43.27082248125826;Commune de Espès-undurein;2020-09-18;AL0361;Ainharbeko errepidea;Eihera
+64214_0060_00031;;Route d'Altxubidia;31;;Espès-undurein;entrée;384268.68;6248890.12;-0.8882240517149134;43.269216183582124;Commune de Espès-undurein;2020-10-01;AK0263;Altxubideko errepidea;
+64214_0060_00045;;Route d'Altxubidia;45;;Espès-undurein;entrée;384268.85;6248904.66;-0.8882307881695182;43.26934692102918;Commune de Espès-undurein;2020-10-01;AK0256;Altxubideko errepidea;
+64214_0060_00110;;Route d'Altxubidia;110;;Espès-undurein;entrée;384289.51;6248965.5;-0.8880136867405456;43.26990264884632;Commune de Espès-undurein;2020-10-01;ZD0105;Altxubideko errepidea;Lüsto
+64214_0060_00121;;Route d'Altxubidia;121;;Espès-undurein;entrée;384284.15;6248979.64;-0.8880881148940564;43.27002728000008;Commune de Espès-undurein;2020-10-01;AK0069;Altxubideko errepidea;Buenia
+64214_0060_00138;;Route d'Altxubidia;138;;Espès-undurein;entrée;384296.78;6248993.61;-0.8879413405913659;43.27015845471834;Commune de Espès-undurein;2020-10-01;ZD0360;Altxubideko errepidea;Lüstoberria
+64214_0060_00156;;Route d'Altxubidia;156;;Espès-undurein;entrée;384297.89;6249012.5;-0.8879390734106892;43.27032860873136;Commune de Espès-undurein;2020-10-01;ZD0361;Altxubideko errepidea;
+64214_0060_00197;;Route d'Altxubidia;197;;Espès-undurein;entrée;384286.53;6249053.27;-0.8881035244408513;43.270689881495784;Commune de Espès-undurein;2020-10-01;AK0187;Altxubideko errepidea;
+64214_0060_00201;;Route d'Altxubidia;201;;Espès-undurein;entrée;384286.19;6249058.21;-0.8881106804891735;43.270734145514496;Commune de Espès-undurein;2020-10-01;AK0188;Altxubideko errepidea;
+64214_0060_00276;;Route d'Altxubidia;276;;Espès-undurein;entrée;384301.94;6249132.3;-0.8879618898111644;43.27140677397397;Commune de Espès-undurein;2020-10-01;ZD0002;Altxubideko errepidea;
+64214_0060_00281;;Route d'Altxubidia;281;;Espès-undurein;entrée;384289.25;6249136.75;-0.8881206874629021;43.27144113752946;Commune de Espès-undurein;2020-10-01;AK0061;Altxubideko errepidea;
+64214_0060_00291;;Route d'Altxubidia;291;;Espès-undurein;entrée;384289.1;6249147.34;-0.8881288900426726;43.271536230347365;Commune de Espès-undurein;2020-10-01;AK0215;Altxubideko errepidea;
+64214_0060_00539;;Route d'Altxubidia;539;;Espès-undurein;entrée;384218.44;6249371.15;-0.8891333692169786;43.27351579912995;Commune de Espès-undurein;2020-10-01;AD0174;Altxubideko errepidea;
+64214_0060_00630;;Route d'Altxubidia;630;;Espès-undurein;entrée;384207.25;6249461.72;-0.8893258363367266;43.27432454642624;Commune de Espès-undurein;2020-09-18;ZC0250;Altxubideko errepidea;Lavignotte
+64214_0060_00819;;Route d'Altxubidia;819;;Espès-undurein;entrée;384217.79;6249647.72;-0.8893090002752104;43.27600029293155;Commune de Espès-undurein;2020-10-01;AD0149;Altxubideko errepidea;Trunpetenia
+64214_0060_00890;;Route d'Altxubidia;890;;Espès-undurein;entrée;384241.82;6249716.84;-0.8890553664922531;43.27663196470449;Commune de Espès-undurein;2020-10-01;ZC0174;Altxubideko errepidea;Baxka
+64214_0060_01099;;Route d'Altxubidia;1099;;Espès-undurein;entrée;384289.38;6249913.14;-0.8885895170065374;43.27841673213722;Commune de Espès-undurein;2020-10-01;AD0133;Altxubideko errepidea;Iragoihen
+64214_0060_01287;;Route d'Altxubidia;1287;;Espès-undurein;entrée;384420.25;6250053.78;-0.8870654643908532;43.279738279574545;Commune de Espès-undurein;2020-10-01;ZC0074;Altxubideko errepidea;
+64214_0070_00165;;Chemin Mena;165;;Espès-undurein;entrée;384152.14;6249051.79;-0.8897550227795413;43.27061706361655;Commune de Espès-undurein;2020-10-01;AK0302;Menako bidea;Üthürbürü
+64214_0070_00187;;Chemin Mena;187;;Espès-undurein;entrée;384133.71;6249059.08;-0.8899859727370508;43.27067441376134;Commune de Espès-undurein;2020-10-01;AK0301;Menako bidea;
+64214_0070_00227;;Chemin Mena;227;;Espès-undurein;entrée;384094.3;6249072.35;-0.8904785930761615;43.27077615106194;Commune de Espès-undurein;2020-10-01;AK0287;Menako bidea;
+64214_0070_00257;;Chemin Mena;257;;Espès-undurein;entrée;384064.33;6249079.09;-0.8908511550666134;43.27082345346373;Commune de Espès-undurein;2020-10-01;AK0285;Menako bidea;
+64214_0070_00280;;Chemin Mena;280;;Espès-undurein;entrée;384049.23;6249104.37;-0.8910522127868407;43.27104394388901;Commune de Espès-undurein;2020-10-01;AK0248;Menako bidea;
+64214_0070_00290;;Chemin Mena;290;;Espès-undurein;entrée;384038.98;6249119.48;-0.8911873229349757;43.27117510188895;Commune de Espès-undurein;2020-10-01;AK0058;Menako bidea;
+64214_0070_00294;;Chemin Mena;294;;Espès-undurein;entrée;384033.88;6249106.71;-0.8912423628872991;43.27105816716416;Commune de Espès-undurein;2020-10-01;AK0057;Menako bidea;
+64214_0070_00295;;Chemin Mena;295;;Espès-undurein;entrée;384031.88;6249089.42;-0.8912563794205225;43.27090192043847;Commune de Espès-undurein;2020-10-01;AK0081;Menako bidea;
+64214_0070_00359;;Chemin Mena;359;;Espès-undurein;entrée;383966.39;6249098.33;-0.8920670882591886;43.27095292960126;Commune de Espès-undurein;2020-10-01;AK0054;Menako bidea;Mena
+64214_0070_00410;;Chemin Mena;410;;Espès-undurein;entrée;383925.8;6249134.06;-0.8925878216425631;43.271255986250154;Commune de Espès-undurein;2020-10-01;AK0179;Menako bidea;
+64214_0080_00011;;Impasse Agergarai;11;;Espès-undurein;entrée;384172.68;6249039.19;-0.8894948431181641;43.27051295791143;Commune de Espès-undurein;2020-10-01;AK0077;Agergaraiko bide ütsüa;Agergarai
+64214_0080_00072;;Impasse Agergarai;72;;Espès-undurein;entrée;384124.9;6248999.08;-0.8900579677610683;43.270131483434746;Commune de Espès-undurein;2020-10-01;AK0085;Agergaraiko bide ütsüa;
+64214_0090_00137;;Rue Errekaltia;137;;Espès-undurein;entrée;384451.54;6248932.03;-0.8860011660304126;43.26967369588007;Commune de Espès-undurein;2020-10-01;ZD0355;Errekalteko karrika;
+64214_0090_00190;;Rue Errekaltia;190;;Espès-undurein;entrée;384420.43;6248976.08;-0.886410375418088;43.270055640369094;Commune de Espès-undurein;2020-10-01;ZD0092;Errekalteko karrika;Parisenia
+64214_0100_00058;;Rue Arreat;58;;Espès-undurein;entrée;384545.31;6248796.07;-0.8847660012498683;43.26849355324294;Commune de Espès-undurein;2020-10-01;ZD0125;Arreateko karrika;Arreat
+64214_0100_00111;;Rue Arreat;111;;Espès-undurein;entrée;384557.21;6248846.68;-0.8846503476852152;43.268953601981025;Commune de Espès-undurein;2020-10-01;ZD0104;Arreateko karrika;Errekaltia
+64214_0100_00140;;Rue Arreat;140;;Espès-undurein;entrée;384576.59;6248866.57;-0.8844240231840105;43.26914086881781;Commune de Espès-undurein;2020-10-01;ZD0103;Arreateko karrika;Alga
+64214_0100_00299;;Rue Arreat;299;;Espès-undurein;entrée;384585.8;6249022.23;-0.8844050931680455;43.270543426747075;Commune de Espès-undurein;2020-10-01;ZD0093;Arreateko karrika;
+64214_0100_00318;;Rue Arreat;318;;Espès-undurein;entrée;384596.97;6249041.79;-0.8842794939313648;43.27072410829965;Commune de Espès-undurein;2020-10-01;ZD0095;Arreateko karrika;Karrikart
+64214_0110_00110;;Rue Marxelian;110;;Espès-undurein;entrée;384712.71;6249864.76;-0.8833545591475009;43.27816937573027;Commune de Espès-undurein;2020-10-01;ZC0201;Marxelianeko karrika;Landetxeberri
+64214_0110_00113;;Rue Marxelian;113;;Espès-undurein;entrée;384724.52;6249859.08;-0.8832058981412801;43.278123536068726;Commune de Espès-undurein;2020-10-01;ZC0229;Marxelianeko karrika;Karrikiri
+64214_0110_00116;;Rue Marxelian;116;;Espès-undurein;entrée;384710.57;6249859.12;-0.8833773960055352;43.278117739885495;Commune de Espès-undurein;2020-10-01;ZC0090;Marxelianeko karrika;
+64214_0110_00363;;Rue Marxelian;363;;Espès-undurein;entrée;384647.07;6249637.75;-0.8840243133456093;43.27610071163048;Commune de Espès-undurein;2020-10-01;ZC0188;Marxelianeko karrika;
+64214_0110_00620;;Rue Marxelian;620;;Espès-undurein;entrée;384470.85;6249480.7;-0.8860960208065414;43.27461177351834;Commune de Espès-undurein;2020-10-01;ZC0178;Marxelianeko karrika;Marxelian
+64214_0120_00149;;Chemin Harixkota;149;;Espès-undurein;entrée;384431.17;6249869.7;-0.8868196220757275;43.27808924238966;Commune de Espès-undurein;2020-10-01;ZC0171;Harixkotako bidea;Harixkota
+64214_0130_00328;;Route d'Harribeltzeta;328;;Espès-undurein;entrée;383963.12;6249782.27;-0.8925221589659713;43.277096361162975;Commune de Espès-undurein;2020-10-01;AD0060;Harribeltzetako bidea;Bital
+64214_0130_01673;;Route d'Harribeltzeta;1673;;Espès-undurein;entrée;382857.09;6250329.93;-0.9064560245807773;43.28152574806616;Commune de Espès-undurein;2020-10-01;AB0084;Harribeltzetako bidea;Mehatz
+64214_0130_01780;;Route d'Harribeltzeta;1780;;Espès-undurein;entrée;382791.86;6250417.32;-0.9073113634829452;43.282281888251376;Commune de Espès-undurein;2020-10-01;AC0243;Harribeltzetako bidea;
+64214_0130_01942;;Route d'Harribeltzeta;1942;;Espès-undurein;entrée;382684.01;6250535.04;-0.9087094542457184;43.2832914914553;Commune de Espès-undurein;2020-10-01;AC0008;Harribeltzetako bidea;Harribeltzet
+64214_0130_01957;;Route d'Harribeltzeta;1957;;Espès-undurein;entrée;382667.63;6250541.83;-0.9089149888029872;43.283345214473215;Commune de Espès-undurein;2020-10-01;AB0160;Harribeltzetako bidea;
+64214_0150_00026;;Rue Xoko;26;;Espès-undurein;entrée;384982.76;6250451.59;-0.8803885936653794;43.28356122348237;Commune de Espès-undurein;2020-10-01;ZB0303;Xokoko bidea;Agerria
+64214_0150_00061;;Rue Xoko;61;;Espès-undurein;entrée;384949.28;6250470.22;-0.8808116321738152;43.28371383412413;Commune de Espès-undurein;2020-10-01;ZB0131;Xokoko bidea;
+64214_0150_00121;;Rue Xoko;121;;Espès-undurein;entrée;384910.05;6250516.36;-0.8813220384561161;43.2841110548609;Commune de Espès-undurein;2020-10-01;ZB0366;Xokoko bidea;
+64214_0150_00317;;Rue Xoko;317;;Espès-undurein;entrée;384772.79;6250557.71;-0.8830351136329019;43.28442183181388;Commune de Espès-undurein;2020-10-01;ZB0315;Xokoko bidea;Burju
+64214_0150_00436;;Rue Xoko;436;;Espès-undurein;entrée;384652.6;6250542.67;-0.8845041299109926;43.284233606810425;Commune de Espès-undurein;2020-10-01;ZB0102;Xokoko bidea;
+64214_0150_00621;;Rue Xoko;621;;Espès-undurein;entrée;384467.38;6250511.0;-0.8867628531184398;43.28386712750118;Commune de Espès-undurein;2020-10-01;AD0118;Xokoko bidea;Xoko
+64214_0160_00294;;Chemin Colomet;294;;Espès-undurein;entrée;384399.54;6250219.65;-0.8874206371641219;43.2812193640222;Commune de Espès-undurein;2020-10-01;ZC0079;Colometeko bidea;Colomet
+64214_0160_00445;;Chemin Colomet;445;;Espès-undurein;entrée;384440.13;6250361.04;-0.8870070637167373;43.28250769133492;Commune de Espès-undurein;2020-06-11;AD0121;Colometeko bidea;
+64214_0170_00072;;Impasse Oihenart;72;;Espès-undurein;entrée;384667.56;6250111.87;-0.8840593552361495;43.28036960168109;Commune de Espès-undurein;2020-10-01;ZB0298;Oihenarteko bide ütsüa;
+64214_0170_00096;;Impasse Oihenart;96;;Espès-undurein;entrée;384678.05;6250139.55;-0.8839470388714007;43.28062294968111;Commune de Espès-undurein;2020-10-01;ZB0294;Oihenarteko bide ütsüa;Oihenartia
+64214_0180_00071;;Rue Bidegarai;71;;Espès-undurein;entrée;384705.47;6250607.36;-0.8838930562440424;43.28483816255073;Commune de Espès-undurein;2020-10-01;ZB0101;Bidegaraiko karrika;
+64214_0180_00081;;Rue Bidegarai;81;;Espès-undurein;entrée;384710.61;6250615.64;-0.8838348153126898;43.284914837407776;Commune de Espès-undurein;2020-10-01;ZB0100;Bidegaraiko karrika;
+64214_0180_00151;;Rue Bidegarai;151;;Espès-undurein;entrée;384735.67;6250679.21;-0.8835651601874167;43.28549705864728;Commune de Espès-undurein;2020-10-01;ZB0099;Bidegaraiko karrika;
+64214_0180_00220;;Rue Bidegarai;220;;Espès-undurein;entrée;384769.38;6250739.51;-0.8831870260151055;43.28605374573067;Commune de Espès-undurein;2020-10-01;ZB0096;Bidegaraiko karrika;
+64214_0180_00306;;Rue Bidegarai;306;;Espès-undurein;entrée;384779.07;6250827.66;-0.8831211924405535;43.28685008014228;Commune de Espès-undurein;2020-10-01;ZB0091;Bidegaraiko karrika;
+64214_0190_00032;;Impasse Bellocq;32;;Espès-undurein;entrée;384887.93;6250615.24;-0.8816539056292715;43.28498967920823;Commune de Espès-undurein;2020-10-01;ZB0013;Bellocqeko bide ütsüa;Errekaltia
+64214_0190_00102;;Impasse Bellocq;102;;Espès-undurein;entrée;384864.29;6250686.23;-0.8819875049384603;43.28561704941188;Commune de Espès-undurein;2020-10-01;ZB0106;Bellocqeko bide ütsüa;Bellocq
+64214_0200_00052;;Rue Elizabidia;52;;Espès-undurein;entrée;385285.22;6250341.89;-0.8766025440090786;43.28270916546337;Commune de Espès-undurein;2020-10-01;ZB0184;Elizabideko karrika;
+64214_0200_00055;;Rue Elizabidia;55;;Espès-undurein;entrée;385280.52;6250332.99;-0.8766550134253442;43.28262712595034;Commune de Espès-undurein;2020-10-01;ZB0257;Elizabideko karrika;Maitena
+64214_0200_00070;;Rue Elizabidia;70;;Espès-undurein;entrée;385270.77;6250347.0;-0.8767834493766079;43.28274872292781;Commune de Espès-undurein;2020-09-18;ZB0183;Elizabideko karrika;Sobiat
+64214_0200_00085;;Rue Elizabidia;85;;Espès-undurein;entrée;385251.7;6250339.1;-0.8770131041307541;43.282669375077575;Commune de Espès-undurein;2020-10-01;ZB0263;Elizabideko karrika;
+64214_0200_00088;;Rue Elizabidia;88;;Espès-undurein;entrée;385251.88;6250352.58;-0.8770190504490284;43.28279054222528;Commune de Espès-undurein;2020-10-01;ZB0153;Elizabideko karrika;Urkixkot
+64214_0200_00091;;Rue Elizabidia;91;;Espès-undurein;entrée;385244.21;6250340.98;-0.8771064255878481;43.28268291603358;Commune de Espès-undurein;2020-10-01;ZB0264;Elizabideko karrika;
+64214_0200_00096;;Rue Elizabidia;96;;Espès-undurein;entrée;385242.75;6250354.22;-0.8771323993453604;43.28280125160749;Commune de Espès-undurein;2020-10-01;ZB0152;Elizabideko karrika;Sabotenia
+64214_0200_00101;;Rue Elizabidia;101;;Espès-undurein;entrée;385237.24;6250342.5;-0.877193033464155;43.28269350445809;Commune de Espès-undurein;2020-10-01;ZB0265;Elizabideko karrika;Taneria
+64214_0200_00108;;Rue Elizabidia;108;;Espès-undurein;entrée;385230.75;6250356.46;-0.877281282893064;43.28281609667484;Commune de Espès-undurein;2020-10-01;ZB0151;Elizabideko karrika;Idiarteberria
+64214_0200_00134;;Rue Elizabidia;134;;Espès-undurein;entrée;385204.45;6250357.6;-0.8776053683256786;43.28281469775511;Commune de Espès-undurein;2020-10-01;ZB0150;Elizabideko karrika;
+64214_0200_00142;;Rue Elizabidia;142;;Espès-undurein;entrée;385197.92;6250358.15;-0.8776859973444708;43.282816745361266;Commune de Espès-undurein;2020-10-01;ZB0149;Elizabideko karrika;
+64214_0200_00163;;Rue Elizabidia;163;;Espès-undurein;entrée;385175.77;6250349.69;-0.8779533867776964;43.28273094420465;Commune de Espès-undurein;2020-10-01;ZB0325;Elizabideko karrika;
+64214_0200_00166;;Rue Elizabidia;166;;Espès-undurein;entrée;385172.98;6250362.23;-0.8779952437743131;43.282842385631305;Commune de Espès-undurein;2020-10-01;ZB0306;Elizabideko karrika;Lasala
+64214_0200_00171;;Rue Elizabidia;171;;Espès-undurein;entrée;385167.3;6250350.95;-0.8780582981762207;43.28273853002938;Commune de Espès-undurein;2020-10-01;ZB0270;Elizabideko karrika;
+64214_0200_00177;;Rue Elizabidia;177;;Espès-undurein;entrée;385161.3;6250351.67;-0.8781325143179806;43.28274238324365;Commune de Espès-undurein;2020-10-01;ZB0269;Elizabideko karrika;
+64214_0200_00186;;Rue Elizabidia;186;;Espès-undurein;entrée;385154.12;6250364.22;-0.8782284113515759;43.28285191626221;Commune de Espès-undurein;2020-10-01;ZB0022;Elizabideko karrika;
+64214_0200_00199;;Rue Elizabidia;199;;Espès-undurein;entrée;385139.95;6250355.62;-0.8783974153434125;43.28276841142874;Commune de Espès-undurein;2020-10-01;ZB0140;Elizabideko karrika;
+64214_0200_00256;;Rue Elizabidia;256;;Espès-undurein;entrée;385084.48;6250373.53;-0.8790904518711289;43.282904821494014;Commune de Espès-undurein;2020-10-01;ZB0141;Elizabideko karrika;Karrika
+64214_0200_00347;;Rue Elizabidia;347;;Espès-undurein;entrée;385000.38;6250405.37;-0.8801439959258576;43.283153770635025;Commune de Espès-undurein;2020-10-01;ZB0353;Elizabideko karrika;Mahintz
+64214_0200_00360;;Rue Elizabidia;360;;Espès-undurein;entrée;385001.99;6250424.93;-0.8801359720718877;43.28333022209677;Commune de Espès-undurein;2020-10-01;ZB0122;Elizabideko karrika;
+64214_0200_00382;;Rue Elizabidia;382;;Espès-undurein;entrée;384981.94;6250418.81;-0.8803788735662689;43.28326638744915;Commune de Espès-undurein;2020-10-01;ZB0129;Elizabideko karrika;Ollibe
+64214_0200_00429;;Rue Elizabidia;429;;Espès-undurein;entrée;384959.04;6250378.34;-0.8806360470709814;43.28289257545082;Commune de Espès-undurein;2020-10-01;ZB0357;Elizabideko karrika;Elixabide
+64214_0200_00505;;Rue Elizabidia;505;;Espès-undurein;entrée;384958.12;6250308.44;-0.8806049898120565;43.28226418394406;Commune de Espès-undurein;2020-10-01;ZB0329;Elizabideko karrika;
+64214_0200_00563;;Rue Elizabidia;563;;Espès-undurein;entrée;384963.81;6250249.14;-0.8804991806873445;43.28173391500357;Commune de Espès-undurein;2020-10-01;ZB0276;Elizabideko karrika;
+64214_0200_00607;;Rue Elizabidia;607;;Espès-undurein;entrée;384934.22;6250210.57;-0.8808397568760563;43.28137431315313;Commune de Espès-undurein;2020-10-01;ZB0279;Elizabideko karrika;
+64214_0200_00613;;Rue Elizabidia;613;;Espès-undurein;entrée;384934.26;6250194.51;-0.8808295385962394;43.28123001407882;Commune de Espès-undurein;2020-10-01;ZB0282;Elizabideko karrika;
+64214_0200_00616;;Rue Elizabidia;616;;Espès-undurein;entrée;384920.9;6250222.32;-0.8810107170681196;43.281473987063634;Commune de Espès-undurein;2020-10-01;ZB0284;Elizabideko karrika;
+64214_0200_00652;;Rue Elizabidia;652;;Espès-undurein;entrée;384885.75;6250216.6;-0.8814394296442598;43.28140705281142;Commune de Espès-undurein;2020-10-01;ZB0288;Elizabideko karrika;
+64214_0200_00674;;Rue Elizabidia;674;;Espès-undurein;entrée;384862.07;6250206.43;-0.8817245183382033;43.28130523147799;Commune de Espès-undurein;2020-10-01;ZB0290;Elizabideko karrika;
+64214_0200_00757;;Rue Elizabidia;757;;Espès-undurein;entrée;384816.84;6250139.77;-0.8822404485853306;43.28068629510442;Commune de Espès-undurein;2020-10-01;ZB0328;Elizabideko karrika;
+64214_0200_00926;;Rue Elizabidia;926;;Espès-undurein;entrée;384721.6;6249987.19;-0.8833192817974729;43.279273333288316;Commune de Espès-undurein;2020-10-01;ZC0084;Elizabideko karrika;Elixaltia
+64214_0200_00959;;Rue Elizabidia;959;;Espès-undurein;entrée;384685.87;6249984.86;-0.8837572980769131;43.279236598091174;Commune de Espès-undurein;2020-10-01;ZC0083;Elizabideko karrika;
+64214_0200_00971;;Rue Elizabidia;971;;Espès-undurein;entrée;384673.51;6249983.84;-0.8839086583024818;43.27922194488765;Commune de Espès-undurein;2020-10-01;ZC0081;Elizabideko karrika;Apezetxia
+64214_0210_00070;;Rue de la Gare;70;;Espès-undurein;entrée;385246.56;6250527.26;-0.8771900502011172;43.284357625387955;Commune de Espès-undurein;2020-10-01;ZB0167;Eküragiako karrika;
+64214_0210_00124;;Rue de la Gare;124;;Espès-undurein;entrée;385193.02;6250544.46;-0.877858862530656;43.284488518329916;Commune de Espès-undurein;2020-10-01;ZB0023;Eküragiako karrika;
+64214_0220_00029;;Rue Fideli;29;;Espès-undurein;entrée;385245.04;6250276.97;-0.8770575005040789;43.28210814724385;Commune de Espès-undurein;2020-10-01;ZB0273;Fideliko karrika;Maiti
+64214_0220_00083;;Rue Fideli;83;;Espès-undurein;entrée;385258.34;6250326.88;-0.8769241341882692;43.28256247350056;Commune de Espès-undurein;2020-10-01;ZB0261;Fideliko karrika;Laherane
+64214_0220_00126;;Rue Fideli;126;;Espès-undurein;entrée;385271.45;6250370.79;-0.8767893619974676;43.28296274472571;Commune de Espès-undurein;2020-10-01;ZB0182;Fideliko karrika;
+64214_0220_00140;;Rue Fideli;140;;Espès-undurein;entrée;385274.24;6250386.88;-0.8767648580036197;43.28310857543408;Commune de Espès-undurein;2020-09-18;ZB0181;Fideliko karrika;Etxeberri
+64214_0220_00169;;Rue Fideli;169;;Espès-undurein;entrée;385269.19;6250415.46;-0.8768442466247218;43.28336310964838;Commune de Espès-undurein;2020-10-01;ZB0158;Fideliko karrika;
+64214_0220_00209;;Rue Fideli;209;;Espès-undurein;entrée;385280.42;6250453.29;-0.8767289755908899;43.28370794468501;Commune de Espès-undurein;2020-10-01;ZB0161;Fideliko karrika;
+64214_0220_00222;;Rue Fideli;222;;Espès-undurein;entrée;385300.38;6250460.46;-0.8764877555983954;43.28378125165407;Commune de Espès-undurein;2020-10-01;ZB0177;Fideliko karrika;
+64214_0220_00284;;Rue Fideli;284;;Espès-undurein;entrée;385323.7;6250517.8;-0.8762357144908925;43.284306651571825;Commune de Espès-undurein;2020-10-01;ZB0336;Fideliko karrika;Fideli
+64214_0220_00306;;Rue Fideli;306;;Espès-undurein;entrée;385332.05;6250537.19;-0.8761447002784373;43.28448456570009;Commune de Espès-undurein;2020-10-01;ZB0034;Fideliko karrika;
+64214_0220_00325;;Rue Fideli;325;;Espès-undurein;entrée;385323.65;6250562.1;-0.8762630476071603;43.28470469185966;Commune de Espès-undurein;2020-10-01;ZB0383;Fideliko karrika;
+64214_0220_00481;;Rue Fideli;481;;Espès-undurein;entrée;385376.96;6250708.13;-0.8756955848215799;43.28604024331297;Commune de Espès-undurein;2020-10-01;ZB0301;Fideliko karrika;
+64214_0230_00084;;Route de Larribet;84;;Espès-undurein;entrée;385569.75;6250328.06;-0.8730951437023645;43.282710492938946;Commune de Espès-undurein;2020-10-01;ZB0228;Larribetako errepidea;
+64214_0230_00221;;Route de Larribet;221;;Espès-undurein;entrée;385695.21;6250376.06;-0.8715811424395932;43.283197033478814;Commune de Espès-undurein;2020-10-01;ZB0196;Larribetako errepidea;
+64214_0230_00259;;Route de Larribet;259;;Espès-undurein;entrée;385725.95;6250387.26;-0.8712097865562624;43.28331127197915;Commune de Espès-undurein;2020-10-01;ZB0199;Larribetako errepidea;Oihanbürü
+64214_0230_00294;;Route de Larribet;294;;Espès-undurein;entrée;385751.55;6250412.42;-0.870910147984182;43.283548578338944;Commune de Espès-undurein;2020-10-01;ZB0202;Larribetako errepidea;
+64214_0230_00347;;Route de Larribet;347;;Espès-undurein;entrée;385768.19;6250462.95;-0.87073599898073;43.284009892068255;Commune de Espès-undurein;2020-10-01;ZB0041;Larribetako errepidea;
+64214_0230_01177;;Route de Larribet;1177;;Espès-undurein;entrée;386268.19;6250663.9;-0.8647078488674899;43.28603564590959;Commune de Espès-undurein;2020-10-01;ZB0206;Larribetako errepidea;Larribet
+64214_0240_00106;;Route de Zabalain;106;;Espès-undurein;entrée;385484.13;6250290.06;-0.8741251556204094;43.282331322971444;Commune de Espès-undurein;2020-10-01;ZB0231;Zabalaineko errepidea;
+64214_0250_00020;;Rue Ühaitza;20;;Espès-undurein;entrée;385303.26;6249858.09;-0.8760884899923332;43.27837033509196;Commune de Espès-undurein;2020-10-01;ZC0117;Ühaitzako karrika;
+64214_0250_00029;;Rue Ühaitza;29;;Espès-undurein;entrée;385308.99;6249871.24;-0.8760258759173204;43.278491033561544;Commune de Espès-undurein;2020-10-01;ZC0183;Ühaitzako karrika;
+64214_0250_00044;;Rue Ühaitza;44;;Espès-undurein;entrée;385325.69;6249862.43;-0.8758152942847072;43.27841928821785;Commune de Espès-undurein;2020-10-01;ZC0116;Ühaitzako karrika;
+64214_0250_00066;;Rue Ühaitza;66;;Espès-undurein;entrée;385348.29;6249865.72;-0.8755393259472288;43.27845879724073;Commune de Espès-undurein;2020-10-01;ZC0115;Ühaitzako karrika;
+64214_0250_00067;;Rue Ühaitza;67;;Espès-undurein;entrée;385347.14;6249878.72;-0.8755612749785303;43.27857505361228;Commune de Espès-undurein;2020-10-01;ZC0106;Ühaitzako karrika;
+64214_0250_00092;;Rue Ühaitza;92;;Espès-undurein;entrée;385374.07;6249870.06;-0.8752248826427527;43.27850914019296;Commune de Espès-undurein;2020-10-01;ZC0114;Ühaitzako karrika;
+64214_0250_00093;;Rue Ühaitza;93;;Espès-undurein;entrée;385372.93;6249882.7;-0.8752466306732937;43.27862222439686;Commune de Espès-undurein;2020-10-01;ZC0107;Ühaitzako karrika;
+64214_0250_00123;;Rue Ühaitza;123;;Espès-undurein;entrée;385402.95;6249888.97;-0.8748811871897884;43.27869177085839;Commune de Espès-undurein;2020-10-01;ZC0108;Ühaitzako karrika;
+64214_0250_00139;;Rue Ühaitza;139;;Espès-undurein;entrée;385417.96;6249890.16;-0.8746973629650067;43.27870909640637;Commune de Espès-undurein;2020-10-01;ZC0109;Ühaitzako karrika;
+64214_0250_00143;;Rue Ühaitza;143;;Espès-undurein;entrée;385426.18;6249883.67;-0.8745922872773564;43.278654454311045;Commune de Espès-undurein;2020-10-01;ZC0110;Ühaitzako karrika;
+64214_0260_00133;;Impasse de la Mécanique;133;;Espès-undurein;entrée;385488.41;6249149.23;-0.873383665709061;43.27208321842281;Commune de Espès-undurein;2020-10-01;ZC0137;Mekanikako bide ütsüa;Mekanika
+64214_0270_00031;;Rue Elizondoa;31;;Espès-undurein;entrée;385065.45;6248828.51;-0.8783904472645703;43.26901497620736;Commune de Espès-undurein;2020-01-09;ZD0386;Elizondoko karrika;
+64214_0270_00091;;Rue Elizondoa;91;;Espès-undurein;entrée;385065.45;6248769.38;-0.8783546841951957;43.26848370119954;Commune de Espès-undurein;2020-01-09;ZD0359;Elizondoko karrika;
+64214_0270_00117;;Rue Elizondoa;117;;Espès-undurein;entrée;385065.9;6248742.02;-0.8783326300337794;43.26823807328538;Commune de Espès-undurein;2020-01-09;ZD0358;Elizondoko karrika;
+64214_0270_00173;;Rue Elizondoa;173;;Espès-undurein;entrée;385064.33;6248686.42;-0.8783184078492442;43.267737860968616;Commune de Espès-undurein;2020-01-09;ZD0393;Elizondoko karrika;
+64214_0270_00177;;Rue Elizondoa;177;;Espès-undurein;entrée;385063.61;6248681.83;-0.8783244827343895;43.26769632888213;Commune de Espès-undurein;2020-01-09;ZD0394;Elizondoko karrika;
+64214_0270_00335;;Rue Elizondoa;335;;Espès-undurein;entrée;384982.61;6248596.9;-0.8792689760760888;43.266897431140386;Commune de Espès-undurein;2020-10-01;ZD0395;Elizondoko karrika;
+64214_0270_00367;;Rue Elizondoa;367;;Espès-undurein;entrée;384951.29;6248599.81;-0.8796558387849933;43.266909798691586;Commune de Espès-undurein;2020-10-01;ZD0396;Elizondoko karrika;
+64214_0280_00011;;Rue Etxeberri;11;;Espès-undurein;entrée;384904.7;6248437.96;-0.8801307793480685;43.26543501436041;Commune de Espès-undurein;2020-10-01;ZD0211;Etxeberriko karrika;Etxeberri
+64214_0280_00102;;Rue Etxeberri;102;;Espès-undurein;entrée;384968.2;6248383.17;-0.8793169903875844;43.26497081525683;Commune de Espès-undurein;2020-10-01;ZD0243;Etxeberriko karrika;
+64214_0280_00111;;Rue Etxeberri;111;;Espès-undurein;entrée;384985.89;6248379.74;-0.8790974068043157;43.26494780146266;Commune de Espès-undurein;2020-10-01;ZD0247;Etxeberriko karrika;
+64214_0280_00135;;Rue Etxeberri;135;;Espès-undurein;entrée;384995.0;6248357.12;-0.878971709543043;43.26474858974785;Commune de Espès-undurein;2020-10-01;ZD0248;Etxeberriko karrika;
+64214_0280_00140;;Rue Etxeberri;140;;Espès-undurein;entrée;384995.11;6248335.41;-0.8789572041212032;43.26455357083784;Commune de Espès-undurein;2020-10-01;ZD0249;Etxeberriko karrika;
+64214_0290_00111;;Rue des Trois Croix;111;;Espès-undurein;entrée;385045.44;6248957.01;-0.8787141714892652;43.27016068948581;Commune de Espès-undurein;2020-01-09;ZD0147;Hiru kürütxeetako karrika;
+64214_0290_00155;;Rue des Trois Croix;155;;Espès-undurein;entrée;385044.47;6249005.98;-0.8787556381946752;43.270600206562236;Commune de Espès-undurein;2020-01-09;ZD0019;Hiru kürütxeetako karrika;
+64214_0290_00165;;Rue des Trois Croix;165;;Espès-undurein;entrée;385045.56;6249013.92;-0.8787471276058149;43.270672021358514;Commune de Espès-undurein;2020-01-09;ZD0148;Hiru kürütxeetako karrika;
+64214_0290_00195;;Rue des Trois Croix;195;;Espès-undurein;entrée;385046.52;6249041.63;-0.8787520200002814;43.270921407537784;Commune de Espès-undurein;2020-01-09;ZD0148;Hiru kürütxeetako karrika;
+64214_0290_00225;;Rue des Trois Croix;225;;Espès-undurein;entrée;385048.91;6249072.16;-0.878741152121513;43.271196757778256;Commune de Espès-undurein;2020-01-09;ZD0148;Hiru kürütxeetako karrika;
+64214_0290_00263;;Rue des Trois Croix;263;;Espès-undurein;entrée;385053.82;6249110.16;-0.8787036780870203;43.271540300867784;Commune de Espès-undurein;2020-01-09;ZD0150;Hiru kürütxeetako karrika;
+64214_0290_00279;;Rue des Trois Croix;279;;Espès-undurein;entrée;385054.66;6249125.6;-0.8787026855592073;43.27167941551355;Commune de Espès-undurein;2020-01-09;ZD0150;Hiru kürütxeetako karrika;
+64214_0290_00365;;Rue des Trois Croix;365;;Espès-undurein;entrée;385059.32;6249210.76;-0.8786968166773197;43.27244663680324;Commune de Espès-undurein;2020-01-09;ZC0167;Hiru kürütxeetako karrika;
+64214_0290_00401;;Rue des Trois Croix;401;;Espès-undurein;entrée;385062.79;6249247.11;-0.8786762338269561;43.27277476833422;Commune de Espès-undurein;2020-01-09;ZC0190;Hiru kürütxeetako karrika;
+64214_0290_00425;;Rue des Trois Croix;425;;Espès-undurein;entrée;385064.63;6249272.35;-0.8786688686076845;43.27300231522068;Commune de Espès-undurein;2020-01-09;ZC0191;Hiru kürütxeetako karrika;
+64214_0290_00483;;Rue des Trois Croix;483;;Espès-undurein;entrée;385068.15;6249329.0;-0.8786598189021256;43.273512849593516;Commune de Espès-undurein;2020-01-09;ZC0168;Hiru kürütxeetako karrika;
+64214_0290_00505;;Rue des Trois Croix;505;;Espès-undurein;entrée;385071.22;6249352.64;-0.8786363559450371;43.273726634399715;Commune de Espès-undurein;2020-01-09;ZC0168;Hiru kürütxeetako karrika;
+64214_0290_00633;;Rue des Trois Croix;633;;Espès-undurein;entrée;385071.72;6249479.45;-0.8787068589574888;43.2748661393157;Commune de Espès-undurein;2020-01-09;ZC0022;Hiru kürütxeetako karrika;
+64214_0290_00671;;Rue des Trois Croix;671;;Espès-undurein;entrée;385073.06;6249517.39;-0.878713227142153;43.275207666251546;Commune de Espès-undurein;2020-01-09;ZC0217;Hiru kürütxeetako karrika;
+64214_0290_00773;;Rue des Trois Croix;773;;Espès-undurein;entrée;385083.94;6249618.64;-0.8786406910908515;43.276122148328035;Commune de Espès-undurein;2020-01-09;ZC0097;Hiru kürütxeetako karrika;
+64214_0290_00810;;Rue des Trois Croix;810;;Espès-undurein;entrée;385093.59;6249657.21;-0.8785454082100724;43.276472957799804;Commune de Espès-undurein;2020-06-11;ZC0027;Hiru kürütxeetako karrika;
+64214_0290_00844;;Rue des Trois Croix;844;;Espès-undurein;entrée;385057.64;6249675.34;-0.8789983865075294;43.27662000078738;Commune de Espès-undurein;2020-01-09;ZC0096;Hiru kürütxeetako karrika;
+64214_0290_00879;;Rue des Trois Croix;879;;Espès-undurein;entrée;385021.82;6249680.39;-0.8794418699223755;43.27664953348566;Commune de Espès-undurein;2020-01-09;ZC0244;Hiru kürütxeetako karrika;
+64214_0290_00891;;Rue des Trois Croix;891;;Espès-undurein;entrée;385010.88;6249688.53;-0.8795813120924605;43.27671778575607;Commune de Espès-undurein;2020-10-01;ZC0024;Hiru kürütxeetako karrika;
+64214_0290_00901;;Rue des Trois Croix;901;;Espès-undurein;entrée;385003.86;6249694.92;-0.8796715191399201;43.276772118015614;Commune de Espès-undurein;2020-01-09;ZC0095;Hiru kürütxeetako karrika;
+64214_0290_00956;;Rue des Trois Croix;956;;Espès-undurein;entrée;384976.96;6249747.14;-0.8800339152879983;43.27722940814771;Commune de Espès-undurein;2020-01-09;ZC0215;Hiru kürütxeetako karrika;
+64214_0290_01014;;Rue des Trois Croix;1014;;Espès-undurein;entrée;384961.39;6249794.31;-0.8802539096930226;43.2776463747107;Commune de Espès-undurein;2020-01-09;ZC0235;Hiru kürütxeetako karrika;
+64214_0290_01131;;Rue des Trois Croix;1131;;Espès-undurein;entrée;384890.13;6249874.8;-0.8811789081772281;43.278338016448515;Commune de Espès-undurein;2020-01-09;ZC0094;Hiru kürütxeetako karrika;
+64214_0290_01372;;Rue des Trois Croix;1372;;Espès-undurein;entrée;384780.83;6250054.5;-0.8826317045617268;43.279904294484034;Commune de Espès-undurein;2020-01-09;ZC0226;Hiru kürütxeetako karrika;
+64214_0300_00018;;Impasse Agergaraiberri;18;;Espès-undurein;entrée;384788.72;6248716.04;-0.8817247970792644;43.267882187891445;Commune de Espès-undurein;2020-01-09;ZD0138;Agergaraiberriko bide ütsüa;
+64214_0300_00025;;Impasse Agergaraiberri;25;;Espès-undurein;entrée;384782.38;6248730.41;-0.8818114917536211;43.26800854953444;Commune de Espès-undurein;2020-01-09;ZD0129;Agergaraiberriko bide ütsüa;
+64214_0310_00013;;Impasse Perotenia;13;;Espès-undurein;entrée;384829.9;6248316.05;-0.8809766146713893;43.26430665351744;Commune de Espès-undurein;2020-10-01;ZD0347;Peroteneko bide ütsüa;
+64214_0310_00041;;Impasse Perotenia;41;;Espès-undurein;entrée;384802.21;6248324.25;-0.8813219791006166;43.26436810205804;Commune de Espès-undurein;2020-10-01;ZD0348;Peroteneko bide ütsüa;
+64214_0320_00013;;Impasse Idiartia;13;;Espès-undurein;entrée;384193.41;6249400.1;-0.889458619597118;43.27376477801044;Commune de Espès-undurein;2020-10-01;AD0161;Idiarteko bidea;
+64214_0320_00051;;Impasse Idiartia;51;;Espès-undurein;entrée;384154.86;6249403.48;-0.8899347776929011;43.27377806324683;Commune de Espès-undurein;2020-10-01;AD0182;Idiarteko bidea;Idiartia
+64214_0330_00117;;Impasse Ürrüpera Handia;117;;Espès-undurein;entrée;385185.91;6249769.63;-0.8774780542116631;43.277523799872846;Commune de Espès-undurein;2020-10-01;ZC0098;Ürrüpera Handia bide ütsüa;
+64214_0340_00073;;Impasse Üthürralt;73;;Espès-undurein;entrée;383654.19;6248665.68;-0.8956430476203321;43.26692734090465;Commune de Espès-undurein;2020-10-01;AK0130;Üthürralteko bide ütsüa;Üthürralt
+64214_0350_00073;;Impasse Bürgiko Erreka;73;;Espès-undurein;entrée;384357.34;6248811.71;-0.8870865574172563;43.268550908514094;Commune de Espès-undurein;2020-01-09;ZD0007;Bürgiko Erreka bidea;
+64214_0350_00080;;Impasse Bürgiko Erreka;80;;Espès-undurein;entrée;384369.5;6248805.32;-0.8869331738988946;43.268498876013616;Commune de Espès-undurein;2020-01-09;ZD0008;Bürgiko Erreka bidea;
