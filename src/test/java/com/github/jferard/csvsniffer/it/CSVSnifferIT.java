@@ -1,8 +1,6 @@
 package com.github.jferard.csvsniffer.it;
 
 import com.github.jferard.csvsniffer.CSVSniffer;
-import com.github.jferard.csvsniffer.CSVSnifferNoQuoteSettings;
-import com.github.jferard.csvsniffer.CSVSnifferQuoteSettings;
 import org.junit.Test;
 
 import java.io.IOException;

@@ -14,6 +14,7 @@ reports
 
 # files
 *.old
+*.csv#
 
 # too big
 src/test/resources/sirc-17804_9075_14209_201612_L_M_20170104_171522721.csv

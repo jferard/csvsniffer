@@ -20,12 +20,13 @@ public class CSVSniffer {
     }
 
     private final CSVSnifferSettings[] settingsList;
-    String charset = null;
-    private final int bufferSize;
+    private String charset;
+    final int bufferSize;
 
     public CSVSniffer(int bufferSize, CSVSnifferSettings... settingsList) {
         this.bufferSize = bufferSize;
         this.settingsList = settingsList;
+        this.charset = null;
     }
 
     public MetaCSVData sniff(InputStream is) throws IOException {
@@ -34,16 +35,15 @@ public class CSVSniffer {
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(new ByteArrayInputStream(buffer), charset));
         try {
-            CSVData data = detectCSV(reader);
+            CSVData data = detectCSVParameters(reader);
             return data.toMetaCSVData(charset);
         } finally {
             reader.close(); // should not be necessary (byte array)
         }
     }
 
-    private String detectCharset(byte[] buffer) {
+    public String detectCharset(byte[] buffer) {
         nsDetector det = new nsDetector(nsDetector.ALL);
-        final String[] cs = new String[1];
         boolean isAscii = det.isAscii(buffer, buffer.length);
         if (isAscii) {
             return "US-ASCII";
@@ -54,7 +54,7 @@ public class CSVSniffer {
         return det.getProbableCharsets()[0];
     }
 
-    public CSVData detectCSV(Reader reader) throws IOException {
+    public CSVData detectCSVParameters(Reader reader) throws IOException {
         List<Context> contexts = new ArrayList<Context>(settingsList.length);
         for (CSVSnifferSettings settings: settingsList) {
             contexts.add(new Context(settings));
@@ -77,19 +77,9 @@ public class CSVSniffer {
         return null;
     }
 
-    private byte[] readToBuffer(InputStream is) throws IOException {
-        byte[] buffer = new byte[bufferSize];
-        int count = is.read(buffer, 0, buffer.length);
-        int total = count;
-        while (count != -1 && total < buffer.length) {
-            count = is.read(buffer, total, buffer.length - total);
-            total += count;
-        }
-        if (total == bufferSize) {
-            return buffer;
-        }
-        byte[] trimmedBuffer = new byte[total];
-        System.arraycopy(buffer, 0, trimmedBuffer, 0, total);
-        return trimmedBuffer;
+    byte[] readToBuffer(InputStream is) throws IOException {
+        int bufferSize = this.bufferSize;
+        return Util.readToBuffer(is, bufferSize);
     }
+
 }
