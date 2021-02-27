@@ -11,7 +11,7 @@ public class CSVSnifferIT {
     public void test() throws IOException {
         for (String name : new String[] {"example.csv", "wikipedia.csv"}) {
             System.out.println(name);
-            testResource(name);
+            this.testResource(name);
         }
     }
 

@@ -20,7 +20,7 @@ public class MaybeEscapedQuoteState implements State {
             context.setState(new BOFState(this.expectedDelimiter));
         } else {
             context.storeEscape(this.escape);
-            context.setState(new InQuotedFieldState(expectedDelimiter));
+            context.setState(new InQuotedFieldState(this.expectedDelimiter));
         }
     }
 }

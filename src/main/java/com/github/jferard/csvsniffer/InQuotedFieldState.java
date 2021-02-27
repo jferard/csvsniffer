@@ -1,7 +1,7 @@
 package com.github.jferard.csvsniffer;
 
 public class InQuotedFieldState implements State {
-    private int expectedDelimiter;
+    private final int expectedDelimiter;
 
     public InQuotedFieldState(int expectedDelimiter) {
         this.expectedDelimiter = expectedDelimiter;

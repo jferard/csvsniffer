@@ -1,17 +1,12 @@
 package com.github.jferard.csvsniffer;
 
-import com.github.jferard.javamcsv.MetaCSVData;
-
-import java.util.HashMap;
-import java.util.Map;
-
 public class ContextRow {
-    private Counter<Character> quotes;
-    private Counter<Character> seen;
-    private Counter<String> eols;
-    private Counter<Character> doubleQuotes;
-    private Counter<Character> escapes;
-    private Counter<Character> delimiters;
+    private final Counter<Character> quotes;
+    private final Counter<Character> seen;
+    private final Counter<String> eols;
+    private final Counter<Character> doubleQuotes;
+    private final Counter<Character> escapes;
+    private final Counter<Character> delimiters;
 
     private int skipInitialSpaces;
 
@@ -57,13 +52,13 @@ public class ContextRow {
     @Override
     public String toString() {
         return "ContextRow{" +
-                "quotes=" + quotes +
-                ", seen=" + seen +
-                ", eols=" + eols +
-                ", doubleQuotes=" + doubleQuotes +
-                ", escapes=" + escapes +
-                ", delimiters=" + delimiters +
-                ", skipInitialSpaces=" + skipInitialSpaces +
+                "quotes=" + this.quotes +
+                ", seen=" + this.seen +
+                ", eols=" + this.eols +
+                ", doubleQuotes=" + this.doubleQuotes +
+                ", escapes=" + this.escapes +
+                ", delimiters=" + this.delimiters +
+                ", skipInitialSpaces=" + this.skipInitialSpaces +
                 '}';
     }
 

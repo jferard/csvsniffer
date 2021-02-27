@@ -11,9 +11,11 @@ import java.io.InputStream;
 public class MetaCSVSnifferIT {
     @Test
     public void test() throws IOException, MetaCSVParseException {
-        for (String name : new String[] {"example.csv", "wikipedia.csv", "export-discussion-20210213-064944.csv", "export-tag-20210213-065003.csv", "20201001-bal-216402149.csv"}) {
+        for (String name : new String[]{"example.csv", "wikipedia.csv",
+                "export-discussion-20210213-064944.csv", "export-tag-20210213-065003.csv",
+                "20201001-bal-216402149.csv", "datasets-2020-02-22-12-33.csv"}) {
             System.out.println(name);
-            testResource(name);
+            this.testResource(name);
         }
     }
 

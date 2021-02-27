@@ -5,11 +5,11 @@ import java.util.List;
 
 public class Context {
     private ContextRow row;
-    private CSVSnifferSettings settings;
+    private final CSVSnifferSettings settings;
     private int unget;
     private int prev;
     private State state;
-    private List<ContextRow> rows;
+    private final List<ContextRow> rows;
 
     public Context(CSVSnifferSettings settings) {
         this.settings = settings;
@@ -39,19 +39,19 @@ public class Context {
     }
 
     public boolean isQuote(char c) {
-        return settings.isQuote(c);
+        return this.settings.isQuote(c);
     }
 
     public boolean isSimpleSpace(char c) {
-        return settings.isSimpleSpace(c);
+        return this.settings.isSimpleSpace(c);
     }
 
     public boolean isEOL(char c) {
-        return settings.isEOL(c);
+        return this.settings.isEOL(c);
     }
 
     public boolean isTraced(char c) {
-        return !settings.isToIgnore(c);
+        return !this.settings.isToIgnore(c);
     }
 
     public void unget(char c) {
@@ -89,7 +89,7 @@ public class Context {
     public void newRow() {
         this.setState(new BOLState());
         this.row = new ContextRow();
-        this.rows.add(row);
+        this.rows.add(this.row);
     }
 
     public void print() {
@@ -98,7 +98,7 @@ public class Context {
 
     public CSVData evaluate() {
         ContextAggregator contextAggregator = new ContextAggregator();
-        for (ContextRow row : rows.subList(0, rows.size()-1)) {
+        for (ContextRow row : this.rows.subList(0, this.rows.size()-1)) {
             row.aggregate(contextAggregator);
         }
         return contextAggregator.aggregate();

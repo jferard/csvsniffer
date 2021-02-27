@@ -18,7 +18,7 @@ public class MultiCounter<T> {
         this.countsByElement = countByElement;
     }
 
-    public MultiCounter(MultiCounter other) {
+    public MultiCounter(MultiCounter<T> other) {
         this(other.countsByElement);
     }
 
@@ -69,7 +69,7 @@ public class MultiCounter<T> {
     @Override
     public String toString() {
         return "MultiCounter{" +
-                "countsByElement=" + countsByElement +
+                "countsByElement=" + this.countsByElement +
                 '}';
     }
 }

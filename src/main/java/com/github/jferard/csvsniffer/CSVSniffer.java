@@ -30,13 +30,13 @@ public class CSVSniffer {
     }
 
     public MetaCSVData sniff(InputStream is) throws IOException {
-        byte[] buffer = readToBuffer(is);
-        charset = detectCharset(buffer);
+        byte[] buffer = this.readToBuffer(is);
+        this.charset = this.detectCharset(buffer);
         BufferedReader reader = new BufferedReader(
-                new InputStreamReader(new ByteArrayInputStream(buffer), charset));
+                new InputStreamReader(new ByteArrayInputStream(buffer), this.charset));
         try {
-            CSVData data = detectCSVParameters(reader);
-            return data.toMetaCSVData(charset);
+            CSVData data = this.detectCSVParameters(reader);
+            return data.toMetaCSVData(this.charset);
         } finally {
             reader.close(); // should not be necessary (byte array)
         }
@@ -55,8 +55,8 @@ public class CSVSniffer {
     }
 
     public CSVData detectCSVParameters(Reader reader) throws IOException {
-        List<Context> contexts = new ArrayList<Context>(settingsList.length);
-        for (CSVSnifferSettings settings: settingsList) {
+        List<Context> contexts = new ArrayList<Context>(this.settingsList.length);
+        for (CSVSnifferSettings settings: this.settingsList) {
             contexts.add(new Context(settings));
         }
         int c = reader.read();

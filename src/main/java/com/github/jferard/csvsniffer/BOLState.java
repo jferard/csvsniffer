@@ -9,7 +9,7 @@ public class BOLState implements State {
     @Override
     public void handle(Context context, char c) {
         if (context.isQuote(c)) {
-            context.storeQuote(c, wasSpace);
+            context.storeQuote(c, this.wasSpace);
             context.setState(new InQuotedFieldState(-1));
         } else if (context.isSimpleSpace(c)) {
             this.wasSpace = true;

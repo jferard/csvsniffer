@@ -1,15 +1,14 @@
 package com.github.jferard.csvsniffer;
 
-import java.util.Iterator;
 import java.util.List;
 
 public class ContextAggregator {
-    private Counter<Character> quotes;
-    private MultiCounter<Character> seen;
-    private Counter<String> eols;
-    private Counter<Character> doubleQuotes;
-    private Counter<Character> escapes;
-    private Counter<Character> delimiters;
+    private final Counter<Character> quotes;
+    private final MultiCounter<Character> seen;
+    private final Counter<String> eols;
+    private final Counter<Character> doubleQuotes;
+    private final Counter<Character> escapes;
+    private final Counter<Character> delimiters;
     private int skipInitialSpaces;
 
     ContextAggregator() {
@@ -90,13 +89,13 @@ public class ContextAggregator {
     @Override
     public String toString() {
         return "ContextAggregator{" +
-                "quotes=" + quotes +
-                ", seen=" + seen +
-                ", eols=" + eols +
-                ", doubleQuotes=" + doubleQuotes +
-                ", escapes=" + escapes +
-                ", delimiters=" + delimiters +
-                ", skipInitialSpaces=" + skipInitialSpaces +
+                "quotes=" + this.quotes +
+                ", seen=" + this.seen +
+                ", eols=" + this.eols +
+                ", doubleQuotes=" + this.doubleQuotes +
+                ", escapes=" + this.escapes +
+                ", delimiters=" + this.delimiters +
+                ", skipInitialSpaces=" + this.skipInitialSpaces +
                 '}';
     }
 }

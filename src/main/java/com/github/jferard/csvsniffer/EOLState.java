@@ -1,7 +1,7 @@
 package com.github.jferard.csvsniffer;
 
 public class EOLState implements State {
-    private char c;
+    private final char c;
 
     public EOLState(char c) {
         this.c = c;

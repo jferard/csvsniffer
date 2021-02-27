@@ -1,7 +1,7 @@
 package com.github.jferard.csvsniffer;
 
 public class BOFState implements State {
-    private int previousDelimiter;
+    private final int previousDelimiter;
 
     public BOFState(int previousDelimiter) {
         this.previousDelimiter = previousDelimiter;
@@ -12,7 +12,7 @@ public class BOFState implements State {
     @Override
     public void handle(Context context, char c) {
         if (context.isQuote(c)) {
-            context.storeQuote(c, wasSpace);
+            context.storeQuote(c, this.wasSpace);
             context.setState(new InQuotedFieldState(this.previousDelimiter));
         } else if (context.isSimpleSpace(c)) {
             this.wasSpace = true;

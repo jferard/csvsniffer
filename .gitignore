@@ -7,7 +7,6 @@
 *.iml
 
 # directories
-.settings
 .idea
 target
 reports

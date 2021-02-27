@@ -1,7 +1,7 @@
 package com.github.jferard.csvsniffer;
 
 public class CSVSnifferQuoteSettings implements CSVSnifferSettings {
-    private char quote;
+    private final char quote;
 
     public CSVSnifferQuoteSettings(char quote) {
         this.quote = quote;
@@ -9,7 +9,7 @@ public class CSVSnifferQuoteSettings implements CSVSnifferSettings {
 
     @Override
     public boolean isQuote(char c) {
-        return c == quote;
+        return c == this.quote;
     }
 
     @Override

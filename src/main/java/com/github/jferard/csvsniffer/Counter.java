@@ -20,7 +20,7 @@ public class Counter<T> {
         this.countByElement = new HashMap<T, Integer>(countByElement);
     }
 
-    public Counter(Counter other) {
+    public Counter(Counter<T> other) {
         this(other.countByElement);
     }
 
@@ -68,7 +68,7 @@ public class Counter<T> {
     @Override
     public String toString() {
         return "Counter{" +
-                "countByElement=" + countByElement +
+                "countByElement=" + this.countByElement +
                 '}';
     }
 

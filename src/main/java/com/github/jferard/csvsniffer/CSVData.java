@@ -59,7 +59,7 @@ public class CSVData implements CSVParameters {
     public MetaCSVData toMetaCSVData(String charset) {
         Map<Integer, FieldDescription<?>> descriptionByColIndex =
                 new HashMap<Integer, FieldDescription<?>>();
-        return toMetaCSVData(charset, "", descriptionByColIndex);
+        return this.toMetaCSVData(charset, "", descriptionByColIndex);
     }
 
     public MetaCSVData toMetaCSVData(String charset,

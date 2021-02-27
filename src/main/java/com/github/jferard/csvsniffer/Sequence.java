@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Sequence {
-    private List<Integer> values;
+    private final List<Integer> values;
 
     public Sequence(List<Integer> values) {
         this.values = values;

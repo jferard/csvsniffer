@@ -1,7 +1,7 @@
 package com.github.jferard.csvsniffer;
 
 public class QuoteInQuotedFieldState implements State {
-    private int expectedDelimiter;
+    private final int expectedDelimiter;
     private boolean wasSpace;
 
     public QuoteInQuotedFieldState(int expectedDelimiter) {
@@ -17,11 +17,11 @@ public class QuoteInQuotedFieldState implements State {
             this.wasSpace = true;
         } else if (c == this.expectedDelimiter) {
             assert this.expectedDelimiter != -1;
-            context.storeQuote((char) context.prev(), wasSpace);
+            context.storeQuote((char) context.prev(), this.wasSpace);
             context.storeDelimiter((char) this.expectedDelimiter, this.wasSpace);
             context.setState(new BOFState(this.expectedDelimiter));
-        } else if (expectedDelimiter == -1 && context.isTraced(c)) {
-            context.storeQuote((char) context.prev(), wasSpace);
+        } else if (this.expectedDelimiter == -1 && context.isTraced(c)) {
+            context.storeQuote((char) context.prev(), this.wasSpace);
             context.storeDelimiter(c, this.wasSpace);
             context.setState(new BOFState(c));
         } else if (context.isEOL(c)) {
