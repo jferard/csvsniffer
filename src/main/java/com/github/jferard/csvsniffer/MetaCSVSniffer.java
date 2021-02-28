@@ -121,7 +121,7 @@ public class MetaCSVSniffer {
 
     private FieldDescription<?> getDescription(List<String> values, String nullValue) {
         if (this.areAllVoid(values, nullValue)) {
-            return TextFieldDescription.INSTANCE;
+            return null;
         }
         for (FieldDescription<?> description : this.descriptions) {
             try {
@@ -138,7 +138,7 @@ public class MetaCSVSniffer {
 
     private boolean areAllVoid(List<String> values, String nullValue) {
         for (String value : values) {
-            if (!value.isEmpty() || value.equals(nullValue)) {
+            if (!(value.isEmpty() || value.equals(nullValue))) {
                 return false;
             }
         }

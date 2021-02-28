@@ -19,6 +19,14 @@ public class MetaCSVSnifferIT {
         }
     }
 
+    @Test
+    public void testOne() throws IOException, MetaCSVParseException {
+        for (String name : new String[]{"20201001-bal-216402149.csv"}) {
+            System.out.println(name);
+            this.testResource(name);
+        }
+    }
+
     private void testResource(String name) throws IOException, MetaCSVParseException {
         InputStream is =
                 MetaCSVSnifferIT.class.getClassLoader().getResourceAsStream(
