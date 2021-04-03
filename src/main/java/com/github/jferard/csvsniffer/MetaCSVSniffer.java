@@ -2,11 +2,11 @@ package com.github.jferard.csvsniffer;
 
 import com.github.jferard.javamcsv.CSVFormatHelper;
 import com.github.jferard.javamcsv.ColTypeParser;
-import com.github.jferard.javamcsv.FieldDescription;
 import com.github.jferard.javamcsv.MetaCSVData;
 import com.github.jferard.javamcsv.MetaCSVParseException;
+import com.github.jferard.javamcsv.MetaCSVParserBuilder;
 import com.github.jferard.javamcsv.MetaCSVReadException;
-import com.github.jferard.javamcsv.TextFieldDescription;
+import com.github.jferard.javamcsv.description.FieldDescription;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -41,7 +41,9 @@ public class MetaCSVSniffer {
                 new ArrayList<FieldDescription<?>>(columnTypes.size());
         for (String columnType : columnTypes) {
             try {
-                FieldDescription<?> description = new ColTypeParser().parseColType(columnType);
+                FieldDescription<?> description =
+                        new ColTypeParser(MetaCSVParserBuilder.DEFAULT_OBJECT_PARSER)
+                                .parseColType(columnType);
                 descriptions.add(description);
             } catch (MetaCSVParseException e) {
                 // pass
@@ -77,7 +79,8 @@ public class MetaCSVSniffer {
             Map<Integer, FieldDescription<?>> fieldDescriptionByCol =
                     new HashMap<Integer, FieldDescription<?>>();
             for (int c = 0; c < cols.size(); c++) {
-                FieldDescription<?> fieldDescription = this.getDescription(Util.removeDuplicates(cols.get(c)), nullValue);
+                FieldDescription<?> fieldDescription =
+                        this.getDescription(Util.removeDuplicates(cols.get(c)), nullValue);
                 if (fieldDescription != null) {
                     fieldDescriptionByCol.put(c, fieldDescription);
                 }

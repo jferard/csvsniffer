@@ -1,7 +1,7 @@
 package com.github.jferard.csvsniffer;
 
 import com.github.jferard.javamcsv.CSVParameters;
-import com.github.jferard.javamcsv.FieldDescription;
+import com.github.jferard.javamcsv.description.FieldDescription;
 import com.github.jferard.javamcsv.MetaCSVData;
 
 import java.nio.charset.Charset;
