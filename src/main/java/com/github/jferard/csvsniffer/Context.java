@@ -7,12 +7,12 @@ import java.util.List;
  * A context in a CSVSniffer.
  */
 public class Context {
-    private ContextRow row;
     private final CSVSnifferSettings settings;
+    private final List<ContextRow> rows;
+    private ContextRow row;
     private int unget;
     private int prev;
     private State state;
-    private final List<ContextRow> rows;
 
     public Context(CSVSnifferSettings settings) {
         this.settings = settings;
@@ -24,6 +24,7 @@ public class Context {
 
     /**
      * Handle the next char
+     *
      * @param c the char
      */
     public void handle(char c) {
@@ -43,6 +44,7 @@ public class Context {
 
     /**
      * Set the new state
+     *
      * @param newState the state
      */
     public void setState(State newState) {
@@ -83,6 +85,7 @@ public class Context {
 
     /**
      * Unget the char
+     *
      * @param c the char
      */
     public void unget(char c) {
@@ -106,14 +109,19 @@ public class Context {
 
     /**
      * Store a char as "seen"
+     *
      * @param c the char
      */
     public void storeSeen(char c) {
         this.row.storeSeen(c);
     }
 
-    public void storeEol(String s) {
-        this.row.storeEol(s);
+    /**
+     * A new EOL string was found
+     * @param eol the end of line sequence (CR, LF, CRLF)
+     */
+    public void storeEol(String eol) {
+        this.row.storeEol(eol);
     }
 
     public void storeEscape(char prev) {
@@ -124,19 +132,25 @@ public class Context {
         this.row.storeDelimiter(expectedDelimiter, wasSpace);
     }
 
+    /**
+     * A new row has started
+     */
     public void newRow() {
         this.setState(new BOLState());
         this.row = new ContextRow();
         this.rows.add(this.row);
     }
 
+    /**
+     * Print the rows
+     */
     public void print() {
         System.out.println(this.rows);
     }
 
     public CSVData evaluate() {
         ContextAggregator contextAggregator = new ContextAggregator();
-        for (ContextRow row : this.rows.subList(0, this.rows.size()-1)) {
+        for (ContextRow row : this.rows.subList(0, this.rows.size() - 1)) {
             row.aggregate(contextAggregator);
         }
         return contextAggregator.aggregate();

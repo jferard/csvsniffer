@@ -1,7 +1,7 @@
 package com.github.jferard.csvsniffer;
 
 /**
- * Begin of line state
+ * Begin of line state. Main difference with the BOF state: there is no previous delimiter.
  */
 public class BOLState implements State {
     private boolean wasSpace;

@@ -30,12 +30,21 @@ public class ContextRow {
         this.doubleQuotes.add(c);
     }
 
+    /**
+     * Store a char as "seen"
+     *
+     * @param c the char
+     */
     public void storeSeen(char c) {
         this.seen.add(c);
     }
 
-    public void storeEol(String s) {
-        this.eols.add(s);
+    /**
+     * A new EOL string was found
+     * @param eol the end of line sequence (CR, LF, CRLF)
+     */
+    public void storeEol(String eol) {
+        this.eols.add(eol);
     }
 
     public void storeEscape(char c) {
