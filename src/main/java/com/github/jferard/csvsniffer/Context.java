@@ -3,6 +3,9 @@ package com.github.jferard.csvsniffer;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A context in a CSVSniffer.
+ */
 public class Context {
     private ContextRow row;
     private final CSVSnifferSettings settings;
@@ -19,6 +22,10 @@ public class Context {
         this.newRow();
     }
 
+    /**
+     * Handle the next char
+     * @param c the char
+     */
     public void handle(char c) {
         if (this.unget != -1) {
             char prev = (char) this.unget;
@@ -34,30 +41,57 @@ public class Context {
         }
     }
 
+    /**
+     * Set the new state
+     * @param newState the state
+     */
     public void setState(State newState) {
         this.state = newState;
     }
 
+    /**
+     * @param c the char
+     * @return true if c is a quote
+     */
     public boolean isQuote(char c) {
         return this.settings.isQuote(c);
     }
 
+    /**
+     * @param c the char
+     * @return true if c is a space but not an EOL
+     */
     public boolean isSimpleSpace(char c) {
         return this.settings.isSimpleSpace(c);
     }
 
+    /**
+     * @param c the char
+     * @return true if c is an EOL
+     */
     public boolean isEOL(char c) {
         return this.settings.isEOL(c);
     }
 
+    /**
+     * @param c the char
+     * @return true if c may be part of the format (delimiter or quote)
+     */
     public boolean isTraced(char c) {
         return !this.settings.isToIgnore(c);
     }
 
+    /**
+     * Unget the char
+     * @param c the char
+     */
     public void unget(char c) {
         this.unget = c;
     }
 
+    /**
+     * @return the previous char (may be altered by unget)
+     */
     public int prev() {
         return this.prev;
     }
@@ -70,6 +104,10 @@ public class Context {
         this.row.storeDoubleQuote(c);
     }
 
+    /**
+     * Store a char as "seen"
+     * @param c the char
+     */
     public void storeSeen(char c) {
         this.row.storeSeen(c);
     }

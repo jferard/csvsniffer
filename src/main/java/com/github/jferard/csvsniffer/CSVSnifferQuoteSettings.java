@@ -1,5 +1,8 @@
 package com.github.jferard.csvsniffer;
 
+/**
+ * Settings for a sniffer with a quote char (the quote char is expected)
+ */
 public class CSVSnifferQuoteSettings implements CSVSnifferSettings {
     private final char quote;
 
