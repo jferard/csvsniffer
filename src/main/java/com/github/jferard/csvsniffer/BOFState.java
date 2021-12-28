@@ -1,5 +1,8 @@
 package com.github.jferard.csvsniffer;
 
+/**
+ * Begin of field
+ */
 public class BOFState implements State {
     private final int previousDelimiter;
 
@@ -13,7 +16,7 @@ public class BOFState implements State {
     public void handle(Context context, char c) {
         if (context.isQuote(c)) {
             context.storeQuote(c, this.wasSpace);
-            context.setState(new InQuotedFieldState(this.previousDelimiter));
+            context.setState(new InQuotedFieldState(this.previousDelimiter, c));
         } else if (context.isSimpleSpace(c)) {
             this.wasSpace = true;
         } else if (context.isEOL(c)) {

@@ -26,6 +26,10 @@ public class ContextRow {
         this.quotes.add(c);
     }
 
+    /**
+     * A double quote was found inside a quoted string
+     * @param c the quote
+     */
     public void storeDoubleQuote(char c) {
         this.doubleQuotes.add(c);
     }

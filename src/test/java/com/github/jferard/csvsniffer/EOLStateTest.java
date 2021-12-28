@@ -4,8 +4,6 @@ import org.easymock.EasyMock;
 import org.junit.Test;
 import org.powermock.api.easymock.PowerMock;
 
-import static org.junit.Assert.*;
-
 public class EOLStateTest {
     @Test
     public void testCRLF() {

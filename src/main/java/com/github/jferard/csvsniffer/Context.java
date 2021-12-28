@@ -99,10 +99,18 @@ public class Context {
         return this.prev;
     }
 
+    /**
+     * @param c we assume that c is a quote char
+     * @param wasSpace a space was met
+     */
     public void storeQuote(char c, boolean wasSpace) {
         this.row.storeQuote(c, wasSpace);
     }
 
+    /**
+     * A double quote was found inside a quoted string
+     * @param c the quote
+     */
     public void storeDoubleQuote(char c) {
         this.row.storeDoubleQuote(c);
     }
@@ -148,6 +156,9 @@ public class Context {
         System.out.println(this.rows);
     }
 
+    /**
+     * @return the CSV data.
+     */
     public CSVData evaluate() {
         ContextAggregator contextAggregator = new ContextAggregator();
         for (ContextRow row : this.rows.subList(0, this.rows.size() - 1)) {

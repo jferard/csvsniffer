@@ -10,7 +10,7 @@ public class BOLState implements State {
     public void handle(Context context, char c) {
         if (context.isQuote(c)) {
             context.storeQuote(c, this.wasSpace);
-            context.setState(new InQuotedFieldState(-1));
+            context.setState(new InQuotedFieldState(-1, c));
         } else if (context.isSimpleSpace(c)) {
             this.wasSpace = true;
         } else if (context.isEOL(c)) {
