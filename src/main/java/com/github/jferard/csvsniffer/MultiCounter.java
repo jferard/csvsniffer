@@ -31,12 +31,6 @@ public class MultiCounter<T> {
         curCounts.add(count);
     }
 
-    public void add(Counter<T> counter) {
-        for (Map.Entry<T, Integer> entry : counter.entrySet()) {
-            this.add(entry.getKey(), entry.getValue());
-        }
-    }
-
     public List<Integer> get(T element) {
         List<Integer> curCounts = this.countsByElement.get(element);
         if (curCounts == null) {

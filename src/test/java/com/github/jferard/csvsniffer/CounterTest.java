@@ -4,9 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 
 public class CounterTest {
@@ -75,5 +73,32 @@ public class CounterTest {
         c.add("foo", 3);
         c.add("bar", 2);
         Assert.assertEquals("foo", c.firstOrNull());
+    }
+
+    @Test
+    public void testEquals() {
+        Counter<String> c = new Counter<String>();
+        c.add("foo", 3);
+        c.add("bar", 2);
+        Counter<String> c2 = new Counter<String>();
+        c2.add("foo", 3);
+        c2.add("bar", 2);
+        Counter<String> c3 = new Counter<String>();
+        c3.add("foo", 2);
+        c3.add("bar", 2);
+
+        Assert.assertEquals(c, c);
+        Assert.assertEquals(c, c);
+        Assert.assertNotEquals(c3, c);
+        Assert.assertNotEquals(new Object(), c);
+    }
+
+    @Test
+    public void testHashcode() {
+        Counter<String> c = new Counter<String>();
+        c.add("foo", 3);
+        c.add("bar", 2);
+
+        Assert.assertEquals(198870, c.hashCode());
     }
 }

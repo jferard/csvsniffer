@@ -84,4 +84,21 @@ public class Counter<T> {
             return defaultValue;
         }
     }
+
+    @Override
+    public int hashCode() {
+        return this.countByElement.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Counter)) {
+            return false;
+        }
+        Counter<?> other = (Counter) o;
+        return this.countByElement.equals(other.countByElement);
+    }
 }
