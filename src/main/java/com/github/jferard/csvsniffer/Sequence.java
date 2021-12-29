@@ -1,42 +1,83 @@
 package com.github.jferard.csvsniffer;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Sequence {
     private final List<Integer> values;
 
     public Sequence(List<Integer> values) {
-        this.values = values;
+        this.values = new ArrayList<Integer>(values);
     }
 
+    /**
+     * If the sequence length is gt the threshold, remove the min and the max
+     *
+     * @param threshold the threshold
+     */
     public void clean(int threshold) {
         if (this.values.size() > threshold) {
-            int min = Collections.min(this.values);
-            int max = Collections.max(this.values);
-            this.values.remove((Object) min);
-            this.values.remove((Object) max);
+            int minIndex = 0;
+            int maxIndex = 0;
+            int min = this.values.get(0);
+            int max = this.values.get(0);
+            for (int i = 1; i < this.values.size(); i++) {
+                int value = this.values.get(i);
+                if (value < min) {
+                    min = value;
+                    minIndex = i;
+                } else if (value > max) {
+                    max = value;
+                    maxIndex = i;
+                }
+            }
+            if (minIndex < maxIndex) {
+                this.values.remove(maxIndex);
+                this.values.remove(minIndex);
+            } else {
+                this.values.remove(minIndex);
+                this.values.remove(maxIndex);
+            }
         }
     }
 
-    public float score() {
-        return this.variance() / this.values.size();
+    /**
+     * @return the score of the sequence
+     * @param size the size of the population
+     */
+    public double score(int size) {
+        return this.variance(size) / size;
     }
 
-    public int mean() {
-        return this.sum() / this.values.size();
+    /**
+     * @return the mean of the sequence
+     * @param size the size of the population
+     */
+    public double mean(int size) {
+        return (double) this.sum() / size;
     }
 
-    public float variance() {
-        float mean = this.mean();
-        float var = 0;
+    /**
+     * @return the population variance of the sequence
+     * @param size the size of the population
+     */
+    public double variance(int size) {
+        double mean = this.mean(size);
+        double var = 0.0;
         for (int value : this.values) {
-            float t = value - mean;
-            var += t*t;
+            double t = value - mean;
+            var += t * t;
         }
-        return var / this.values.size();
+        double squareMean = mean * mean;
+        for (int i=this.values.size(); i<size; i++) {
+            var += squareMean;
+        }
+        return var / size;
     }
 
+    /**
+     * @return the sum the sequence
+     */
     public int sum() {
         int s = 0;
         for (int value : this.values) {

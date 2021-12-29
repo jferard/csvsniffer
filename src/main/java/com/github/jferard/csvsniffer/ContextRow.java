@@ -76,6 +76,7 @@ public class ContextRow {
     }
 
     public void aggregate(ContextAggregator contextAggregator) {
+        contextAggregator.newRow();
         contextAggregator.addQuotes(this.quotes);
         contextAggregator.addSeens(this.seen, this.delimiters);
         contextAggregator.addEols(this.eols);

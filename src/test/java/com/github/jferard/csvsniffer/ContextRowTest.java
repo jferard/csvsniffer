@@ -39,12 +39,13 @@ public class ContextRowTest {
         c.storeSeen(',');
 
         PowerMock.resetAll();
-        agg.addQuotes(this.getCounter('"', 2));
-        agg.addSeens(this.getCounter(',', 2), this.getCounter(';', 2));
-        agg.addEols(this.getCounter("\r\n", 1));
-        agg.addDoubleQuotes(this.getCounter('"', 1));
-        agg.addEscapes(this.getCounter('\\', 1));
-        agg.addDelimiters(this.getCounter(';', 2));
+        agg.newRow();
+        agg.addQuotes(TestHelper.getCounter('"', 2));
+        agg.addSeens(TestHelper.getCounter(',', 2), TestHelper.getCounter(';', 2));
+        agg.addEols(TestHelper.getCounter("\r\n", 1));
+        agg.addDoubleQuotes(TestHelper.getCounter('"', 1));
+        agg.addEscapes(TestHelper.getCounter('\\', 1));
+        agg.addDelimiters(TestHelper.getCounter(';', 2));
         agg.addSkipInitialSpaces(2);
 
         PowerMock.replayAll();
@@ -53,9 +54,4 @@ public class ContextRowTest {
         PowerMock.verifyAll();
     }
 
-    private <T> Counter<T> getCounter(T element, int n) {
-        Counter<T> c = new Counter<T>();
-        c.add(element, n);
-        return c;
-    }
 }
