@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class ContextTest {
+    @Test
     public void test() {
         Context c = new Context(new CSVSnifferQuoteSettings('"'));
         c.handle(' ');
@@ -33,5 +34,4 @@ public class ContextTest {
         Assert.assertTrue(data.isDoubleQuote());
         Assert.assertTrue(data.isSkipInitialSpace());
     }
-
 }

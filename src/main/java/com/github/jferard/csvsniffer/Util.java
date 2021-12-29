@@ -8,12 +8,23 @@ import java.util.List;
 import java.util.Set;
 
 public class Util {
+    /**
+     * Read bufferSize bytes of an input stream
+     *
+     * @param is         the input stream
+     * @param bufferSize the size
+     * @return a byte array
+     * @throws IOException if an I/O error occurs
+     */
     public static byte[] readToBuffer(InputStream is, int bufferSize) throws IOException {
         byte[] buffer = new byte[bufferSize];
         int count = is.read(buffer, 0, buffer.length);
         int total = count;
-        while (count != -1 && total < buffer.length) {
+        while (total < buffer.length) {
             count = is.read(buffer, total, buffer.length - total);
+            if (count == -1) {
+                break;
+            }
             total += count;
         }
         if (total == bufferSize) {
@@ -26,9 +37,10 @@ public class Util {
 
     /**
      * Keep order
-     * @param values
-     * @param <T>
-     * @return
+     *
+     * @param values the values
+     * @param <T>    the type of the values
+     * @return a list of values wo duplicates
      */
     public static <T> List<T> removeDuplicates(List<T> values) {
         List<T> uniqueValues = new ArrayList<T>(values.size());
