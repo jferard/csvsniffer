@@ -46,17 +46,17 @@
 
 	<repositories>
 		<repository>
-			<id>EBI</id>
-			<name>EBI</name>
-			<url>https://www.ebi.ac.uk/intact/maven/nexus/content/repositories/ebi-repo/</url>
+			<id>Liferay</id>
+			<name>Liferay</name>
+			<url>https://repository.liferay.com/nexus/content/repositories/public/</url>
 		</repository>
 	</repositories>
 
 	<dependencies>
 		<dependency>
-			<groupId>org.mozilla.intl</groupId>
-			<artifactId>chardet</artifactId>
-			<version>1.0</version>
+			<groupId>com.liferay</groupId>
+			<artifactId>org.mozilla.intl.chardet</artifactId>
+			<version>1.1</version>
 		</dependency>
 		<dependency>
 			<groupId>com.github.jferard</groupId>
