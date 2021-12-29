@@ -7,14 +7,14 @@ import org.powermock.api.easymock.PowerMock;
 public class QuoteInQuotedFieldStateTest {
     @Test
     public void testQuote() {
-        Context c = PowerMock.createMock(Context.class);
+        final Context c = PowerMock.createMock(Context.class);
 
         PowerMock.resetAll();
         c.storeDoubleQuote('"');
         c.setState(EasyMock.isA(InQuotedFieldState.class));
 
         PowerMock.replayAll();
-        QuoteInQuotedFieldState state = new QuoteInQuotedFieldState(',', '"');
+        final QuoteInQuotedFieldState state = new QuoteInQuotedFieldState(',', '"', '\\');
         state.handle(c, '"');
 
         PowerMock.verifyAll();
@@ -22,13 +22,13 @@ public class QuoteInQuotedFieldStateTest {
 
     @Test
     public void testSpace() {
-        Context c = PowerMock.createMock(Context.class);
+        final Context c = PowerMock.createMock(Context.class);
 
         PowerMock.resetAll();
         EasyMock.expect(c.isSimpleSpace(' ')).andReturn(true);
 
         PowerMock.replayAll();
-        QuoteInQuotedFieldState state = new QuoteInQuotedFieldState(',', '"');
+        final QuoteInQuotedFieldState state = new QuoteInQuotedFieldState(',', '"', '\\');
         state.handle(c, ' ');
 
         PowerMock.verifyAll();
@@ -36,7 +36,7 @@ public class QuoteInQuotedFieldStateTest {
 
     @Test
     public void testDelimiter() {
-        Context c = PowerMock.createMock(Context.class);
+        final Context c = PowerMock.createMock(Context.class);
 
         PowerMock.resetAll();
         EasyMock.expect(c.isSimpleSpace(',')).andReturn(false);
@@ -46,7 +46,7 @@ public class QuoteInQuotedFieldStateTest {
         c.setState(EasyMock.isA(BOFState.class));
 
         PowerMock.replayAll();
-        QuoteInQuotedFieldState state = new QuoteInQuotedFieldState(',', '"');
+        final QuoteInQuotedFieldState state = new QuoteInQuotedFieldState(',', '"', '\\');
         state.handle(c, ',');
 
         PowerMock.verifyAll();
@@ -54,7 +54,7 @@ public class QuoteInQuotedFieldStateTest {
 
     @Test
     public void testNewDelimiter() {
-        Context c = PowerMock.createMock(Context.class);
+        final Context c = PowerMock.createMock(Context.class);
 
         PowerMock.resetAll();
         EasyMock.expect(c.isSimpleSpace(',')).andReturn(false);
@@ -65,7 +65,7 @@ public class QuoteInQuotedFieldStateTest {
         c.setState(EasyMock.isA(BOFState.class));
 
         PowerMock.replayAll();
-        QuoteInQuotedFieldState state = new QuoteInQuotedFieldState(-1, '"');
+        final QuoteInQuotedFieldState state = new QuoteInQuotedFieldState(-1, '"', '\\');
         state.handle(c, ',');
 
         PowerMock.verifyAll();
@@ -73,7 +73,7 @@ public class QuoteInQuotedFieldStateTest {
 
     @Test
     public void testEOL() {
-        Context c = PowerMock.createMock(Context.class);
+        final Context c = PowerMock.createMock(Context.class);
 
         PowerMock.resetAll();
         EasyMock.expect(c.isSimpleSpace('\n')).andReturn(false);
@@ -82,7 +82,7 @@ public class QuoteInQuotedFieldStateTest {
         c.setState(EasyMock.isA(EOLState.class));
 
         PowerMock.replayAll();
-        QuoteInQuotedFieldState state = new QuoteInQuotedFieldState(-1, '"');
+        final QuoteInQuotedFieldState state = new QuoteInQuotedFieldState(-1, '"', '\\');
         state.handle(c, '\n');
 
         PowerMock.verifyAll();
@@ -90,18 +90,18 @@ public class QuoteInQuotedFieldStateTest {
 
     @Test
     public void testEscape() {
-        Context c = PowerMock.createMock(Context.class);
+        final Context c = PowerMock.createMock(Context.class);
 
         PowerMock.resetAll();
         EasyMock.expect(c.isSimpleSpace('a')).andReturn(false);
         EasyMock.expect(c.isTraced('a')).andReturn(false);
         EasyMock.expect(c.isEOL('a')).andReturn(false);
-        EasyMock.expect(c.prev()).andReturn((int) '\\');
+        c.storeEscape('\\');
         EasyMock.expect(c.isTraced('\\')).andReturn(true);
-        c.setState(EasyMock.isA(MaybeEscapedQuoteState.class));
+        c.setState(EasyMock.isA(InQuotedFieldState.class));
 
         PowerMock.replayAll();
-        QuoteInQuotedFieldState state = new QuoteInQuotedFieldState(-1, '"');
+        final QuoteInQuotedFieldState state = new QuoteInQuotedFieldState(-1, '"', '\\');
         state.handle(c, 'a');
 
         PowerMock.verifyAll();

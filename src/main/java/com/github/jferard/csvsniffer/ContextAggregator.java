@@ -88,7 +88,7 @@ public class ContextAggregator {
     /**
      * @return the aggregate CSVData
      */
-    public CSVData  aggregate() {
+    public CSVData aggregate() {
         List<Character> dels = this.delimiters.descKeys();
         for (char delimiter : dels) {
             List<Integer> counts = this.seen.get(delimiter);

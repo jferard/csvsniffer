@@ -14,7 +14,7 @@ public class Context {
     private int prev;
     private State state;
 
-    public Context(CSVSnifferSettings settings) {
+    public Context(final CSVSnifferSettings settings) {
         this.settings = settings;
         this.unget = -1;
         this.prev = -1;
@@ -27,9 +27,9 @@ public class Context {
      *
      * @param c the char
      */
-    public void handle(char c) {
+    public void handle(final char c) {
         if (this.unget != -1) {
-            char prev = (char) this.unget;
+            final char prev = (char) this.unget;
             this.unget = -1;
             this.state.handle(this, prev);
             if (!this.isSimpleSpace(prev)) {
@@ -47,7 +47,7 @@ public class Context {
      *
      * @param newState the state
      */
-    public void setState(State newState) {
+    public void setState(final State newState) {
         this.state = newState;
     }
 
@@ -55,7 +55,7 @@ public class Context {
      * @param c the char
      * @return true if c is a quote
      */
-    public boolean isQuote(char c) {
+    public boolean isQuote(final char c) {
         return this.settings.isQuote(c);
     }
 
@@ -63,7 +63,7 @@ public class Context {
      * @param c the char
      * @return true if c is a space but not an EOL
      */
-    public boolean isSimpleSpace(char c) {
+    public boolean isSimpleSpace(final char c) {
         return this.settings.isSimpleSpace(c);
     }
 
@@ -71,7 +71,7 @@ public class Context {
      * @param c the char
      * @return true if c is an EOL
      */
-    public boolean isEOL(char c) {
+    public boolean isEOL(final char c) {
         return this.settings.isEOL(c);
     }
 
@@ -79,7 +79,7 @@ public class Context {
      * @param c the char
      * @return true if c may be part of the format (delimiter or quote)
      */
-    public boolean isTraced(char c) {
+    public boolean isTraced(final char c) {
         return !this.settings.isToIgnore(c);
     }
 
@@ -88,7 +88,7 @@ public class Context {
      *
      * @param c the char
      */
-    public void unget(char c) {
+    public void unget(final char c) {
         this.unget = c;
     }
 
@@ -103,7 +103,7 @@ public class Context {
      * @param c we assume that c is a quote char
      * @param wasSpace a space was met
      */
-    public void storeQuote(char c, boolean wasSpace) {
+    public void storeQuote(final char c, final boolean wasSpace) {
         this.row.storeQuote(c, wasSpace);
     }
 
@@ -111,7 +111,7 @@ public class Context {
      * A double quote was found inside a quoted string
      * @param c the quote
      */
-    public void storeDoubleQuote(char c) {
+    public void storeDoubleQuote(final char c) {
         this.row.storeDoubleQuote(c);
     }
 
@@ -120,7 +120,7 @@ public class Context {
      *
      * @param c the char
      */
-    public void storeSeen(char c) {
+    public void storeSeen(final char c) {
         this.row.storeSeen(c);
     }
 
@@ -128,15 +128,15 @@ public class Context {
      * A new EOL string was found
      * @param eol the end of line sequence (CR, LF, CRLF)
      */
-    public void storeEol(String eol) {
+    public void storeEol(final String eol) {
         this.row.storeEol(eol);
     }
 
-    public void storeEscape(char prev) {
+    public void storeEscape(final char prev) {
         this.row.storeEscape(prev);
     }
 
-    public void storeDelimiter(char expectedDelimiter, boolean wasSpace) {
+    public void storeDelimiter(final char expectedDelimiter, final boolean wasSpace) {
         this.row.storeDelimiter(expectedDelimiter, wasSpace);
     }
 
@@ -160,8 +160,11 @@ public class Context {
      * @return the CSV data.
      */
     public CSVData evaluate() {
-        ContextAggregator contextAggregator = new ContextAggregator();
-        for (ContextRow row : this.rows.subList(0, this.rows.size() - 1)) {
+        final ContextAggregator contextAggregator = new ContextAggregator();
+        for (final ContextRow row : this.rows) {
+            if (row.isEmpty()) {
+                continue;
+            }
             row.aggregate(contextAggregator);
         }
         return contextAggregator.aggregate();

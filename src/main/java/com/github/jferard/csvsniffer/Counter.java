@@ -85,6 +85,13 @@ public class Counter<T> {
         }
     }
 
+    /**
+     * @return true if this counter is empty.
+     */
+    public boolean isEmpty() {
+        return this.countByElement.isEmpty();
+    }
+
     @Override
     public int hashCode() {
         return this.countByElement.hashCode();

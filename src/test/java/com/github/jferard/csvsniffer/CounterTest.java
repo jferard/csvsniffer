@@ -11,7 +11,9 @@ public class CounterTest {
     @Test
     public void testGet() {
         Counter<String> c = new Counter<String>();
+        Assert.assertTrue(c.isEmpty());
         c.add("foo", 3);
+        Assert.assertFalse(c.isEmpty());
         c.add("bar", 2);
         c.add("baz");
         c.add("foo");

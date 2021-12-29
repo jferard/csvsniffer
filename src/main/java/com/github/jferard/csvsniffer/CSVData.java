@@ -55,21 +55,4 @@ public class CSVData implements CSVParameters {
     public boolean isSkipInitialSpace() {
         return this.skipInitialSpaces;
     }
-
-    public MetaCSVData toMetaCSVData(String charset) {
-        Map<Integer, FieldDescription<?>> descriptionByColIndex =
-                new HashMap<Integer, FieldDescription<?>>();
-        return this.toMetaCSVData(charset, "", descriptionByColIndex);
-    }
-
-    public MetaCSVData toMetaCSVData(String charset,
-                                     String nullValue,
-                                     Map<Integer, FieldDescription<?>> descriptionByColIndex) {
-        Map<String, String> meta = new HashMap<String, String>();
-        meta.put("generator", "csvsniffer");
-        return new MetaCSVData("draft0", meta, Charset.forName(charset), false, this.eol,
-                this.delimiter, this.getQuoteChar(), this.doubleQuote, this.getEscapeChar(),
-                this.skipInitialSpaces,
-                nullValue, descriptionByColIndex);
-    }
 }

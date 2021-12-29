@@ -7,8 +7,10 @@ import org.powermock.api.easymock.PowerMock;
 public class ContextRowTest {
     @Test
     public void testToString() {
-        ContextRow c = new ContextRow();
+        final ContextRow c = new ContextRow();
+        Assert.assertTrue(c.isEmpty());
         c.storeDelimiter(';', true);
+        Assert.assertFalse(c.isEmpty());
         c.storeDoubleQuote('"');
         c.storeEol("\r\n");
         c.storeEscape('\\');
@@ -26,8 +28,8 @@ public class ContextRowTest {
 
     @Test
     public void testAgg() {
-        ContextAggregator agg = PowerMock.createMock(ContextAggregator.class);
-        ContextRow c = new ContextRow();
+        final ContextAggregator agg = PowerMock.createMock(ContextAggregator.class);
+        final ContextRow c = new ContextRow();
         c.storeDelimiter(';', true);
         c.storeDelimiter(';', false);
         c.storeDoubleQuote('"');

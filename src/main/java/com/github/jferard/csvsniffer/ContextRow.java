@@ -28,6 +28,7 @@ public class ContextRow {
 
     /**
      * A double quote was found inside a quoted string
+     *
      * @param c the quote
      */
     public void storeDoubleQuote(char c) {
@@ -45,6 +46,7 @@ public class ContextRow {
 
     /**
      * A new EOL string was found
+     *
      * @param eol the end of line sequence (CR, LF, CRLF)
      */
     public void storeEol(String eol) {
@@ -84,5 +86,13 @@ public class ContextRow {
         contextAggregator.addEscapes(this.escapes);
         contextAggregator.addDelimiters(this.delimiters);
         contextAggregator.addSkipInitialSpaces(this.skipInitialSpaces);
+    }
+
+    /**
+     * @return true if this counter is empty.
+     */
+    public boolean isEmpty() {
+        return this.quotes.isEmpty() && this.seen.isEmpty() && this.eols.isEmpty() &&
+                this.doubleQuotes.isEmpty() && this.escapes.isEmpty() && this.delimiters.isEmpty();
     }
 }

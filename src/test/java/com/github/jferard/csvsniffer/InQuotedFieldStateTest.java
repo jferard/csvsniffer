@@ -10,6 +10,7 @@ public class InQuotedFieldStateTest {
         Context c = PowerMock.createMock(Context.class);
 
         PowerMock.resetAll();
+        EasyMock.expect(c.prev()).andReturn((int) '\\');
         c.setState(EasyMock.isA(QuoteInQuotedFieldState.class));
 
         PowerMock.replayAll();
