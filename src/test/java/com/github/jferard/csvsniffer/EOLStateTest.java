@@ -7,7 +7,7 @@ import org.powermock.api.easymock.PowerMock;
 public class EOLStateTest {
     @Test
     public void testCRLF() {
-        Context c = PowerMock.createMock(Context.class);
+        final Context c = PowerMock.createMock(Context.class);
 
         PowerMock.resetAll();
         EasyMock.expect(c.isEOL('\n')).andReturn(true);
@@ -15,7 +15,7 @@ public class EOLStateTest {
         c.newRow();
 
         PowerMock.replayAll();
-        EOLState state = new EOLState('\r');
+        final EOLState state = new EOLState('\r');
         state.handle(c, '\n');
 
         PowerMock.verifyAll();
@@ -23,7 +23,7 @@ public class EOLStateTest {
 
     @Test
     public void testLF() {
-        Context c = PowerMock.createMock(Context.class);
+        final Context c = PowerMock.createMock(Context.class);
 
         PowerMock.resetAll();
         EasyMock.expect(c.isEOL('a')).andReturn(false);
@@ -32,7 +32,7 @@ public class EOLStateTest {
         c.newRow();
 
         PowerMock.replayAll();
-        EOLState state = new EOLState('\n');
+        final EOLState state = new EOLState('\n');
         state.handle(c, 'a');
 
         PowerMock.verifyAll();
@@ -40,7 +40,7 @@ public class EOLStateTest {
 
     @Test
     public void testLFLF() {
-        Context c = PowerMock.createMock(Context.class);
+        final Context c = PowerMock.createMock(Context.class);
 
         PowerMock.resetAll();
         EasyMock.expect(c.isEOL('\n')).andReturn(true);
@@ -49,7 +49,7 @@ public class EOLStateTest {
         c.newRow();
 
         PowerMock.replayAll();
-        EOLState state = new EOLState('\n');
+        final EOLState state = new EOLState('\n');
         state.handle(c, '\n');
 
         PowerMock.verifyAll();

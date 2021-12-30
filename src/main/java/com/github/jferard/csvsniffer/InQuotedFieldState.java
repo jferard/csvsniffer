@@ -5,7 +5,7 @@ package com.github.jferard.csvsniffer;
  */
 public class InQuotedFieldState implements State {
     private final int expectedDelimiter;
-    private char quote;
+    private final char quote;
 
     public InQuotedFieldState(final int expectedDelimiter, final char quote) {
         this.expectedDelimiter = expectedDelimiter;

@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class ContextAggregatorTest {
     @Test
     public void testAggregate1() {
-        ContextAggregator agg = new ContextAggregator();
+        final ContextAggregator agg = new ContextAggregator();
         agg.newRow();
         agg.addQuotes(TestHelper.getCounter('"', 30));
         agg.addEols(TestHelper.getCounter("\r\n", 1));
@@ -27,7 +27,7 @@ public class ContextAggregatorTest {
                 TestHelper.getCounter(',', 20));
         agg.addDelimiters(TestHelper.getCounter(',', 20));
 
-        CSVData data = agg.aggregate();
+        final CSVData data = agg.aggregate();
         Assert.assertEquals('\\', data.getEscapeChar());
         Assert.assertEquals("\n", data.getLineTerminator());
         Assert.assertEquals(',', data.getDelimiter());
@@ -36,7 +36,7 @@ public class ContextAggregatorTest {
 
     @Test
     public void testAggregate2() {
-        ContextAggregator agg = new ContextAggregator();
+        final ContextAggregator agg = new ContextAggregator();
         agg.newRow();
         agg.addQuotes(TestHelper.getCounter('"', 30));
         agg.addDoubleQuotes(TestHelper.getCounter('"', 1));
@@ -59,7 +59,7 @@ public class ContextAggregatorTest {
         agg.addSeens(TestHelper.getCounter(';', 15),
                 TestHelper.getCounter(';', 15));
         agg.addDelimiters(TestHelper.getCounter(';', 15));
-        CSVData data = agg.aggregate();
+        final CSVData data = agg.aggregate();
         Assert.assertEquals('\0', data.getEscapeChar());
         Assert.assertEquals("\n", data.getLineTerminator());
         Assert.assertEquals(';', data.getDelimiter());
@@ -68,7 +68,7 @@ public class ContextAggregatorTest {
 
     @Test
     public void testToString() {
-        ContextAggregator agg = new ContextAggregator();
+        final ContextAggregator agg = new ContextAggregator();
         agg.addQuotes(TestHelper.getCounter('"', 30));
         agg.addQuotes(TestHelper.getCounter('\'', 3));
         agg.addEols(TestHelper.getCounter("\r\n", 1));

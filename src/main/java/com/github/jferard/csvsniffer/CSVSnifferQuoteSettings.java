@@ -6,27 +6,27 @@ package com.github.jferard.csvsniffer;
 public class CSVSnifferQuoteSettings implements CSVSnifferSettings {
     private final char quote;
 
-    public CSVSnifferQuoteSettings(char quote) {
+    public CSVSnifferQuoteSettings(final char quote) {
         this.quote = quote;
     }
 
     @Override
-    public boolean isQuote(char c) {
+    public boolean isQuote(final char c) {
         return c == this.quote;
     }
 
     @Override
-    public boolean isSimpleSpace(char c) {
+    public boolean isSimpleSpace(final char c) {
         return c == ' ';
     }
 
     @Override
-    public boolean isToIgnore(char c) {
+    public boolean isToIgnore(final char c) {
         return Character.isLetterOrDigit(c);
     }
 
     @Override
-    public boolean isEOL(char c) {
+    public boolean isEOL(final char c) {
         return c == '\n' || c == '\r';
     }
 }

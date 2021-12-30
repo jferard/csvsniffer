@@ -29,7 +29,7 @@ public class ContextAggregator {
      * Add quotes from a context row
      * @param quotes the quotes
      */
-    public void addQuotes(Counter<Character> quotes) {
+    public void addQuotes(final Counter<Character> quotes) {
         this.quotes.update(quotes);
     }
 
@@ -37,7 +37,7 @@ public class ContextAggregator {
      * Add eols from a context row
      * @param eols the eols
      */
-    public void addEols(Counter<String> eols) {
+    public void addEols(final Counter<String> eols) {
         this.eols.update(eols);
     }
 
@@ -45,7 +45,7 @@ public class ContextAggregator {
      * Add doubleQuotes from a context row
      * @param doubleQuotes the quotes
      */
-    public void addDoubleQuotes(Counter<Character> doubleQuotes) {
+    public void addDoubleQuotes(final Counter<Character> doubleQuotes) {
         this.doubleQuotes.update(doubleQuotes);
     }
 
@@ -53,7 +53,7 @@ public class ContextAggregator {
      * Add escapes from a context row
      * @param escapes the escapes
      */
-    public void addEscapes(Counter<Character> escapes) {
+    public void addEscapes(final Counter<Character> escapes) {
         this.escapes.update(escapes);
     }
 
@@ -61,7 +61,7 @@ public class ContextAggregator {
      * Add the number of spaces skipped
      * @param skipInitialSpaces the spaces count
      */
-    public void addSkipInitialSpaces(int skipInitialSpaces) {
+    public void addSkipInitialSpaces(final int skipInitialSpaces) {
         this.skipInitialSpaces += skipInitialSpaces;
     }
 
@@ -70,9 +70,9 @@ public class ContextAggregator {
      * @param seen the chars
      * @param delimiters the delimiters
      */
-    public void addSeens(Counter<Character> seen,
-                         Counter<Character> delimiters) {
-        Counter<Character> counter = new Counter<Character>(seen);
+    public void addSeens(final Counter<Character> seen,
+                         final Counter<Character> delimiters) {
+        final Counter<Character> counter = new Counter<Character>(seen);
         counter.update(delimiters);
         this.seen.update(counter);
     }
@@ -81,7 +81,7 @@ public class ContextAggregator {
      * Add the delimiter chars in a row
      * @param delimiters the delimiters
      */
-    public void addDelimiters(Counter<Character> delimiters) {
+    public void addDelimiters(final Counter<Character> delimiters) {
         this.delimiters.update(delimiters);
     }
 
@@ -89,28 +89,28 @@ public class ContextAggregator {
      * @return the aggregate CSVData
      */
     public CSVData aggregate() {
-        List<Character> dels = this.delimiters.descKeys();
-        for (char delimiter : dels) {
-            List<Integer> counts = this.seen.get(delimiter);
-            Sequence sequence = new Sequence(counts);
+        final List<Character> dels = this.delimiters.descKeys();
+        for (final char delimiter : dels) {
+            final List<Integer> counts = this.seen.get(delimiter);
+            final Sequence sequence = new Sequence(counts);
             sequence.clean(10);
-            double score = sequence.score(this.rowCount);
+            final double score = sequence.score(this.rowCount);
             if (score < 0.01) {
-                Character quote = this.quotes.firstOrNull();
-                String eol = this.eols.firstOr("\r\n");
-                Character escape = this.escapes.firstOrNull();
-                boolean skipInitialSpaces = this.skipInitialSpaces > 0;
-                Character doubleQuote = this.doubleQuotes.firstOrNull();
+                final Character quote = this.quotes.firstOrNull();
+                final String eol = this.eols.firstOr("\r\n");
+                final Character escape = this.escapes.firstOrNull();
+                final boolean skipInitialSpaces = this.skipInitialSpaces > 0;
+                final Character doubleQuote = this.doubleQuotes.firstOrNull();
                 return new CSVData(eol, delimiter, quote, doubleQuote == quote, escape, skipInitialSpaces);
             }
         }
         char bestChar = '\0';
         double best = 1000;
-        for (char seen : this.seen.descKeys()) {
-            List<Integer> counts = this.seen.get(seen);
-            Sequence sequence = new Sequence(counts);
+        for (final char seen : this.seen.descKeys()) {
+            final List<Integer> counts = this.seen.get(seen);
+            final Sequence sequence = new Sequence(counts);
             sequence.clean(10);
-            double score = sequence.score(this.rowCount);
+            final double score = sequence.score(this.rowCount);
             if (score < best) {
                 best = score;
                 bestChar = seen;
@@ -119,7 +119,7 @@ public class ContextAggregator {
                 }
             }
         }
-        String eol = this.eols.firstOr("\r\n");
+        final String eol = this.eols.firstOr("\r\n");
         return new CSVData(eol, bestChar, null, false, null, false);
     }
 

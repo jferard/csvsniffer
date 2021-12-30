@@ -6,12 +6,12 @@ package com.github.jferard.csvsniffer;
 public class EOLState implements State {
     private final char eolChar;
 
-    public EOLState(char eolChar) {
+    public EOLState(final char eolChar) {
         this.eolChar = eolChar;
     }
 
     @Override
-    public void handle(Context context, char c) {
+    public void handle(final Context context, final char c) {
         if (context.isEOL(c)) {
             if (c == this.eolChar) { // LFLF or CRCR
                 context.storeEol(""+this.eolChar);

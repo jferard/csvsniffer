@@ -31,8 +31,6 @@ public class QuoteInQuotedFieldState implements State {
         } else {
             if (context.isTraced((char) this.prev)) {
                 context.storeEscape((char) this.prev);
-//                context.setState(new MaybeEscapedQuoteState(this.expectedDelimiter, this.quote,
-//                        (char) this.prev));
             }
             context.setState(new InQuotedFieldState(this.expectedDelimiter, this.quote));
         }

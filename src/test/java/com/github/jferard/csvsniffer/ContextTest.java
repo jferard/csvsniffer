@@ -6,7 +6,7 @@ import org.junit.Test;
 public class ContextTest {
     @Test
     public void test() {
-        Context c = new Context(new CSVSnifferQuoteSettings('"'));
+        final Context c = new Context(new CSVSnifferQuoteSettings('"'));
         c.handle(' ');
         c.handle('"');
         c.handle('a');
@@ -27,7 +27,7 @@ public class ContextTest {
         c.handle('f');
         c.handle('"');
         c.handle('\n');
-        CSVData data = c.evaluate();
+        final CSVData data = c.evaluate();
         Assert.assertEquals('\0', data.getEscapeChar());
         Assert.assertEquals(';', data.getDelimiter());
         Assert.assertEquals("\n", data.getLineTerminator());

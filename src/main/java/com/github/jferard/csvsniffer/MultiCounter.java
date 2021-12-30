@@ -14,15 +14,15 @@ public class MultiCounter<T> {
         this(new HashMap<T, List<Integer>>());
     }
 
-    public MultiCounter(Map<T, List<Integer>> countByElement) {
+    public MultiCounter(final Map<T, List<Integer>> countByElement) {
         this.countsByElement = countByElement;
     }
 
-    public MultiCounter(MultiCounter<T> other) {
+    public MultiCounter(final MultiCounter<T> other) {
         this(other.countsByElement);
     }
 
-    public void add(T element, int count) {
+    public void add(final T element, final int count) {
         List<Integer> curCounts = this.countsByElement.get(element);
         if (curCounts == null) {
             curCounts = new ArrayList<Integer>();
@@ -31,8 +31,8 @@ public class MultiCounter<T> {
         curCounts.add(count);
     }
 
-    public List<Integer> get(T element) {
-        List<Integer> curCounts = this.countsByElement.get(element);
+    public List<Integer> get(final T element) {
+        final List<Integer> curCounts = this.countsByElement.get(element);
         if (curCounts == null) {
             return new ArrayList<Integer>();
         } else {
@@ -40,19 +40,19 @@ public class MultiCounter<T> {
         }
     }
 
-    public void update(Counter<T> counter) {
-        for (Map.Entry<T, Integer> entry : counter.entrySet()) {
-            T element = entry.getKey();
-            Integer count = entry.getValue();
+    public void update(final Counter<T> counter) {
+        for (final Map.Entry<T, Integer> entry : counter.entrySet()) {
+            final T element = entry.getKey();
+            final Integer count = entry.getValue();
             this.add(element, count);
         }
     }
 
     public List<T> descKeys() {
-        List<T> elements = new ArrayList<T>(this.countsByElement.keySet());
+        final List<T> elements = new ArrayList<T>(this.countsByElement.keySet());
         Collections.sort(elements, new Comparator<T>() {
             @Override
-            public int compare(T c1, T c2) {
+            public int compare(final T c1, final T c2) {
                 return MultiCounter.this.countsByElement.get(c2).size() -
                         MultiCounter.this.countsByElement.get(c1).size();
             }

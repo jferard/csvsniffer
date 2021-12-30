@@ -7,7 +7,6 @@ import org.powermock.api.easymock.PowerMock;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 
 import static org.junit.Assert.*;
@@ -25,19 +24,19 @@ public class UtilTest {
 
     @Test
     public void testReadToBuffer() throws IOException {
-        byte[] ret = Util.readToBuffer(new ByteArrayInputStream("abcdefghij".getBytes("UTF-8")), 5);
+        final byte[] ret = Util.readToBuffer(new ByteArrayInputStream("abcdefghij".getBytes("UTF-8")), 5);
         assertArrayEquals("abcde".getBytes("UTF-8"), ret);
     }
 
     @Test
     public void testReadToBufferTooLong() throws IOException {
-        byte[] ret = Util.readToBuffer(new ByteArrayInputStream("abcdefghij".getBytes("UTF-8")), 120);
+        final byte[] ret = Util.readToBuffer(new ByteArrayInputStream("abcdefghij".getBytes("UTF-8")), 120);
         assertArrayEquals("abcdefghij".getBytes("UTF-8"), ret);
     }
 
     @Test
     public void testReadToBuffer2() throws IOException {
-        InputStream is = PowerMock.createMock(InputStream.class);
+        final InputStream is = PowerMock.createMock(InputStream.class);
 
         PowerMock.resetAll();
         EasyMock.expect(is.read(EasyMock.isA(byte[].class), EasyMock.eq(0), EasyMock.eq(10))).andReturn(6);
@@ -52,7 +51,7 @@ public class UtilTest {
 
     @Test
     public void testReadToBuffer3() throws IOException {
-        InputStream is = PowerMock.createMock(InputStream.class);
+        final InputStream is = PowerMock.createMock(InputStream.class);
 
         PowerMock.resetAll();
         EasyMock.expect(is.read(EasyMock.isA(byte[].class), EasyMock.eq(0), EasyMock.eq(10))).andReturn(6);

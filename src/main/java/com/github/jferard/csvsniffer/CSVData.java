@@ -1,12 +1,6 @@
 package com.github.jferard.csvsniffer;
 
 import com.github.jferard.javamcsv.CSVParameters;
-import com.github.jferard.javamcsv.description.FieldDescription;
-import com.github.jferard.javamcsv.MetaCSVData;
-
-import java.nio.charset.Charset;
-import java.util.HashMap;
-import java.util.Map;
 
 public class CSVData implements CSVParameters {
     private final String eol;
@@ -16,8 +10,8 @@ public class CSVData implements CSVParameters {
     private final boolean skipInitialSpaces;
     private final char delimiter;
 
-    public CSVData(String eol, char delimiter, Character quote, boolean doubleQuote,
-                   Character escape, boolean skipInitialSpaces) {
+    public CSVData(final String eol, final char delimiter, final Character quote, final boolean doubleQuote,
+                   final Character escape, final boolean skipInitialSpaces) {
         this.eol = eol;
         this.delimiter = delimiter;
         this.quote = quote;

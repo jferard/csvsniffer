@@ -16,24 +16,24 @@ public class Counter<T> {
         this.countByElement = new HashMap<T, Integer>();
     }
 
-    public Counter(Map<T, Integer> countByElement) {
+    public Counter(final Map<T, Integer> countByElement) {
         this.countByElement = new HashMap<T, Integer>(countByElement);
     }
 
-    public Counter(Counter<T> other) {
+    public Counter(final Counter<T> other) {
         this(other.countByElement);
     }
 
-    public void add(T element, int count) {
+    public void add(final T element, final int count) {
         this.countByElement.put(element, this.get(element)+count);
     }
 
-    public void add(T element) {
+    public void add(final T element) {
         this.add(element, 1);
     }
 
-    public int get(T element) {
-        Integer curCount = this.countByElement.get(element);
+    public int get(final T element) {
+        final Integer curCount = this.countByElement.get(element);
         if (curCount == null) {
             return 0;
         } else {
@@ -41,10 +41,10 @@ public class Counter<T> {
         }
     }
 
-    public void update(Counter<T> other) {
-        for (Map.Entry<T, Integer> entry : other.countByElement.entrySet()) {
-            T element = entry.getKey();
-            Integer count = entry.getValue();
+    public void update(final Counter<T> other) {
+        for (final Map.Entry<T, Integer> entry : other.countByElement.entrySet()) {
+            final T element = entry.getKey();
+            final Integer count = entry.getValue();
             this.add(element, count);
         }
     }
@@ -54,10 +54,10 @@ public class Counter<T> {
     }
 
     public List<T> descKeys() {
-        List<T> elements = new ArrayList<T>(this.countByElement.keySet());
+        final List<T> elements = new ArrayList<T>(this.countByElement.keySet());
         Collections.sort(elements, new Comparator<T>() {
             @Override
-            public int compare(T c1, T c2) {
+            public int compare(final T c1, final T c2) {
                 return Counter.this.countByElement.get(c2) -
                         Counter.this.countByElement.get(c1);
             }
@@ -76,8 +76,8 @@ public class Counter<T> {
         return this.firstOr(null);
     }
 
-    public T firstOr(T defaultValue) {
-        Iterator<T> it = this.descKeys().iterator();
+    public T firstOr(final T defaultValue) {
+        final Iterator<T> it = this.descKeys().iterator();
         if (it.hasNext()) {
             return it.next();
         } else {
@@ -98,14 +98,14 @@ public class Counter<T> {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) {
             return true;
         }
         if (!(o instanceof Counter)) {
             return false;
         }
-        Counter<?> other = (Counter) o;
+        final Counter<?> other = (Counter<?>) o;
         return this.countByElement.equals(other.countByElement);
     }
 }

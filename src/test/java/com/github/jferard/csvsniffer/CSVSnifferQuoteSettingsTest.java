@@ -6,7 +6,7 @@ import org.junit.Test;
 public class CSVSnifferQuoteSettingsTest {
     @Test
     public void test() {
-        CSVSnifferQuoteSettings settings = new CSVSnifferQuoteSettings('"');
+        final CSVSnifferQuoteSettings settings = new CSVSnifferQuoteSettings('"');
         Assert.assertTrue(settings.isQuote('"'));
         Assert.assertTrue(settings.isSimpleSpace(' '));
         Assert.assertTrue(settings.isEOL('\r'));

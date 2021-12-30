@@ -13,7 +13,7 @@ import java.util.Map;
 public class MultiCounterTest {
     @Test
     public void testGet() {
-        MultiCounter<String> c = new MultiCounter<String>();
+        final MultiCounter<String> c = new MultiCounter<String>();
         c.add("foo", 3);
         c.add("bar", 2);
         c.add("baz", 1);
@@ -24,7 +24,7 @@ public class MultiCounterTest {
 
     @Test
     public void testDescKeys() {
-        MultiCounter<String> c = new MultiCounter<String>();
+        final MultiCounter<String> c = new MultiCounter<String>();
         c.add("baz", 1);
         c.add("foo", 3);
         c.add("bar", 2);
@@ -33,53 +33,27 @@ public class MultiCounterTest {
     }
 
     @Test
-    public void testEntrySet() {
-        MultiCounter<String> c = new MultiCounter<String>();
-        c.add("baz", 1);
-        c.add("foo", 3);
-        c.add("bar", 2);
-        c.add("foo", 1);
-
-        Map<String, Integer> m = new HashMap<String, Integer>();
-        m.put("baz", 1);
-        m.put("foo", 4);
-        m.put("bar", 2);
-
-//        Assert.assertEquals(m.entrySet(), c.entrySet());
-    }
-
-    @Test
     public void testUpdate() {
-        Map<String, List<Integer>> m = new HashMap<String, List<Integer>>();
-        m.put("baz", new ArrayList<Integer>(Arrays.asList(1)));
+        final Map<String, List<Integer>> m = new HashMap<String, List<Integer>>();
+        m.put("baz", new ArrayList<Integer>(Collections.singletonList(1)));
         m.put("foo", new ArrayList<Integer>(Arrays.asList(3, 1)));
-        m.put("bar", new ArrayList<Integer>(Arrays.asList(2)));
+        m.put("bar", new ArrayList<Integer>(Collections.singletonList(2)));
 
-        Map<String, Integer> m2 = new HashMap<String, Integer>();
+        final Map<String, Integer> m2 = new HashMap<String, Integer>();
         m2.put("bar", 1);
 
-        Counter<String> c = new Counter<String>(m2);
-        MultiCounter<String> c1 = new MultiCounter<String>(m);
-        MultiCounter<String> c2 = new MultiCounter<String>(c1);
+        final Counter<String> c = new Counter<String>(m2);
+        final MultiCounter<String> c1 = new MultiCounter<String>(m);
+        final MultiCounter<String> c2 = new MultiCounter<String>(c1);
         c2.update(c);
         Assert.assertEquals(Arrays.asList(2, 1), c2.get("bar"));
     }
 
     @Test
     public void testToString() {
-        MultiCounter<String> c = new MultiCounter<String>();
+        final MultiCounter<String> c = new MultiCounter<String>();
         c.add("foo", 3);
         c.add("bar", 2);
         Assert.assertEquals("MultiCounter{countsByElement={bar=[2], foo=[3]}}", c.toString());
-    }
-
-    @Test
-    public void testFirstOr() {
-//        MultiCounter<String> c = new MultiCounter<String>();
-//        Assert.assertNull(c.firstOrNull());
-//        Assert.assertEquals("foo", c.firstOr("foo"));
-//        c.add("foo", 3);
-//        c.add("bar", 2);
-//        Assert.assertEquals("foo", c.firstOrNull());
     }
 }

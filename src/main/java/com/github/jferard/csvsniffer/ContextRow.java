@@ -19,7 +19,7 @@ public class ContextRow {
         this.delimiters = new Counter<Character>();
     }
 
-    public void storeQuote(char c, boolean wasSpace) {
+    public void storeQuote(final char c, final boolean wasSpace) {
         if (wasSpace) {
             this.skipInitialSpaces += 1;
         }
@@ -31,7 +31,7 @@ public class ContextRow {
      *
      * @param c the quote
      */
-    public void storeDoubleQuote(char c) {
+    public void storeDoubleQuote(final char c) {
         this.doubleQuotes.add(c);
     }
 
@@ -40,7 +40,7 @@ public class ContextRow {
      *
      * @param c the char
      */
-    public void storeSeen(char c) {
+    public void storeSeen(final char c) {
         this.seen.add(c);
     }
 
@@ -49,15 +49,15 @@ public class ContextRow {
      *
      * @param eol the end of line sequence (CR, LF, CRLF)
      */
-    public void storeEol(String eol) {
+    public void storeEol(final String eol) {
         this.eols.add(eol);
     }
 
-    public void storeEscape(char c) {
+    public void storeEscape(final char c) {
         this.escapes.add(c);
     }
 
-    public void storeDelimiter(char c, boolean wasSpace) {
+    public void storeDelimiter(final char c, final boolean wasSpace) {
         if (wasSpace) {
             this.skipInitialSpaces += 1;
         }
@@ -77,7 +77,7 @@ public class ContextRow {
                 '}';
     }
 
-    public void aggregate(ContextAggregator contextAggregator) {
+    public void aggregate(final ContextAggregator contextAggregator) {
         contextAggregator.newRow();
         contextAggregator.addQuotes(this.quotes);
         contextAggregator.addSeens(this.seen, this.delimiters);

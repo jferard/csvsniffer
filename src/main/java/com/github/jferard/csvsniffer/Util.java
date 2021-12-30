@@ -16,8 +16,8 @@ public class Util {
      * @return a byte array
      * @throws IOException if an I/O error occurs
      */
-    public static byte[] readToBuffer(InputStream is, int bufferSize) throws IOException {
-        byte[] buffer = new byte[bufferSize];
+    public static byte[] readToBuffer(final InputStream is, final int bufferSize) throws IOException {
+        final byte[] buffer = new byte[bufferSize];
         int count = is.read(buffer, 0, buffer.length);
         int total = count;
         while (total < buffer.length) {
@@ -30,7 +30,7 @@ public class Util {
         if (total == bufferSize) {
             return buffer;
         }
-        byte[] trimmedBuffer = new byte[total];
+        final byte[] trimmedBuffer = new byte[total];
         System.arraycopy(buffer, 0, trimmedBuffer, 0, total);
         return trimmedBuffer;
     }
@@ -42,10 +42,10 @@ public class Util {
      * @param <T>    the type of the values
      * @return a list of values wo duplicates
      */
-    public static <T> List<T> removeDuplicates(List<T> values) {
-        List<T> uniqueValues = new ArrayList<T>(values.size());
-        Set<T> seen = new HashSet<T>();
-        for (T value : values) {
+    public static <T> List<T> removeDuplicates(final List<T> values) {
+        final List<T> uniqueValues = new ArrayList<T>(values.size());
+        final Set<T> seen = new HashSet<T>();
+        for (final T value : values) {
             if (!seen.contains(value)) {
                 uniqueValues.add(value);
                 seen.add(value);

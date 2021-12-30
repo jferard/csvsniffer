@@ -5,22 +5,22 @@ package com.github.jferard.csvsniffer;
  */
 public class CSVSnifferNoQuoteSettings implements CSVSnifferSettings {
     @Override
-    public boolean isQuote(char c) {
+    public boolean isQuote(final char c) {
         return false;
     }
 
     @Override
-    public boolean isSimpleSpace(char c) {
+    public boolean isSimpleSpace(final char c) {
         return c == ' ';
     }
 
     @Override
-    public boolean isToIgnore(char c) {
+    public boolean isToIgnore(final char c) {
         return Character.isLetterOrDigit(c);
     }
 
     @Override
-    public boolean isEOL(char c) {
+    public boolean isEOL(final char c) {
         return c == '\r' || c == '\n';
     }
 }
