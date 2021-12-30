@@ -6,6 +6,7 @@ import com.github.jferard.javamcsv.MetaCSVData;
 import com.github.jferard.javamcsv.MetaCSVParseException;
 import com.github.jferard.javamcsv.MetaCSVParserBuilder;
 import com.github.jferard.javamcsv.MetaCSVReadException;
+import com.github.jferard.javamcsv.MetaCSVRenderer;
 import com.github.jferard.javamcsv.description.FieldDescription;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -13,12 +14,15 @@ import org.apache.commons.csv.CSVRecord;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -27,9 +31,21 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+/**
+ * A meta csv sniffer. Returns a meta csv data
+ */
 public class MetaCSVSniffer {
+    public static void main(final String[] args) throws IOException {
+        if (args.length == 1) {
+            final MetaCSVSniffer sniffer = MetaCSVSniffer.create();
+            final MetaCSVData metaCSVData = sniffer.sniff(new FileInputStream(args[0]));
+            final MetaCSVRenderer renderer = MetaCSVRenderer.create(System.out, false);
+            renderer.render(metaCSVData);
+        }
+    }
+
     public static MetaCSVSniffer create() {
-        return MetaCSVSnifferFactory.create(Locale.US);
+        return MetaCSVSnifferFactory.create();
     }
 
     public static MetaCSVSniffer create(final Locale locale) {

@@ -31,7 +31,7 @@ public class MetaCSVSnifferFactory {
         return MetaCSVSnifferFactory.create(Locale.US);
     }
 
-    public static MetaCSVSniffer create(Locale... locales) {
+    public static MetaCSVSniffer create(final Locale... locales) {
         return INSTANCE.createMetaCSVSniffer(locales);
     }
 
@@ -43,19 +43,19 @@ public class MetaCSVSnifferFactory {
         this.columnTypesByLocale = new HashMap<Locale, List<String>>();
     }
 
-    private MetaCSVSniffer createMetaCSVSniffer(Locale[] locales) {
-        List<String> nullWords = new ArrayList<String>();
-        List<String> columnTypes = new ArrayList<String>();
+    private MetaCSVSniffer createMetaCSVSniffer(final Locale[] locales) {
+        final List<String> nullWords = new ArrayList<String>();
+        final List<String> columnTypes = new ArrayList<String>();
         boolean us = false;
-        for (Locale locale : locales) {
+        for (final Locale locale : locales) {
             if (locale.equals(Locale.US)) {
                 us = true;
             }
-            List<String> localeNullWords = this.nullWordsByLocale.get(locale);
+            final List<String> localeNullWords = this.nullWordsByLocale.get(locale);
             if (localeNullWords != null) {
                 nullWords.addAll(localeNullWords);
             }
-            List<String> localeColumnTypes = this.columnTypesByLocale.get(locale);
+            final List<String> localeColumnTypes = this.columnTypesByLocale.get(locale);
             if (localeColumnTypes != null) {
                 columnTypes.addAll(localeColumnTypes);
             }
@@ -67,9 +67,8 @@ public class MetaCSVSnifferFactory {
         return MetaCSVSniffer.create(Util.removeDuplicates(nullWords), Util.removeDuplicates(columnTypes));
     }
 
-    public void addLocale(Locale locale, List<String> nullWords, List<String> columnTypes) {
+    public void addLocale(final Locale locale, final List<String> nullWords, final List<String> columnTypes) {
         this.nullWordsByLocale.put(locale, nullWords);
         this.columnTypesByLocale.put(locale, columnTypes);
     }
-
 }
