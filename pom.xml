@@ -54,19 +54,11 @@
 		<powermock.version>2.0.9</powermock.version>
 	</properties>
 
-	<repositories>
-		<repository>
-			<id>Liferay</id>
-			<name>Liferay</name>
-			<url>https://repository.liferay.com/nexus/content/repositories/public/</url>
-		</repository>
-	</repositories>
-
 	<dependencies>
 		<dependency>
-			<groupId>com.liferay</groupId>
-			<artifactId>org.mozilla.intl.chardet</artifactId>
-			<version>1.1</version>
+			<groupId>net.sourceforge.jchardet</groupId>
+			<artifactId>jchardet</artifactId>
+			<version>1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.github.jferard</groupId>
@@ -103,6 +95,7 @@
 		<plugins>
 			<!-- compilation -->
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.1</version>
 				<configuration>
@@ -117,11 +110,14 @@
 
 			<!-- for OSSRH releases -->
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.3</version>
 			</plugin>
 			<plugin>
 				<groupId>org.sonatype.plugins</groupId>
 				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.8</version>
 			</plugin>
 
 			<!-- misc -->
